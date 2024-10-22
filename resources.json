@@ -1,0 +1,18 @@
+{
+    "resources": [
+        {
+          "resourceName": "exampleResource1",
+          "website": "www.resource1.org",
+          "address": "1521 10th Ave, Seattle, WA 98122",
+          "description": "Example Resource 1 Description",
+          "phonenumber": "123-345-2123"
+        },
+        {
+        "resourceName": "exampleResource2",
+          "website": "www.resource2.org",
+          "address": "1400 10th Ave, Seattle, WA 98122",
+          "description": "Example Resource 2 Description",
+          "phonenumber": "123-344-2123"
+        }
+    ]
+}
