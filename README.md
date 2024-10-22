@@ -29,11 +29,11 @@ Our mission is to empower young adults (16-20 year olds) in King County by provi
 
 
 ## Group Members
-James Nguyen
-Arya Karki
-Cole Elsasser
-Linda Li
-Ysabelle Olairez
+* James Nguyen
+* Arya Karki
+* Cole Elsasser
+* Linda Li
+* Ysabelle Olairez
 
 
 ## Development:
