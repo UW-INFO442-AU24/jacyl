@@ -5,23 +5,23 @@ MindConnect
 
 
 ## Features:
-    * Home Page: Information about how to use the site and navigate the features
+* Home Page: Information about how to use the site and navigate the features
 
-    * Map: Interactive map that displays all the mental health resources as icons
+* Map: Interactive map that displays all the mental health resources as icons
 
-    * Map Filter: Narrow down the search results 
+* Map Filter: Narrow down the search results 
 
-    * Map Icon: Interactive icons displaying mental health resource data
+* Map Icon: Interactive icons displaying mental health resource data
 
-    * Resource Card Page: Page displaying all mental health resources as cards
+* Resource Card Page: Page displaying all mental health resources as cards
 
-    * Resource Filter: Filter allows for name search, and filter of resources by type, age group, etc. 
+* Resource Filter: Filter allows for name search, and filter of resources by type, age group, etc. 
 
-    * Navbar: Navigation bar allowing for navigation between the various feature pages
+* Navbar: Navigation bar allowing for navigation between the various feature pages
 
-    * About Page: Displays information about the mission and creators of the site
+* About Page: Displays information about the mission and creators of the site
 
-    * Quiz/Flash Card: Provides quiz/flashcards to provide mental health information/trivia
+* Quiz/Flash Card: Provides quiz/flashcards to provide mental health information/trivia
 
 
 ## Mission: 
@@ -48,11 +48,11 @@ firebase deploy
 
 
 ## Developer Information:
-    * JavaScript
-    * CSS
-    * HTML
-    * React
-    * Firebase
-    * Bootstrap
-    * Leaflet
-    * React UI Components
+* JavaScript
+* CSS
+* HTML
+* React
+* Firebase
+* Bootstrap
+* Leaflet
+* React UI Components
