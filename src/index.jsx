@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
+import { BrowserRouter } from "react-router-dom"
 import './index.css'
 
 // Import the functions you need from the SDKs you need
@@ -23,6 +24,8 @@ const app = initializeApp(firebaseConfig);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
 )
