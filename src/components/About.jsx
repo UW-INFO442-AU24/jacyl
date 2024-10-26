@@ -14,7 +14,7 @@ export function About() {
         <h1 className="mb-5">About Us</h1>
             <div className="d-flex mb-5 row flex-wrap">
                 <div className="col-md-7"> 
-                    <iframe className="youtube-video" src="https://www.youtube.com/embed/l4V31iXtrWo" />
+                    <iframe className="youtube-video" src="https://www.youtube.com/embed/l4V31iXtrWo" title="Overcoming the stigma around mental illness by Michaela Mulenga"/>
                 </div>
                 <div className="col-md-5">
                     <h2 className="mission-title mt-5 mt-md-0">Our Misson</h2>
