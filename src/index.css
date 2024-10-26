@@ -1,0 +1,29 @@
+
+/* about page */
+.circle {
+  height: 250px;
+  width: 250px;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.mission-title, .team-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.mission-text {
+  font-size: 1.2rem;
+}
+
+.youtube-video {
+  width: 100%;
+  height: 400px;
+}
+
+/* @media (min-width: 1200px) {
+  .youtube-video {
+    width: 100%;
+    height: 400px;
+  }
+} */
