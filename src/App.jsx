@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { About } from "./components/about"
+import {ResourceList} from "./components/ResourceList"
 // import { CardFilter } from "./components/cardfilter"
 // import { Quiz } from "./components/quiz"
 // import { Map } from "./components/map"
@@ -22,6 +23,8 @@ function App() {
         <Routes>
          <Route path="*" element={<Home />} />
          <Route path="about" element={<About />} />
+         <Route path="resources" element={<ResourceList />} />
+
         </Routes>
       <Footer />
     </div>
