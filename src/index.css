@@ -27,3 +27,40 @@
     height: 400px;
   }
 } */
+
+/* nav bar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b3d8f2; 
+  padding: 10px 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px; 
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+/* footer */
+.footer {
+  background-color: #b3d8f2; 
+  color: black; 
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+}

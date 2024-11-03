@@ -1,5 +1,9 @@
 export function Footer() {
     return (
-        <h1>This is the footer</h1>
-    )
+        <footer className="footer">
+            <p>&copy; 2024 JACYL. All rights reserved.</p>
+        </footer>
+    );
 }
+
+export default Footer;
