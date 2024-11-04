@@ -7,6 +7,7 @@ import { Navbar } from "./components/Navbar"
 import { Footer } from "./components/Footer";
 import { Home } from "./components/home"
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { Quiz } from './components/Quiz';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Routes>
          <Route path="*" element={<Home />} />
          <Route path="about" element={<About />} />
+         <Route path="quiz" element={<Quiz />} />
         </Routes>
       <Footer />
     </div>
