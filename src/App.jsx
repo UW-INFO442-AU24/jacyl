@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { About } from "./components/about"
 // import { CardFilter } from "./components/cardfilter"
-// import { Quiz } from "./components/quiz"
+// import { Quiz } from "./components/Quiz"
 // import { Map } from "./components/map"
 import { Navbar } from "./components/Navbar"
 import { Footer } from "./components/Footer";
-import { Home } from "./components/home"
+import { Home } from "./components/Home"
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Quiz } from './components/Quiz';
 
