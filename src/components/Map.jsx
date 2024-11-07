@@ -14,8 +14,19 @@ L.Icon.Default.mergeOptions({
     shadowUrl: markerShadow,
 });
 
+// const geocodeZipCode = async (zipCode) => {
+//     const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${zipCode}&key=YOUR_API_KEY`);
+//     const data = await response.json();
+//     if (data.results.length > 0) {
+//         return data.results[0].geometry;
+//     }
+//     return null;
+// };
+
 const MapComponent = () => {
     const [locations, setLocations] = useState([]);
+    const [filteredLocations, setFilteredLocations] = useState([]);
+    // const [zipCode, setZipCode] = useState('');
 
     useEffect(() => {
         fetch('./resources.geojson') 
@@ -33,15 +44,45 @@ const MapComponent = () => {
                         description: resource.properties.description
                     }));
                     setLocations(features);
+                    setFilteredLocations(features);
                 } else {
                     console.error("GeoJSON data is missing the 'resources' array.");
                 }
             })
             .catch(error => console.error("Error loading GeoJSON data:", error));
     }, []);
+
+    const handleZipCodeChange = async (e) => {
+        const zip = e.target.value;
+        setZipCode(zip);
+
+        if (zip.length === 5) {
+            const coordinates = await geocodeZipCode(zip);
+            if (coordinates) {
+                setFilteredLocations(
+                    locations.filter(location =>
+                        L.latLng(location.geometry.coordinates).distanceTo(L.latLng(coordinates)) < 5000 // 5km radius
+                    )
+                );
+            }
+        } else {
+            setFilteredLocations(locations);
+        }
+    };
     
 return (
     <div>
+        {/* Zip Code */}
+        {/* <div>
+            <label htmlFor="zipCode">Find Resources Near You: </label>
+            <input
+                type="text"
+                id="zipCode"
+                value={zipCode}
+                // onChange={handleZipCodeChange}
+                placeholder="Enter ZIP code"
+            />
+        </div> */}
     
          <MapContainer center={[47.6567, -122.3066]} zoom={11} style={{ height: "75vh", width: "80%" }}>
             <TileLayer

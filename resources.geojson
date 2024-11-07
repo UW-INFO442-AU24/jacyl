@@ -529,15 +529,15 @@
         "type": "Feature",
         "geometry": {
             "type": "Point",
-            "coordinates": [47.626313, -122.144145]
+            "coordinates": [47.622450, -122.159730]
         },
         "properties": {
-            "resourceName": "Ryther - Bellevue",
-            "website": "http://ryther.org",
-            "address": "14715 Bel Red Road Bellevue, WA 98007",
-            "description": "Ryther’s programming was created to bring greater flexibility in meeting clients’ needs regarding their mental health, SUD, and Co-occurring treatment. We achieve this by individualized treatment planning and treatment options and utilizing creative and experiential therapeutic modalities as well as therapy groups, peers, and case managers",
-            "phoneNumber": "206-985-5833",
-            "serviceType": ["Assesment Services", "Peer Support", "Individual Therapy", "Group Therapy", "Family Therapy", "Youth (Up to 24 Years Old)"]
+            "resourceName": "Sound - Bellevue",
+            "website": "https://www.sound.health",
+            "address": "13555 Bel-Red Road suite 228 Bellevue, WA 98005",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
+            "phoneNumber": "206-901-2000",
+            "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
     },
     {
@@ -565,7 +565,7 @@
             "resourceName": "Sound - Redmond",
             "website": "https://www.sound.health",
             "address": "16225 NE 87th Street Redmond, WA 98052",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "425-653-4960",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -580,7 +580,7 @@
             "resourceName": "Sound - Capitol Hill",
             "website": "https://www.sound.health",
             "address": "122 16th Ave Seattle, WA 98112",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-302-2700",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -595,7 +595,7 @@
             "resourceName": "Sound - Snoqualmie",
             "website": "https://www.sound.health",
             "address": "7713 Center Blvd SE Snoqualmie, WA 98065-6319",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-901-2000",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -610,7 +610,7 @@
             "resourceName": "Sound - Bellevue",
             "website": "https://www.sound.health",
             "address": "14216 NE 21st Street Bellevue, WA 98007",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "425-653-4900",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -625,7 +625,7 @@
             "resourceName": "Sound - Tukwila",
             "website": "https://www.sound.health",
             "address": "6100 Southcenter Blvd Tukwila, WA 98188",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-444-7800",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -640,7 +640,7 @@
             "resourceName": "Sound - Northgate",
             "website": "https://www.sound.health",
             "address": "9706 4th Avenue NE Seattle, WA 98115",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-302-2900",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -655,7 +655,7 @@
             "resourceName": "Sound - Auburn",
             "website": "https://www.sound.health",
             "address": "4238 Auburn Way North Auburn, WA 98002",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "253-876-7600",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -670,23 +670,8 @@
             "resourceName": "Sound - Capitol Hill",
             "website": "https://www.sound.health",
             "address": "600 Broadway Seattle, WA 98122",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-302-2600",
-            "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
-        }
-    },
-    {
-        "type": "Feature",
-        "geometry": {
-            "type": "Point",
-            "coordinates": [47.628668, -122.150056]
-        },
-        "properties": {
-            "resourceName": "Sound - Bellevue",
-            "website": "https://www.sound.health",
-            "address": "14278 NE 21st Street Bellevue, WA 98007",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
-            "phoneNumber": "425-653-5000",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
     },
@@ -700,7 +685,7 @@
             "resourceName": "Sound - Auburn",
             "website": "https://www.sound.health",
             "address": "4240 Auburn Way North Auburn, WA 98002",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "253-876-8900",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -715,7 +700,7 @@
             "resourceName": "Sound - Tukwila",
             "website": "https://www.sound.health",
             "address": "6400 Southcenter Blvd Tukwila, WA 98188",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "253-444-3600",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
@@ -730,7 +715,7 @@
             "resourceName": "Sound - Northgate",
             "website": "https://www.sound.health",
             "address": "10700 Meridian Avenue North Seattle, WA 98133",
-            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery,  an evidence-based clinical care model.",
+            "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-461-4544",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"]
         }
