@@ -73,9 +73,9 @@ const MapComponent = () => {
     };
     
 return (
-    <div>
-        <div>
-            <label htmlFor="zipCode">Find Resources Near You: </label>
+    <div className="mapContainer">
+        <div className="zipCodeSection">
+            <h1 htmlFor="zipCode" className='zipSearchLabel'>Find Resources Near You: </h1>
             <input
                 type="text"
                 id="zipCode"
@@ -83,31 +83,35 @@ return (
                 onChange={handleZipCodeChange}
                 placeholder="Enter ZIP code"
             />
+
+            <h2 className='mapAbout'>About the Map</h2>
+            <p>This map was created using King County Open data about mental health resources...</p>
         </div>
-    
-         <MapContainer center={[47.5567, -122.3066]} zoom={10} style={{ height: "75vh", width: "80%" }}>
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
 
-            <MapViewController zipCode={zipCode} zipCodes={zipCodes} />
+        <div className='mapSection'>
+            <MapContainer center={[47.5567, -122.3066]} zoom={10} style={{ height: "75vh", width: "100%" }}>
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
 
-            {locations.map((location, index) => (
-                //Marker Popup represents the pins that will appear on the map.
-                <Marker key={index} position={location.coords}>
-                    <Popup>
-                    <div>
-                        <h3>{location.resourceName}</h3>
-                        <p><strong>Website:</strong> <a href={location.website} target="_blank" rel="noopener noreferrer">{location.website}</a></p>
-                        <p><strong>Phone:</strong> {location.phoneNumber}</p>
-                        <p><strong>Address:</strong> {location.address}</p>
-                        <p><strong>Description:</strong> {location.description}</p>
-                    </div>
-                    </Popup>
-                </Marker>
-            ))}
-        </MapContainer>
+                <MapViewController zipCode={zipCode} zipCodes={zipCodes} />
+
+                {locations.map((location, index) => (
+                    <Marker key={index} position={location.coords}>
+                        <Popup>
+                        <div>
+                            <h3>{location.resourceName}</h3>
+                            <p><strong>Website:</strong> <a href={location.website} target="_blank" rel="noopener noreferrer">{location.website}</a></p>
+                            <p><strong>Phone:</strong> {location.phoneNumber}</p>
+                            <p><strong>Address:</strong> {location.address}</p>
+                            <p><strong>Description:</strong> {location.description}</p>
+                        </div>
+                        </Popup>
+                    </Marker>
+                ))}
+            </MapContainer>
+        </div>
     </div>
     );
 };
