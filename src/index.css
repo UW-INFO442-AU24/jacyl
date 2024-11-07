@@ -4,22 +4,11 @@ html, body {
 }
 
 /* about page */
-.profile-name {
-  font-size: 2.5rem;
-}
-
 .circle {
   height: 250px;
   width: 250px;
   background-color: gray;
   border-radius: 50%;
-  overflow: hidden;
-}
-
-.photo {
-  /* object-fit: cover; */
-  max-width: 100%;
-  max-height: 100%;
 }
 
 .mission-title, .team-title {
@@ -88,22 +77,42 @@ html, body {
   height: 100vh;
   width: 100%;
   position: relative;
+  background-image: url('/img/homepage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%); /* Creates the slanted effect */
+  z-index: 0;
 }
 
 .content {
-  text-align: left;
+  text-align: right;
   color: black;
+  z-index: 1;
+  margin-left: auto;
+  padding-right: 30px;
 }
 
 .title {
   font-size: 5em;
   margin: 0;
+  text-align: right;
 }
 
 .subtitle {
-  font-size: 1.5em;
+  font-size: 1.25em;
   margin: 10px 0 20px 0;
   font-weight: 500;
+  text-align: right;
 }
 
 .cta-button {
@@ -117,174 +126,3 @@ html, body {
 .cta-button:hover {
   background-color: #3a78d0; 
 }
-
-
-/* Quiz */
-.QuizContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-  height: 80vh;
-  width: 100%;
-}
-
-.QuizTitle {
-  font-size: 3rem;
-  color: #333;
-  margin-bottom: 30px;
-  text-align: left;
-  width: 100%;
-}
-
-.QuizContentWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  gap: 30px;
-}
-
-.QuizImageContainer {
-  flex: 1;
-}
-
-.QuizImage {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  object-fit: cover;
-}
-
-.Quizcontent {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-}
-
-.QuizSubtitle {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.QuizDescription {
-  font-size: 1rem;
-  color: #555555d3;
-  margin-bottom: 20px;
-}
-
-.quizbutton {
-  font-size: 0.9rem;
-  padding: 8px 16px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: fit-content;
-  max-width: 130px;
-}
-
-.quizbutton:hover {
-  background-color: #218838;
-}
-
-/* @media (max-width: 768px) {
-  .QuizContentWrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .QuizImageContainer {
-    max-width: 80%;
-  }
-
-  .QuizImage {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .QuizTitle {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .QuizSubtitle {
-    font-size: 1.9rem;
-    text-align: center;
-  }
-
-  .QuizDescription {
-    text-align: center;
-  }
-
-  .quizbutton {
-    margin: 0 auto;
-  }
-}
-*/
-
-/* QuizQuestion */
-.QuizQuestionContainer {
-  padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.KeyContainer {
-  display: flex;
-  justify-content: space-between;
-  background-color: #B6EFF2;
-  padding: 10px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.QuestionContainer {
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: center; 
-}
-
-.AnswerOptions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.AnswerCircle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-.Circle {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #4caf50; /* Adjust color*/
-  border-radius: 50%;
-  margin-bottom: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.Circle:hover {
-  background-color: #d4edda;
-}
-

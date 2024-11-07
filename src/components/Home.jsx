@@ -1,6 +1,7 @@
 export function Home() {
     return (
         <div className="home-container">
+        <div className="overlay"></div>
         <div className="content">
             <h1 className="title">MindConnect</h1>
             <p className="subtitle">
