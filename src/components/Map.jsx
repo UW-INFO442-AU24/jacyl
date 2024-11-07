@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
@@ -14,19 +14,27 @@ L.Icon.Default.mergeOptions({
     shadowUrl: markerShadow,
 });
 
-// const geocodeZipCode = async (zipCode) => {
-//     const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${zipCode}&key=YOUR_API_KEY`);
-//     const data = await response.json();
-//     if (data.results.length > 0) {
-//         return data.results[0].geometry;
-//     }
-//     return null;
-// };
+const MapViewController = ({ zipCode, zipCodes }) => {
+    const map = useMap(); 
+
+    useEffect(() => {
+        if (zipCode) {
+            const zipCodePoint = zipCodes.find(zip => zip.properties.ZIPCODE === zipCode);
+
+            if (zipCodePoint) {
+                const zipLatLng = L.latLng(zipCodePoint.geometry.coordinates[1], zipCodePoint.geometry.coordinates[0]); 
+                map.setView(zipLatLng, 13);
+            }
+        }
+    }, [zipCode, zipCodes, map]);
+
+    return null; 
+};
 
 const MapComponent = () => {
     const [locations, setLocations] = useState([]);
-    const [filteredLocations, setFilteredLocations] = useState([]);
-    // const [zipCode, setZipCode] = useState('');
+    const [zipCodes, setZipCodes] = useState('');
+    const [zipCode, setZipCode] = useState('');
 
     useEffect(() => {
         fetch('./resources.geojson') 
@@ -44,51 +52,46 @@ const MapComponent = () => {
                         description: resource.properties.description
                     }));
                     setLocations(features);
-                    setFilteredLocations(features);
                 } else {
                     console.error("GeoJSON data is missing the 'resources' array.");
                 }
             })
             .catch(error => console.error("Error loading GeoJSON data:", error));
+
+        fetch('./KingCountyZipCodes.geojson')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.features) {
+                    setZipCodes(data.features);
+                }
+            })
+            .catch(error => console.error("Error loading zipcodes GeoJSON data:", error));
     }, []);
 
-    const handleZipCodeChange = async (e) => {
-        const zip = e.target.value;
-        setZipCode(zip);
-
-        if (zip.length === 5) {
-            const coordinates = await geocodeZipCode(zip);
-            if (coordinates) {
-                setFilteredLocations(
-                    locations.filter(location =>
-                        L.latLng(location.geometry.coordinates).distanceTo(L.latLng(coordinates)) < 5000 // 5km radius
-                    )
-                );
-            }
-        } else {
-            setFilteredLocations(locations);
-        }
+    const handleZipCodeChange = (e) => {
+        setZipCode(e.target.value);
     };
     
 return (
     <div>
-        {/* Zip Code */}
-        {/* <div>
+        <div>
             <label htmlFor="zipCode">Find Resources Near You: </label>
             <input
                 type="text"
                 id="zipCode"
                 value={zipCode}
-                // onChange={handleZipCodeChange}
+                onChange={handleZipCodeChange}
                 placeholder="Enter ZIP code"
             />
-        </div> */}
+        </div>
     
-         <MapContainer center={[47.6567, -122.3066]} zoom={11} style={{ height: "75vh", width: "80%" }}>
+         <MapContainer center={[47.5567, -122.3066]} zoom={10} style={{ height: "75vh", width: "80%" }}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+
+            <MapViewController zipCode={zipCode} zipCodes={zipCodes} />
 
             {locations.map((location, index) => (
                 //Marker Popup represents the pins that will appear on the map.
