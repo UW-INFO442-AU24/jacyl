@@ -16,7 +16,7 @@ html, body {
   max-height: 100%;
 }
 
-.circle {
+.profile-circle {
   height: 250px;
   width: 250px;
   background-color: gray;
