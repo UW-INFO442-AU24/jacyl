@@ -288,3 +288,6 @@ h2 {
   background-color: #d4edda;
 }
 
+.MapContainer {
+  border: 2px;
+}
