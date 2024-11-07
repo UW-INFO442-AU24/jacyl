@@ -108,11 +108,5 @@ return (
 };
  
 export function Map() {
-    return (
-        <div className="map-container">
-        <div className="content">
-            <MapComponent/>
-        </div>
-        </div>
-    );
+    return(<MapComponent />)
 }
