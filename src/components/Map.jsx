@@ -41,31 +41,22 @@ const MapComponent = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data); 
-
-                if (data && data.resources) { 
-                    const features = data.resources.map(resource => ({
-                        coords: resource.geometry.coordinates,
-                        resourceName: resource.properties.resourceName,
-                        website: resource.properties.website,
-                        phoneNumber: resource.properties.phoneNumber,
-                        address: resource.properties.address,
-                        description: resource.properties.description
-                    }));
-                    setLocations(features);
-                } else {
-                    console.error("GeoJSON data is missing the 'resources' array.");
-                }
+                const features = data.resources.map(resource => ({
+                    coords: resource.geometry.coordinates,
+                    resourceName: resource.properties.resourceName,
+                    website: resource.properties.website,
+                    phoneNumber: resource.properties.phoneNumber,
+                    address: resource.properties.address,
+                    description: resource.properties.description
+                }));
+                setLocations(features);
             })
-            .catch(error => console.error("Error loading GeoJSON data:", error));
 
         fetch('./KingCountyZipCodes.geojson')
             .then(response => response.json())
             .then(data => {
-                if (data && data.features) {
-                    setZipCodes(data.features);
-                }
+                setZipCodes(data.features);
             })
-            .catch(error => console.error("Error loading zipcodes GeoJSON data:", error));
     }, []);
 
     const handleZipCodeChange = (e) => {
@@ -85,7 +76,7 @@ return (
             />
 
             <h2 className='mapAbout'>About the Map</h2>
-            <p>This map was created using King County Open data about mental health resources...</p>
+            <p>This map was created using <a href="https://data.kingcounty.gov/Health-Wellness/King-County-Mental-Health-and-Substance-Use-Disord/sep3-3pj3/about_data">King County open data</a> about mental health resources and was manually cleaned to find resources that fit our demographic of youth adults aged 16-20 years old.</p>
         </div>
 
         <div className='mapSection'>
