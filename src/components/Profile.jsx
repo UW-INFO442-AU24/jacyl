@@ -9,7 +9,7 @@ export function Profile({ personObj }) {
                 <a href={linkedin} target="_blank"><img width={35} height={35} src="img/linkedin-icon.png" alt="linkedin logo"/></a>
             </div>
             <div>
-                <div className="circle">
+                <div className="profile-circle">
                     <img className="photo" src={photo} alt={"photo of " + name} />
                 </div>
             </div>
