@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { CardFilter } from "./CardFilter";
 import data from "../data/resources1.json"
-
 // const resourcesTemp = [
 //     { name: "Resource 1", tags: ['Tag1', 'Tag2'], address: '123 Main Street' },
 //     { name: "Resource 2", tags: ['Tag2', 'Tag3'], address: '567 Main Street' },
@@ -78,12 +77,10 @@ function ResourceCard(props) {
     const tagsList = resource.properties.serviceType.map((tag) => {
         return (<li className="list-group-item tag" key={tag}>{tag}</li>);
     });
-
     return (
-
         // CARD STYLE HERE
         <div className="card" style={{ width: '20rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', padding: '20px', background: 'rgb(239,250,255)', background: 'linear-gradient(90deg, rgba(239,250,255,1) 0%, rgba(138,138,138,1) 100%)' }}>
-            <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" className="card-img-top" alt="..." />
+            <img src={resource.properties.image} className="card-img-top" alt="..." />
 
             <div className="card-body" style={{ fontSize: '1.2rem' }}>
                 <h2 className="card-title" style={{ fontSize: '1.2rem' }}>{resource.properties.resourceName}</h2>
