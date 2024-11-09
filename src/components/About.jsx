@@ -3,10 +3,15 @@ import { Profile } from "./Profile"
 export function About() {
 
     //this array will need to be converted into objects: Name, Linkedin Link, Photo, and Project Role
-    const names = ["James Nguyen", "Arya Karki", "Cole Elsasser", "Ysabelle Olairez", "Linda Li"];
+    const names = [
+        {name: "James Nguyen", linkedin: "https://www.linkedin.com/in/jam860", photo: "/img/james.jpg"}, 
+        {name: "Arya Karki", linkedin: "https://www.linkedin.com/in/arya-karki", photo: "/img/arya.jpg"},
+        {name: "Cole Elsasser", linkedin: "https://www.linkedin.com/in/cole-elsasser-a450022b1", photo: "/img/cole.jpg"}, 
+        {name: "Ysabelle Olairez", linkedin: "https://www.linkedin.com/in/ysabellelara", photo:"/img/ysabelle.jpg"}, 
+        {name: "Linda Li", linkedin: "https://www.linkedin.com/in/linda-li-01ab372b6", photo:"/img/linda.jpg"}];
 
-    const profiles = names.map((name) => {
-        return <Profile name={name} />;
+    const profiles = names.map((personObj) => {
+        return <Profile personObj={personObj} key={personObj.name}/>;
     });
 
     return (
@@ -24,8 +29,8 @@ export function About() {
                 </div>
             </div>
             <div className="text-center">
-                <h2 className="team-title">Meet Our Team</h2>
-                <p>Informatics Students at the University of Washington</p>
+                <h2 className="team-title mb-1">Meet Our Team</h2>
+                <p className="mb-5">Informatics Students at the University of Washington</p>
             </div>
             <div className="d-flex justify-content-center flex-wrap row">
                 {profiles}
