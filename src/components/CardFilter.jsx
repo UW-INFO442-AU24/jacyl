@@ -8,8 +8,13 @@ import Form from 'react-bootstrap/Form';
 export function CardFilter(props) {
     const [tagButtonLabel, setTagButtonLabel] = useState('All');
     
-
-    const tags = ["Tag1", "Tag2", "Tag3", "Tag4"];
+    const resources = props.resources;
+    const tags = ["Asian", "LGBTQ+", "Latino", "Bilingual Services",
+        "Assessment Services", "Individual Therapy", 
+        "Group Therapy", "Family Therapy", "Dyadic Therapy", "Peer Support", 
+        "Psychiatric Provider", "School-Based Services",
+        "Bilingual Services", "All Age Groups", "Youth (Up to 24 Years Old)",
+        "Case Management", "Crisis Hotline"];
 
     const handleTagFilterClick = (event) => {
         console.log(event.target.value)
@@ -31,14 +36,16 @@ export function CardFilter(props) {
 
     return (
         <div>
-            <h1>CardFilter</h1>
-
+            {/* SEARCH/FILTER FORMAT STYLE HERE */}
             <div className="d-flex bd-highlight">
-                <div className="p-2 flex-grow-1">
+                {/* SEARCH BAR STYLE HERE */}
+                <div className="p-2 flex-grow-1 lg">
                     <Form name="Search" id='Search'>
                         <Form.Control className='my-3 border border-secondary' size="lg" type="text" placeholder="Search..." onChange={handleSearchChange} />
                     </Form></div>
-                <div className="p-2">
+                
+                {/* FILTER STYLE HERE */}
+                <div className="p-2 m-1">
                     <DropdownButton id="dropdown-item-button" variant="secondary" title={tagButtonLabel} className="m-1 py-2" size='lg'>
                         <Dropdown.Item as="button" variant="secondary" value="All" key="1" onClick={handleTagFilterClick}>All</Dropdown.Item>
                         {tagButtons}
