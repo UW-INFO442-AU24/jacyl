@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { CardFilter } from "./CardFilter";
+import data from "../data/resources1.json"
+// const resourcesTemp = [
+//     { name: "Resource 1", tags: ['Tag1', 'Tag2'], address: '123 Main Street' },
+//     { name: "Resource 2", tags: ['Tag2', 'Tag3'], address: '567 Main Street' },
+//     { name: "Resource 3", tags: ['Tag4', 'Tag3'], address: '321 Main Street' },
+//     { name: "Outlier Resource", tags: ['Tag5'], address: 'Seattle UW' },
 
-const resourcesTemp = [
-    { name: "Resource 1", tags: ['Tag1', 'Tag2'], address: '123 Main Street' },
-    { name: "Resource 2", tags: ['Tag2', 'Tag3'], address: '567 Main Street' },
-    { name: "Resource 3", tags: ['Tag4', 'Tag3'], address: '321 Main Street' },
-    { name: "Outlier Resource", tags: ['Tag5'], address: 'Seattle UW' },
-
-];
-
-
+// ];
 
 
-export function ResourceList() {
+
+export function ResourceList(props) {
 
     const [tagFilter, setTagFilter] = useState('All')
     const [searchFilter, setSearchFilter] = useState('')
@@ -26,11 +25,11 @@ export function ResourceList() {
     }
 
     //REPLACE TEMP VALUE WHEN JSON USED 
-    const tagFilteredResources = resourcesTemp.filter((resource) => {
+    const tagFilteredResources = data.resources.filter((resource) => {
         if (tagFilter === 'All') {
             return resource;
         }
-        else if (resource.tags.includes(tagFilter)) {
+        else if (resource.properties.serviceType.includes(tagFilter)) {
             return resource;
         }
     })
@@ -40,7 +39,7 @@ export function ResourceList() {
             return resource;
         }
         else {
-            const titleUpper = resource.name.toUpperCase()
+            const titleUpper = resource.properties.resourceName.toUpperCase()
             const searchUpper = searchFilter.toUpperCase()
             if (titleUpper.includes(searchUpper)) {
                 return resource;
@@ -49,18 +48,13 @@ export function ResourceList() {
     });
 
     return (
+        // OVERALL BACKGROUND STYLE HERE
         <div style={{ background: 'rgb(2, 0, 36)', background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(239,249,255,1) 0%, rgba(84,222,250,1) 98%)' }}>
             <h1>ResourceList</h1>
-
-            {/* Temporary flex box for visualization, 
-            needs to scale w/ JSON */}
-            <CardFilter applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter}></ CardFilter>
+            <CardFilter resources={data.resources} applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter}></ CardFilter>
+            
+            {/* ROW/COLUMN STYLE HERE */}
             <div className="d-flex flex-row flex-wrap gap-4 justify-content-center" style={{ background: 'rgb(2, 0, 36)', background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(239,249,255,1) 0%, rgba(84,222,250,1) 98%)' }}>
-                {/* <ResourceCard />
-                <ResourceCard />
-                <ResourceCard />
-                <ResourceCard />
-                <ResourceCard /> */}
                 <ResourceCardList resources={searchFilteredResources} />
             </div>
         </div>
@@ -80,29 +74,31 @@ function ResourceCard(props) {
     //     return (<li className="list-group-item tag" key={tag}>{tag}</li>);
     // });
     const resource = props.resource
-    const tagsList = resource.tags.map((tag) => {
+    const tagsList = resource.properties.serviceType.map((tag) => {
         return (<li className="list-group-item tag" key={tag}>{tag}</li>);
     });
-
     return (
+        // CARD STYLE HERE
         <div className="card" style={{ width: '20rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', padding: '20px', background: 'rgb(239,250,255)', background: 'linear-gradient(90deg, rgba(239,250,255,1) 0%, rgba(138,138,138,1) 100%)' }}>
-            <img src="https://alamocitygolftrail.com/wp-content/uploads/2022/11/canstockphoto22402523-arcos-creator.com_-1024x1024-1.jpg" className="card-img-top" alt="..." />
+            <img src={resource.properties.image} className="card-img-top" alt="..." />
 
             <div className="card-body" style={{ fontSize: '1.2rem' }}>
-                <h4 className="card-title" style={{ fontSize: '1.2rem' }}>{resource.name}</h4>
-                <p className="card-text">This is where a lot of the description information will go and the summary of the resource.</p>
+                <h2 className="card-title" style={{ fontSize: '1.2rem' }}>{resource.properties.resourceName}</h2>
+                <p className="card-text">{resource.properties.description}</p>
             </div>
 
             <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                    <ul className="list-group list-group-horizontal">
+                    <ul className="list-group list-group">
                         {tagsList}
                     </ul>
                 </li>
-                <li className="list-group-item">{resource.address}</li>
+                <li className="list-group-item">{resource.properties.address}</li>
+                <li className="list-group-item"> {resource.properties.phoneNumber} </li>
                 <li className="list-group-item">
-                    <a href="#" className="card-link">Resource Link 1</a>
+                    <a href={resource.properties.website} className="card-link">{resource.properties.website}</a>
                 </li>
+                
 
             </ul>
 
