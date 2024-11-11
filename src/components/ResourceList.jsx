@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CardFilter } from "./CardFilter";
 import data from "../data/resources1.json"
+import { Link } from "react-router-dom";
 // const resourcesTemp = [
 //     { name: "Resource 1", tags: ['Tag1', 'Tag2'], address: '123 Main Street' },
 //     { name: "Resource 2", tags: ['Tag2', 'Tag3'], address: '567 Main Street' },
@@ -49,12 +50,12 @@ export function ResourceList(props) {
 
     return (
         // OVERALL BACKGROUND STYLE HERE
-        <div style={{ background: 'rgb(2, 0, 36)', background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(239,249,255,1) 0%, rgba(84,222,250,1) 98%)' }}>
+        <div className="container my-4">
             <h1>ResourceList</h1>
             <CardFilter resources={data.resources} applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter}></ CardFilter>
             
             {/* ROW/COLUMN STYLE HERE */}
-            <div className="d-flex flex-row flex-wrap gap-4 justify-content-center" style={{ background: 'rgb(2, 0, 36)', background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(239,249,255,1) 0%, rgba(84,222,250,1) 98%)' }}>
+            <div>
                 <ResourceCardList resources={searchFilteredResources} />
             </div>
         </div>
@@ -79,30 +80,32 @@ function ResourceCard(props) {
     });
     return (
         // CARD STYLE HERE
-        <div className="card" style={{ width: '20rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', padding: '20px', background: 'rgb(239,250,255)', background: 'linear-gradient(90deg, rgba(239,250,255,1) 0%, rgba(138,138,138,1) 100%)' }}>
+        <div className="card mb-5" style={{ width: '20rem'}}>
             <img src={resource.properties.image} className="card-img-top" alt="..." />
 
             <div className="card-body" style={{ fontSize: '1.2rem' }}>
                 <h2 className="card-title" style={{ fontSize: '1.2rem' }}>{resource.properties.resourceName}</h2>
-                <p className="card-text">{resource.properties.description}</p>
+                {/* <p className="card-text">{resource.properties.description}</p> */}
             </div>
 
             <ul className="list-group list-group-flush">
-                <li className="list-group-item">
+                {/* <li className="list-group-item">
                     <ul className="list-group list-group">
                         {tagsList}
                     </ul>
-                </li>
+                </li> */}
                 <li className="list-group-item">{resource.properties.address}</li>
                 <li className="list-group-item"> {resource.properties.phoneNumber} </li>
                 <li className="list-group-item">
                     <a href={resource.properties.website} className="card-link">{resource.properties.website}</a>
                 </li>
-                
-
+                <Link className="btn btn-primary" to={"/resources/" + props.keyVal}>Learn More</Link>
+                {/* <button type="button" className="btn btn-primary">Learn More</button> */}
             </ul>
 
         </div>
+
+        
     )
 }
 
@@ -111,15 +114,17 @@ function ResourceCardList(props) {
     const resources = props.resources;
     const resourceCardList = resources.map((resource, index) => {
         return (
-            <div key={index}>
+            <div className="d-flex justify-content-center col-md-4 col-sm-6" key={index}>
                 <ResourceCard resource={resource} keyVal={index} key={index} />
             </div>
         );
-
     })
     return (
-        <div className="d-flex flex-row flex-wrap gap-4 justify-content-center" >
-            {resourceCardList}
+        <div className="d-flex flex-row gap-4 justify-content-center" >
+            <div className="row">
+                {resourceCardList}
+            </div>
+
         </div>
     );
 

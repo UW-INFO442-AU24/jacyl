@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom"
+import { getAuth, signOut } from "firebase/auth"
 
-export function Navbar() {
-    return (
+export function Navbar({user}) {
+
+    const auth = getAuth();
+
+    function signout() {
+        signOut(auth)
+            .catch((err) => {
+                console.log(err);
+            })
+        }
+
+    return (    
         <nav className="navbar">
         <div className="logo">
             Logo <br />
@@ -13,6 +24,7 @@ export function Navbar() {
             <li><Link to="/map">Map</Link></li>
             <li><Link to="/quiz">Quiz</Link></li>
             <li><Link to="/about">About</Link></li>
+            {user ? <li><Link to="/" onClick={signout}>Logout</Link></li> : <li><Link to="login">Login</Link></li>}
         </ul>
     </nav>
     )

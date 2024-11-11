@@ -16,6 +16,7 @@
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
+    "react-firebaseui": "https://gitpkg.now.sh/gvillenave/firebaseui-web-react/dist",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.27.0"
   },

@@ -358,3 +358,19 @@ input[type="text"] {
   font-size: 16px;
   margin-top: 10px;
 }
+
+/* Resource Details Styling */
+.details-wrap h2 {
+  font-size: 1.5rem;
+
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+.card-img-top {
+  width: 100%;
+  object-fit: cover;
+  height: 150px;
+}
