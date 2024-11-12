@@ -55,13 +55,20 @@ export function User({user, savedResources}) {
 
     return (
         <div className="container">
-            <h1>{"Welcome back " + (user ? user.displayName : "")}</h1>
-            {user ? <button className="btn btn-primary" onClick={signout}>Logout</button> : <button className="btn btn-primary">Login</button>}
-            <h2>Saved Resources</h2>
-            
-            <div className="d-flex row">
-                {savedResourcesCards}
+            {user ? 
+            <div>
+                <h1>{"Welcome back " + (user ? user.displayName : "")}</h1>
+                <button className="btn btn-primary" onClick={signout}>Logout</button>
+                <h2>Saved Resources</h2>
+                <div className="d-flex row">
+                    {savedResourcesCards}
+                </div> 
+            </div> : 
+            <div>
+                <h1>Please Login to view or save resources!</h1>
+                <Link className="btn btn-primary" to="/login">Login</Link>
             </div>
+            }
 
         </div>
     )

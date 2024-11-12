@@ -24,8 +24,7 @@ export function Navbar({user}) {
             <li><Link to="/map">Map</Link></li>
             <li><Link to="/quiz">Quiz</Link></li>
             <li><Link to="/about">About</Link></li>
-            <li><Link to="/user">Profile</Link></li>
-            {/* {user ? <li><Link to="/" onClick={signout}>Logout</Link></li> : <li><Link to="login">Login</Link></li>} */}
+            {user ? <li><Link to="/user">Profile</Link></li> : <li><Link to="login">Login</Link></li>}
         </ul>
     </nav>
     )
