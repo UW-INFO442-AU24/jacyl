@@ -70,6 +70,19 @@ function App() {
     }
   }
 
+  function deleteResource(resourceNum) {
+    let newSavedResources = [];
+    savedResources.forEach((resource) => {
+      if (resource.resourceNum != resourceNum) {
+        newSavedResources.push(resource);
+      } else {
+        const location = ref(db, user.uid + "/resources/" + resource.key);
+        firebaseSet(location, null);
+      }
+    })
+    setSavedResources(newSavedResources);
+  }
+
   return (
     <div>
       <Navbar user={user}/>
@@ -80,7 +93,7 @@ function App() {
          <Route path="quiz" element={<Quiz />} />
          <Route path="quizquestion" element={<QuizQuestion />} />
          <Route path="resources" element={<ResourceList />} />
-         <Route path="resources/:id" element={<ResourceDetails user={user} saveResource={saveResource}/>} />
+         <Route path="resources/:id" element={<ResourceDetails user={user} saveResource={saveResource} savedResources={savedResources} deleteResource={deleteResource}/>} />
          <Route path="login" element={<Login /> } />
          <Route path="user" element={<User user={user} savedResources={savedResources}/>} />
         </Routes>

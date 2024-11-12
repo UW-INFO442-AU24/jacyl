@@ -10,7 +10,7 @@ import { set as firebaseSet } from "firebase/database";
 
 
 
-export function ResourceDetails({user, saveResource}) {
+export function ResourceDetails({user, saveResource, deleteResource, savedResources}) {
 
     const urlParams = useParams();
 
@@ -25,6 +25,17 @@ export function ResourceDetails({user, saveResource}) {
     });
 
     const position = data.resources[urlParams.id].geometry.coordinates;
+    let saveButton = (<button className="btn btn-primary" onClick={() => {
+                            saveResource(urlParams.id);
+                        }}>Save Resource</button>)
+
+    if (user && savedResources != null) {
+        savedResources.forEach((resource) => {
+            if (resource.resourceNum == urlParams.id) {
+                saveButton = <button className="btn btn-secondary" onClick={() => deleteResource(urlParams.id)}>Remove Saved Resource</button>
+            }
+        })
+    }
 
     return (
         <div className="details-wrap my-5">
@@ -78,9 +89,7 @@ export function ResourceDetails({user, saveResource}) {
                             </MapContainer>
                         </div>
                         <div className="mt-2">
-                            <button className="btn btn-primary" onClick={() => {
-                                saveResource(urlParams.id); //TODO: Disable this button when already saved
-                            }}>Save Resource</button>
+                            {saveButton}
                         </div>
                     </div>
 
