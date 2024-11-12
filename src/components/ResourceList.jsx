@@ -100,7 +100,7 @@ function ResourceCardList(props) {
     const resources = props.resources;
     const resourceCardList = resources.map((resource, index) => {
         return (
-            <div className="d-flex justify-content-center col-md-4 col-sm-6" key={index}>
+            <div className="justify-content-center col-md-4 col-sm-6" key={index}>
                 <ResourceCard resource={resource} keyVal={index} key={index} />
             </div>
         );
