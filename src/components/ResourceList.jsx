@@ -51,8 +51,8 @@ export function ResourceList(props) {
     return (
         // OVERALL BACKGROUND STYLE HERE
         <div className="container my-4">
-            <h1>ResourceList</h1>
-            <CardFilter resources={data.resources} applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter}></ CardFilter>
+            <h1>Resource List</h1>
+            <CardFilter applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter}></ CardFilter>
             
             {/* ROW/COLUMN STYLE HERE */}
             <div>
@@ -63,23 +63,12 @@ export function ResourceList(props) {
 }
 
 
-
-
-
-
 function ResourceCard(props) {
-
-    // For when the JSON integration happens
-    // const resource = props.resource;
-    // const tagsList = resource.tags.map((tag) => {
-    //     return (<li className="list-group-item tag" key={tag}>{tag}</li>);
-    // });
     const resource = props.resource
     const tagsList = resource.properties.serviceType.map((tag) => {
         return (<li className="list-group-item tag" key={tag}>{tag}</li>);
     });
     return (
-        // CARD STYLE HERE
         <div className="card mb-5" style={{ width: '20rem'}}>
             <img src={resource.properties.image} className="card-img-top" alt="..." />
 
@@ -94,18 +83,15 @@ function ResourceCard(props) {
                         {tagsList}
                     </ul>
                 </li> */}
-                <li className="list-group-item">{resource.properties.address}</li>
-                <li className="list-group-item"> {resource.properties.phoneNumber} </li>
+                <li className="list-group-item">{"Address: " + resource.properties.address}</li>
+                <li className="list-group-item">{"Phone: " + resource.properties.phoneNumber} </li>
                 <li className="list-group-item">
                     <a href={resource.properties.website} className="card-link">{resource.properties.website}</a>
                 </li>
                 <Link className="btn btn-primary" to={"/resources/" + props.keyVal}>Learn More</Link>
-                {/* <button type="button" className="btn btn-primary">Learn More</button> */}
             </ul>
 
         </div>
-
-        
     )
 }
 

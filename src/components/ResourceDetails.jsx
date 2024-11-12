@@ -79,7 +79,7 @@ export function ResourceDetails({user, saveResource}) {
                         </div>
                         <div className="mt-2">
                             <button className="btn btn-primary" onClick={() => {
-                                saveResource(urlParams.id);
+                                saveResource(urlParams.id); //TODO: Disable this button when already saved
                             }}>Save Resource</button>
                         </div>
                     </div>

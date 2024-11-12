@@ -13,6 +13,7 @@ import { Quiz } from './components/Quiz';
 import { QuizQuestion } from './components/QuizQuestion';
 import { ResourceDetails } from "./components/ResourceDetails"
 import { Login } from "./components/Login" 
+import { User } from "./components/User"
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 import { onAuthStateChanged, getAuth} from "firebase/auth"
 import { useNavigate } from "react-router-dom"
@@ -51,7 +52,7 @@ function App() {
         setSavedResources(null);
         console.log("logged out");
       }
-      navigate('/');
+      // navigate('/');
     })
 
     return unsubscribe;
@@ -81,6 +82,7 @@ function App() {
          <Route path="resources" element={<ResourceList />} />
          <Route path="resources/:id" element={<ResourceDetails user={user} saveResource={saveResource}/>} />
          <Route path="login" element={<Login /> } />
+         <Route path="user" element={<User user={user} savedResources={savedResources}/>} />
         </Routes>
       <Footer />
     </div>

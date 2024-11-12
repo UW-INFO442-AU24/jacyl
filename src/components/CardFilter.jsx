@@ -8,7 +8,6 @@ import Form from 'react-bootstrap/Form';
 export function CardFilter(props) {
     const [tagButtonLabel, setTagButtonLabel] = useState('All');
     
-    const resources = props.resources;
     const tags = ["Asian", "LGBTQ+", "Latino", "Bilingual Services",
         "Assessment Services", "Individual Therapy", 
         "Group Therapy", "Family Therapy", "Dyadic Therapy", "Peer Support", 
