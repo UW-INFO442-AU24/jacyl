@@ -19,7 +19,8 @@ const MapViewController = ({ zipCode, zipCodes }) => {
 
     useEffect(() => {
         if (zipCode) {
-            const zipCodePoint = zipCodes.find(zip => zip.properties.ZIPCODE === zipCode);
+            const zipCodeFive= zipCode.slice(0, 5);
+            const zipCodePoint = zipCodes.find(zip => zip.properties.ZIPCODE === zipCodeFive);
 
             if (zipCodePoint) {
                 const zipLatLng = L.latLng(zipCodePoint.geometry.coordinates[1], zipCodePoint.geometry.coordinates[0]); 
@@ -60,7 +61,12 @@ const MapComponent = () => {
     }, []);
 
     const handleZipCodeChange = (e) => {
-        setZipCode(e.target.value);
+        let value = e.target.value;
+        value = value.replace(/[^\d]/g, '');
+        if (value.length > 5 && value[5] !== '-') {
+            value = value.slice(0, 5) + '-' + value.slice(5);
+        }
+        setZipCode(value);
     };
     
 return (
@@ -72,7 +78,10 @@ return (
                 id="zipCode"
                 value={zipCode}
                 onChange={handleZipCodeChange}
-                placeholder="Enter ZIP code"
+                placeholder="Enter a King County ZIP code"
+                pattern="\d{5}-?(\d{4})?"
+                inputMode="numeric"
+                maxLength="10"
             />
 
             <h2 className='mapAbout'>About the Map</h2>
