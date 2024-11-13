@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -12,6 +14,7 @@ import { set as firebaseSet } from "firebase/database";
 
 export function ResourceDetails({user, saveResource, deleteResource, savedResources}) {
 
+    const [confirmation, setConfirmation] = useState("");
     const urlParams = useParams();
 
     const { resourceName, address, description, image, phoneNumber, serviceType, website } = data.resources[urlParams.id].properties;
@@ -24,22 +27,31 @@ export function ResourceDetails({user, saveResource, deleteResource, savedResour
         shadowUrl: markerShadow,
     });
 
+    console.log(confirmation)
+
     const position = data.resources[urlParams.id].geometry.coordinates;
     let saveButton = (<button className="btn btn-primary" onClick={() => {
                             saveResource(urlParams.id);
+                            setConfirmation(<p>This resource has been successfully saved to your <Link to="/user">profile</Link>.</p>)
                         }}>Save Resource</button>)
 
     if (user && savedResources != null) {
         savedResources.forEach((resource) => {
             if (resource.resourceNum == urlParams.id) {
-                saveButton = <button className="btn btn-secondary" onClick={() => deleteResource(urlParams.id)}>Remove Saved Resource</button>
+                saveButton = <button className="btn btn-secondary" onClick={() => {
+                    deleteResource(urlParams.id);
+                    setConfirmation(<p>This resource has been successfully removed from your <Link to="/user">profile</Link>.</p>)
+                }}>Remove Saved Resource</button>
             }
         })
+    } else if (!user) {
+        saveButton = (<p>Want to save this resource for later? <Link to="/login">Sign-in</Link> to save it!</p>);
     }
 
     return (
         <div className="details-wrap my-5">
             <div className="container">
+                <Link to="/resources"><p>&#8592; Return to Resources List</p></Link>
                 <div className="d-flex row">
                     <div className="col-md-6">
                         <div className="mb-4">
@@ -90,6 +102,7 @@ export function ResourceDetails({user, saveResource, deleteResource, savedResour
                         </div>
                         <div className="mt-2">
                             {saveButton}
+                            {confirmation}
                         </div>
                     </div>
 
