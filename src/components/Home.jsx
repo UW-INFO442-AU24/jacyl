@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import React from "react";
+import { Link } from "react-router-dom";
 
 export function Home() {
     const navigate = useNavigate();
@@ -16,9 +17,10 @@ export function Home() {
             <p className="subtitle">
                 Ready to explore mental health resources in King County?
             </p>
-            <button className="cta-button" onClick={handleButtonClick}>
+            <Link className="cta-button" to="/map">Connect with Us.</Link>
+            {/* <button className="cta-button" onClick={handleButtonClick}>
                     Connect with Us.
-            </button>
+            </button> */}
         </div>
         </div>
     );
