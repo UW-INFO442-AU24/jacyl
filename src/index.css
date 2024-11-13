@@ -38,15 +38,6 @@ html, body {
   height: 400px;
 }
 
-
-
-/* @media (min-width: 1200px) {
-  .youtube-video {
-    width: 100%;
-    height: 400px;
-  }
-} */
-
 /* nav bar */
 .navbar {
   display: flex;
@@ -469,4 +460,30 @@ input[type="text"] {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+}
+
+/* Resource/User Styling */
+.learn-more {
+  border-radius: 0 0 2px 2px;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-container {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .user-container {
+    /* display: flex; */
+    flex-direction: row;
+  }
+
+  .youtube-video {
+    height: 100%;
+  }
+  
 }

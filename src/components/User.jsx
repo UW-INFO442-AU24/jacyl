@@ -18,7 +18,7 @@ function ResourceCard({ resource, keyVal }) {
                 <li className="list-group-item">
                     <a href={resource.website} className="card-link">{resource.website}</a>
                 </li>
-                <Link className="btn btn-primary" to={"/resources/" + keyVal}>Learn More</Link>
+                <Link className="btn btn-primary learn-more" to={"/resources/" + keyVal}>Learn More</Link>
             </ul>
 
         </div>
@@ -42,28 +42,42 @@ export function User({user, savedResources}) {
     
 
     let savedResourcesCards = [];
+    let firstName = "";
+
     if (savedResources) {
         [...savedResources].reverse().forEach((savedResource, index) => {
             savedResourcesCards.push(
-            <div className="d-flex justify-content-center col-md-4 col-sm-6" key={index}>
+            <div className="d-flex justify-content-center col-md-6 col-sm-12 col-lg-4" key={index}>
                 <ResourceCard resource={data.resources[savedResource.resourceNum].properties} keyVal={savedResource.resourceNum}/>
             </div>
             );
         })
+        const nameSpace = user.displayName.indexOf(" ");
+        firstName = user.displayName.substring(0, nameSpace);
     }
-
 
     return (
         <div className="container">
             {user ? 
-            <div>
-                <h1>{"Welcome back " + (user ? user.displayName : "")}</h1>
-                <button className="btn btn-primary" onClick={signout}>Logout</button>
-                <h2>Saved Resources</h2>
-                <div className="d-flex row">
-                    {savedResourcesCards}
+            <div className="user-container row mt-4 mb-5">
+                <div className="welcome-container col-md-4"> 
+                    <h1 className="mb-md-2">Welcome, {user ? firstName : ""}.</h1>
+                    <p className="mb-md-4">Find all of your saved resources on this page. Looking for more resources? <Link to="/resources">Find them here.</Link></p>
+                    <button className="btn btn-primary" onClick={signout}>Logout</button>
                 </div> 
-            </div> : 
+                <div className="col-md-8"> 
+                <h2 className="text-center mb-4">Saved Resources</h2>
+                    <div className="card">
+                        <div className="card-body">
+                            <div className="d-flex row">
+                                {savedResourcesCards}
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            : 
             <div>
                 <h1>Please Login to view or save resources!</h1>
                 <Link className="btn btn-primary" to="/login">Login</Link>

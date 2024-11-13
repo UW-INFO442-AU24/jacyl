@@ -65,9 +65,6 @@ export function ResourceList(props) {
 
 function ResourceCard(props) {
     const resource = props.resource
-    const tagsList = resource.properties.serviceType.map((tag) => {
-        return (<li className="list-group-item tag" key={tag}>{tag}</li>);
-    });
     return (
         <div className="card mb-5" style={{ width: '20rem'}}>
             <img src={resource.properties.image} className="card-img-top" alt="..." />
@@ -88,7 +85,7 @@ function ResourceCard(props) {
                 <li className="list-group-item">
                     <a href={resource.properties.website} className="card-link">{resource.properties.website}</a>
                 </li>
-                <Link className="btn btn-primary" to={"/resources/" + props.keyVal}>Learn More</Link>
+                <Link className="btn btn-primary learn-more" to={"/resources/" + props.keyVal}>Learn More</Link>
             </ul>
 
         </div>

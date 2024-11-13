@@ -111,7 +111,7 @@ function App() {
         <Route path="quizresult" element={<QuizResult recommendedTags={recommendedTags} onRetakeQuiz={handleRetakeQuiz} />} />
          <Route path="resources" element={<ResourceList />} />
          <Route path="resources/:id" element={<ResourceDetails user={user} saveResource={saveResource} savedResources={savedResources} deleteResource={deleteResource}/>} />
-         <Route path="login" element={<Login /> } />
+         <Route path="login" element={<Login user={user}/> } />
          <Route path="user" element={<User user={user} savedResources={savedResources}/>} />
         </Routes>
       <Footer />

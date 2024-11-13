@@ -1,5 +1,6 @@
 //import auth functions and variables from Firebase
 import { getAuth, EmailAuthProvider, GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth'
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -23,16 +24,29 @@ const firebaseUIConfig = {
 }
 
 //the React compnent to render
-export function Login() {
+export function Login({user}) {
 
   const auth = getAuth(); //access the "authenticator"
+  console.log("render");
 
-  
   return (
-    <div>
-      <h1>Sign-in</h1>
-      <p>Please sign-in:</p>
-      <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
+    <div className="container d-flex justify-content-center">
+      <div>
+        <div className="card my-5 py-5">
+          <div className="card-body">
+            {!user ? 
+            <div>
+              <p className="text-center">Sign-in to your account to get easy access to saving resources.</p>
+              <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
+            </div> :
+            <div>
+              <p>You have been successfully signed in! </p>
+              <p>Get started with <Link to="/resources">looking for resources!</Link></p>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
