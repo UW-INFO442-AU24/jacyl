@@ -295,7 +295,7 @@ html, body {
 }
 
 .AnswerCircle.selected .Circle {
-  background-color: #4caf50; /* Highlight selected option */
+  background-color: #4caf50;
   color: white;
 }
 
@@ -327,6 +327,31 @@ html, body {
   max-width: 70%;
   height: 350px;
 }
+
+.IdentityOptions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.IdentityOption {
+  padding: 10px 20px;
+  border: 2px solid #4caf50;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.IdentityOption.selected {
+  background-color: #4caf50;
+  color: white;
+}
+
+.IdentityOption:hover {
+  background-color: #d4edda;
+}
+
 /* Map Styling */
 
 .mapContainer {
@@ -373,4 +398,75 @@ input[type="text"] {
   width: 100%;
   object-fit: cover;
   height: 150px;
+}
+
+/* QuizResult */
+.QuizResultContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.QuizResultContainer h2 {
+  margin-bottom: 30px;
+}
+
+.resourceCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+
+.resourceCard:hover {
+  transform: scale(1.02);
+}
+
+.resourceCard h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.resourceCard p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.resourceCard a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.resourceCard a:hover {
+  text-decoration: underline;
+}
+
+.retakeQuizButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.retakeQuizButton:hover {
+  background-color: #45a049;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }

@@ -11,18 +11,21 @@ import { Home } from "./components/Home"
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Quiz } from './components/Quiz';
 import { QuizQuestion } from './components/QuizQuestion';
-import { ResourceDetails } from "./components/ResourceDetails"
-import { Login } from "./components/Login" 
-import { User } from "./components/User"
+import { QuizResult } from './components/QuizResult';
+import { ResourceDetails } from "./components/ResourceDetails";
+import { Login } from "./components/Login" ;
+import { User } from "./components/User";
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
-import { onAuthStateChanged, getAuth} from "firebase/auth"
-import { useNavigate } from "react-router-dom"
+import { onAuthStateChanged, getAuth} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 
 function App() {
 
   const [user, setUser] = useState(null);
   const [savedResources, setSavedResources] = useState(null);
+  const [recommendedTags, setRecommendedTags] = useState([]);
+  const [isQuizComplete, setIsQuizComplete] = useState(false);
 
   const db = getDatabase();
   const auth = getAuth();
@@ -58,6 +61,19 @@ function App() {
     return unsubscribe;
   }, [auth]);
 
+  // Handle quiz completion by setting recommended tags and quiz completion state
+  const handleQuizCompletion = (tags) => {
+    setRecommendedTags(tags);
+    setIsQuizComplete(true);
+    navigate('/quizresult');
+  };
+
+  // Handle quiz retake, resetting quiz completion state and tags
+  const handleRetakeQuiz = () => {
+    setIsQuizComplete(false);
+    setRecommendedTags([]);
+    navigate('/quizquestion');
+  };
 
   function saveResource(resourceNum) {
     //resourceNum example would be "22"
@@ -91,7 +107,8 @@ function App() {
          <Route path="about" element={<About />} />
          <Route path="map" element={<Map />} />
          <Route path="quiz" element={<Quiz />} />
-         <Route path="quizquestion" element={<QuizQuestion />} />
+         <Route path="quizquestion" element={<QuizQuestion onComplete={handleQuizCompletion} />} />
+        <Route path="quizresult" element={<QuizResult recommendedTags={recommendedTags} onRetakeQuiz={handleRetakeQuiz} />} />
          <Route path="resources" element={<ResourceList />} />
          <Route path="resources/:id" element={<ResourceDetails user={user} saveResource={saveResource} savedResources={savedResources} deleteResource={deleteResource}/>} />
          <Route path="login" element={<Login /> } />
