@@ -35,6 +35,7 @@ const MapViewController = ({ zipCode, zipCodes }) => {
 const MapComponent = () => {
     const [locations, setLocations] = useState([]);
     const [zipCodes, setZipCodes] = useState('');
+    const [zipCodeInput, setZipCodeInput] = useState('');
     const [zipCode, setZipCode] = useState('');
 
     useEffect(() => {
@@ -66,24 +67,33 @@ const MapComponent = () => {
         if (value.length > 5 && value[5] !== '-') {
             value = value.slice(0, 5) + '-' + value.slice(5);
         }
-        setZipCode(value);
+        setZipCodeInput(value);
+    };
+
+    const handleZipCodeSubmit = () => {
+        setZipCode(zipCodeInput);
     };
     
 return (
     <div className="mapContainer">
         <div className="zipCodeSection">
-            <h1 htmlFor="zipCode" className='zipSearchLabel'>Find Resources Near You: </h1>
-            <input
-                type="text"
-                id="zipCode"
-                value={zipCode}
-                onChange={handleZipCodeChange}
-                placeholder="Enter a King County ZIP code"
-                pattern="\d{5}-?(\d{4})?"
-                inputMode="numeric"
-                maxLength="10"
-            />
-
+            <h1 htmlFor="zipCode" className="zipSearchLabel">Find Resources Near You: </h1>
+            <div className="zipCodeInputContainter">
+                <input
+                    type="text"
+                    className="zipInput"
+                    id="zipCode"
+                    value={zipCodeInput}
+                    onChange={handleZipCodeChange}
+                    placeholder="Enter ZIP code"
+                    pattern="\d{5}-?(\d{4})?"
+                    inputMode="numeric"
+                    maxLength="10"
+                />
+                {/* Need to fix button styling */}
+                <button className="zipSearchButton" onClick={handleZipCodeSubmit}>Search</button>
+            </div>
+            <span id="passwordHelpInline" class="form-text"> Must be a King County Zip Code in the format ##### or #####-####. Find your ZIP Code <a href="https://www.unitedstateszipcodes.org/">here</a>.</span>
             <h2 className='mapAbout'>About the Map</h2>
             <p>This map was created using <a href="https://data.kingcounty.gov/Health-Wellness/King-County-Mental-Health-and-Substance-Use-Disord/sep3-3pj3/about_data">King County open data</a> about mental health resources and was manually cleaned to find resources that fit our demographic of youth adults aged 16-20 years old.</p>
         </div>
