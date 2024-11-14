@@ -41,18 +41,19 @@ export function QuizQuestion({ onComplete }) {
 
   const generateTagsFromAnswers = (answers) => {
     const tags = [];
-
-    if (answers[0] > 3) tags.push('Individual Therapy', 'Group Therapy', 'Peer Support');
-    if (answers[1]) tags.push(answers[1]);
-    if (answers[2] > 3) tags.push('Bilingual Services');
-    if (answers[3] > 3) tags.push('Family Therapy', 'Dyadic Therapy');
-    if (answers[4] > 3) tags.push('Crisis Hotline', 'Psychiatric Provider');
-    if (answers[5] > 3) tags.push('School-Based Services', 'Youth');
-    if (answers[6] > 3) tags.push('Youth', 'All Age Groups');
-    if (answers[7] > 3) tags.push('Case Management', 'Peer Support');
-
-    return [...new Set(tags)];
+  
+    if (answers[0] >= 3) tags.push('Individual Therapy', 'Group Therapy', 'Peer Support');
+    if (answers[1] && answers[1] !== 'None of the above') tags.push(answers[1]);
+    if (answers[2] >= 3) tags.push('Bilingual Services');
+    if (answers[3] >= 3) tags.push('Family Therapy', 'Dyadic Therapy');
+    if (answers[4] >= 3) tags.push('Crisis Hotline', 'Psychiatric Provider');
+    if (answers[5] >= 3) tags.push('School-Based Services', 'Youth');
+    if (answers[6] >= 3) tags.push('Youth', 'All Age Groups');
+    if (answers[7] >= 3) tags.push('Case Management', 'Peer Support');
+  
+    return [...new Set(tags)];  // Ensures unique tags
   };
+  
 
   return (
     <div className="QuizQuestionContainer">
