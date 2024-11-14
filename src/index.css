@@ -369,7 +369,6 @@ html, body {
   align-items: flex-start;
 }
 
-/* Still need to adjust zip code search styling */
 .zipCodeInputContainer {
   display: flex;
   align-items: center;

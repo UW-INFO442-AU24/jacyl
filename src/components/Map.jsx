@@ -83,7 +83,7 @@ return (
     <div className="mapContainer">
         <div className="zipCodeSection">
             <h1 htmlFor="zipCode" className="zipSearchLabel">Find Resources Near You: </h1>
-            <div className="zipCodeInputContainter">
+            <div className="zipCodeInputContainer">
                 <input
                     type="text"
                     className="zipInput"
@@ -95,7 +95,6 @@ return (
                     inputMode="numeric"
                     maxLength="10"
                 />
-                {/* Need to fix button styling */}
                 <button className="zipSearchButton" onClick={handleZipCodeSubmit}>Search</button>
             </div>
             <span id="passwordHelpInline" class="form-text"> Must be a King County Zip Code in the format ##### or #####-####. Find your ZIP Code <a href="https://www.unitedstateszipcodes.org/">here</a>.</span>
