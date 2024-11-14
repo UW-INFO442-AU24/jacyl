@@ -8,22 +8,25 @@ import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import resourcesData from "../data/resources1.json";
 import zipCodesData from '../data/KingCountyZipCodes.json';
 
+// Map Popup Markers
 delete L.Icon.Default.prototype._getIconUrl;
-
 L.Icon.Default.mergeOptions({
     iconRetinaUrl: markerIcon2x,
     iconUrl: markerIcon,
     shadowUrl: markerShadow,
 });
 
+// Function to controls map view based off of user input
 const MapViewController = ({ zipCode, zipCodes }) => {
-    const map = useMap(); 
+    const map = useMap(); // Access map
 
+    // Grabs only first five digits of entered ZIP code and checks if it is a King County ZIP. 
     useEffect(() => {
         if (zipCode) {
             const zipCodeFive= zipCode.slice(0, 5);
             const zipCodePoint = zipCodes.find(zip => zip.properties.ZIPCODE === zipCodeFive);
 
+            // If the ZIP code is in King County, change map view to ZIP code coordinates.
             if (zipCodePoint) {
                 const zipLatLng = L.latLng(zipCodePoint.geometry.coordinates[1], zipCodePoint.geometry.coordinates[0]); 
                 map.setView(zipLatLng, 13);
@@ -31,13 +34,16 @@ const MapViewController = ({ zipCode, zipCodes }) => {
         }
     }, [zipCode, zipCodes, map]);
 
-    return null; 
+    return null; // Only modifies map view
 };
 
+// Main map component with rendering and search functionality
 const MapComponent = () => {
+    // State variables for user inputs and validation
     const [zipCodeInput, setZipCodeInput] = useState('');
     const [zipCode, setZipCode] = useState('');
 
+    // Grabs resources locations and details for map markers
     const locations = resourcesData.resources.map(resource => ({
         coords: resource.geometry.coordinates,
         resourceName: resource.properties.resourceName,
@@ -47,27 +53,31 @@ const MapComponent = () => {
         description: resource.properties.description
     }));
 
+    // Grabs King County ZIP code data
     const zipCodes = zipCodesData.features;
 
-
+    // Handles search input restrictions, formats as #####-#### if user inputs a nine digit ZIP cod
     const handleZipCodeChange = (e) => {
         let value = e.target.value;
-        value = value.replace(/[^\d]/g, '');
+        value = value.replace(/[^\d]/g, ''); // Only allows digit inputs
         if (value.length > 5 && value[5] !== '-') {
             value = value.slice(0, 5) + '-' + value.slice(5);
         }
         setZipCodeInput(value);
     };
 
+    // Sets ZIP code state when user submits/enters a search
     const handleZipCodeSubmit = () => {
         setZipCode(zipCodeInput);
     };
-    // here
+    
+    // Boundaries for the map
     const kingCountyBounds = [
         [46.972060, -122.750396],
         [49.088447, -121.084384]
     ];
-    
+
+// Map Page    
 return (
     <div className="mapContainer">
         <div className="zipCodeSection">
@@ -116,6 +126,7 @@ return (
 
                 {locations.map((location, index) => (
                     <Marker key={index} position={location.coords}>
+                        
                         <Popup>
                         <div>
                             <h3>{location.resourceName}</h3>
@@ -132,7 +143,8 @@ return (
     </div>
     );
 };
- 
+
+// Export Map function for App
 export function Map() {
     return(<MapComponent />)
 }
