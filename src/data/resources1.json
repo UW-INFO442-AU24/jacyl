@@ -13,7 +13,7 @@
             "description": "Asian Counseling and Referral Service (ACRS) is a nationally recognized nonprofit organization working for social justice and offering a broad array of behavioral health programs, human services and civic engagement activities for Asian and Native Hawaiian/Pacific Islanders and other communities in King County and beyond. ",
             "phoneNumber": "206-695-7600",
             "serviceType": ["Asian", "Assessment Services", "Individual Therapy", "Group Therapy", "Bilingual Services", "All Age Groups", "Case Management"],
-            "image": "src/img/resource_img/acrs.png"
+            "image": "/acrs.png"
         }
     },
     {
@@ -29,7 +29,7 @@
             "description": "Asian Counseling and Referral Service (ACRS) is a nationally recognized nonprofit organization working for social justice and offering a broad array of behavioral health programs, human services and civic engagement activities for Asian and Native Hawaiian/Pacific Islanders and other communities in King County and beyond. ",
             "phoneNumber": "206-695-7600",
             "serviceType": ["Asian", "Assessment Services", "Individual Therapy", "Group Therapy", "Bilingual Services", "All Age Groups", "Case Management"],
-            "image": "src/img/resource_img/acrs.png"
+            "image": "/acrs.png"
         }
     },
     {
@@ -45,7 +45,7 @@
             "description": "Asian Counseling and Referral Service (ACRS) is a nationally recognized nonprofit organization working for social justice and offering a broad array of behavioral health programs, human services and civic engagement activities for Asian and Native Hawaiian/Pacific Islanders and other communities in King County and beyond. ",
             "phoneNumber": "206-695-7600",
             "serviceType": ["Asian", "Assessment Services", "Individual Therapy", "Group Therapy", "Bilingual Services", "All Age Groups", "Case Management"],
-            "image": "src/img/resource_img/acrs.png"
+            "image": "/acrs.png"
         }
     },
     {
@@ -61,7 +61,7 @@
             "description": "Childhaven is staffed by a dynamic and diverse team of therapists, care coordinators, teachers, and parent partners. Each member of the Childhaven team is dedicated to prioritizing relational health as the antidote to childhood trauma and adversity.",
             "phoneNumber": "206-248-4903",
             "serviceType": ["Individual Therapy", "Family Therapy", "Dyadic Therapy", "Youth (Up to 24 Years Old)"],
-            "image": "src/img/resource_img/childhaven.png"
+            "image": "/childhaven.png"
         }
     },
     {
@@ -77,7 +77,7 @@
             "description": "Childhaven is staffed by a dynamic and diverse team of therapists, care coordinators, teachers, and parent partners. Each member of the Childhaven team is dedicated to prioritizing relational health as the antidote to childhood trauma and adversity.",
             "phoneNumber": "253-833-5908",
             "serviceType": ["Individual Therapy", "Family Therapy", "Dyadic Therapy", "Youth (Up to 24 Years Old)"],
-            "image": "src/img/resource_img/childhaven.png"
+            "image": "/childhaven.png"
         }
     },
     {
@@ -93,7 +93,7 @@
             "description": "Childhaven is staffed by a dynamic and diverse team of therapists, care coordinators, teachers, and parent partners. Each member of the Childhaven team is dedicated to prioritizing relational health as the antidote to childhood trauma and adversity.",
             "phoneNumber": "206-624-6477",
             "serviceType": ["Individual Therapy", "Family Therapy", "Dyadic Therapy", "Youth (Up to 24 Years Old)"],
-            "image": "src/img/resource_img/childhaven.png"
+            "image": "/childhaven.png"
         }
     },
     {
@@ -109,7 +109,7 @@
             "description": "Childhaven is staffed by a dynamic and diverse team of therapists, care coordinators, teachers, and parent partners. Each member of the Childhaven team is dedicated to prioritizing relational health as the antidote to childhood trauma and adversity.",
             "phoneNumber": "425-271-5600",
             "serviceType": ["Individual Therapy", "Family Therapy", "Dyadic Therapy", "Youth (Up to 24 Years Old)"],
-            "image": "src/img/resource_img/childhaven.png"
+            "image": "/childhaven.png"
         }
     },
     {
@@ -125,7 +125,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -141,7 +141,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -157,7 +157,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -173,7 +173,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -189,7 +189,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -205,7 +205,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -221,7 +221,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -237,7 +237,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -253,7 +253,7 @@
             "description": "Valley Cities provide mental health services for children, teens, adults, and seniors, including individual, family, and group counseling, and for a wide range of concerns, such as depression, anxiety, bipolar disorder, and more.",
             "phoneNumber": "253-833-7444",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "Peer Support", "Psychiatric Provider", "Case Management", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/valleycities.png"
+            "image": "/valleycities.png"
         }
     },
     {
@@ -269,7 +269,7 @@
             "description": "Center for Human Services is a community-based nonprofit youth and family services agency that has been a resource to children, youth, adults and families since 1970.",
             "phoneNumber": "206-362-7282",
             "serviceType": ["Individual Therapy", "Family Therapy", "All Age Groups", "Case Management", "School-Based Services"],
-            "image": "src/img/resource_img/chs.png"
+            "image": "/chs.png"
         }
     },
     {
@@ -285,7 +285,7 @@
             "description": "Center for Human Services is a community-based nonprofit youth and family services agency that has been a resource to children, youth, adults and families since 1970.",
             "phoneNumber": "206-362-7282",
             "serviceType": ["Individual Therapy", "Family Therapy", "All Age Groups", "Case Management", "School-Based Services"],
-            "image": "src/img/resource_img/chs.png" 
+            "image": "/chs.png" 
         }
     },
     {
@@ -301,7 +301,7 @@
             "description": "Center for Human Services is a community-based nonprofit youth and family services agency that has been a resource to children, youth, adults and families since 1970.",
             "phoneNumber": "206-362-7282",
             "serviceType": ["Individual Therapy", "Family Therapy", "All Age Groups", "Case Management", "School-Based Services"],
-            "image": "src/img/resource_img/chs.png" 
+            "image": "/chs.png" 
         }
     },
     {
@@ -317,7 +317,7 @@
             "description": "In any language, our name means hope. Navos is here for anyone, from any background, who needs help reclaiming their life from mental illness, addiction, trauma or abuse. We offer compassionate, high-quality, affordable care.",
             "phoneNumber": "206-241-0990",
             "serviceType": ["Individual Therapy", "Group Therapy", "Family Therapy", "All Age Groups", "Crisis Hotline"],
-            "image": "src/img/resource_img/navos.png"
+            "image": "/navos.png"
         }
     },
     {
@@ -333,7 +333,7 @@
             "description": "Sea Mar Community Health Centers is a community-based organization committed to providing quality, comprehensive health, human, housing, educational and cultural services to diverse communities, specializing in service to Latinos.",
             "phoneNumber": "206-764-8019",
             "serviceType": ["Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "Case Management", "All Age Groups", "Latino", "Bilingual Services"],
-            "image": "src/img/resource_img/seamar.png"
+            "image": "/seamar.png"
         }
     },
     {
@@ -349,7 +349,7 @@
             "description": "Sea Mar Community Health Centers is a community-based organization committed to providing quality, comprehensive health, human, housing, educational and cultural services to diverse communities, specializing in service to Latinos.",
             "phoneNumber": "206-766-6976",
             "serviceType": ["Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "Case Management", "All Age Groups", "Latino", "Bilingual Services"],
-            "image": "src/img/resource_img/seamar.png"
+            "image": "/seamar.png"
         }
     },
     {
@@ -365,7 +365,7 @@
             "description": "Sea Mar Community Health Centers is a community-based organization committed to providing quality, comprehensive health, human, housing, educational and cultural services to diverse communities, specializing in service to Latinos.",
             "phoneNumber": "206-965-1055",
             "serviceType": ["Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "Case Management", "All Age Groups", "Latino", "Bilingual Services"],
-            "image": "src/img/resource_img/seamar.png"
+            "image": "/seamar.png"
         }
     },
     {
@@ -381,7 +381,7 @@
             "description": "Sea Mar Community Health Centers is a community-based organization committed to providing quality, comprehensive health, human, housing, educational and cultural services to diverse communities, specializing in service to Latinos.",
             "phoneNumber": "425-460-7125",
             "serviceType": ["Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "Case Management", "All Age Groups", "Latino", "Bilingual Services"],
-            "image": "src/img/resource_img/seamar.png"
+            "image": "/seamar.png"
         }
     },
     {
@@ -397,7 +397,7 @@
             "description": "Sea Mar Community Health Centers is a community-based organization committed to providing quality, comprehensive health, human, housing, educational and cultural services to diverse communities, specializing in service to Latinos.",
             "phoneNumber": "253-681-6640",
             "serviceType": ["Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "Case Management", "All Age Groups", "Latino", "Bilingual Services"],
-            "image": "src/img/resource_img/seamar.png"
+            "image": "/seamar.png"
         }
     },
     {
@@ -413,7 +413,7 @@
             "description": "Youth Eastside Services (YES) is the leading behavioral health service provider for children and youth, ages birth to 22, and their families in East King County. We provide prevention, diagnosis, and treatment for mental health and substance use disorders, life stressors and crises, and stress-related physical symptoms.",
             "phoneNumber": "425-827-4937",
             "serviceType": ["All Age Groups", "LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services"],
-            "image": "src/img/resource_img/seamar.png"
+            "image": "/seamar.png"
         }
     },
     {
@@ -429,7 +429,7 @@
             "description": "Youth Eastside Services (YES) is the leading behavioral health service provider for children and youth, ages birth to 22, and their families in East King County. We provide prevention, diagnosis, and treatment for mental health and substance use disorders, life stressors and crises, and stress-related physical symptoms.",
             "phoneNumber": "425-747-4937",
             "serviceType": ["All Age Groups", "LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services"],
-            "image": "src/img/resource_img/yes.png"
+            "image": "/yes.png"
         }
     },
     {
@@ -445,7 +445,7 @@
             "description": "Youth Eastside Services (YES) is the leading behavioral health service provider for children and youth, ages birth to 22, and their families in East King County. We provide prevention, diagnosis, and treatment for mental health and substance use disorders, life stressors and crises, and stress-related physical symptoms.",
             "phoneNumber": "425-869-6036",
             "serviceType": ["All Age Groups", "LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services"],
-            "image": "src/img/resource_img/yes.png"
+            "image": "/yes.png"
         }
     },
     {
@@ -461,7 +461,7 @@
             "description": "IKRON's care coordinators assist participants with navigating and integrating their health care and social service needs, improve their overall health and well-being, and manage their chronic conditions.",
             "phoneNumber": "206-382-5013",
             "serviceType": ["Assesment Services", "Individual Therapy", "Group Therapy", "Case Management", "Peer Support", "All Age Groups"],
-            "image": "src/img/resource_img/ikron.png"
+            "image": "/ikron.png"
         }
     },
     {
@@ -477,7 +477,7 @@
             "description": "IKRON's care coordinators assist participants with navigating and integrating their health care and social service needs, improve their overall health and well-being, and manage their chronic conditions.",
             "phoneNumber": "206-420-7949",
             "serviceType": ["Assesment Services", "Individual Therapy", "Group Therapy", "Case Management", "Peer Support", "All Age Groups"],
-            "image": "src/img/resource_img/ikron.png"
+            "image": "/ikron.png"
         }
     },
     {
@@ -493,7 +493,7 @@
             "description": "We deliver confidential, compassionate care to address the mental health challenges people face throughout their lifetime. From early childhood through adolescence, adulthood and older adulthood, our programs help people in Pierce and King counties achieve wellness and live to their fullest potential.",
             "phoneNumber": "253-266-5543",
             "serviceType": ["All Age Groups", "Individual Therapy", "Group Therapy", "Family Therapy", "Psychiatric Provider"],
-            "image": "src/img/resource_img/multicare.png"
+            "image": "/multicare.png"
         }
     },
     {
@@ -509,7 +509,7 @@
             "description": "We deliver confidential, compassionate care to address the mental health challenges people face throughout their lifetime. From early childhood through adolescence, adulthood and older adulthood, our programs help people in Pierce and King counties achieve wellness and live to their fullest potential.",
             "phoneNumber": "253-833-7711",
             "serviceType": ["All Age Groups", "Individual Therapy", "Group Therapy", "Family Therapy", "Psychiatric Provider"],
-            "image": "src/img/resource_img/multicare.png"
+            "image": "/multicare.png"
         }
     },
     {
@@ -525,7 +525,7 @@
             "description": "We deliver confidential, compassionate care to address the mental health challenges people face throughout their lifetime. From early childhood through adolescence, adulthood and older adulthood, our programs help people in Pierce and King counties achieve wellness and live to their fullest potential.",
             "phoneNumber": "253-697-8400",
             "serviceType": ["All Age Groups", "Individual Therapy", "Group Therapy", "Family Therapy", "Psychiatric Provider"],
-            "image": "src/img/resource_img/multicare.png"
+            "image": "/multicare.png"
         }
     },
     {
@@ -541,7 +541,7 @@
             "description": "We deliver confidential, compassionate care to address the mental health challenges people face throughout their lifetime. From early childhood through adolescence, adulthood and older adulthood, our programs help people in Pierce and King counties achieve wellness and live to their fullest potential.",
             "phoneNumber": "253-697-8400",
             "serviceType": ["All Age Groups", "Individual Therapy", "Group Therapy", "Family Therapy", "Psychiatric Provider"],
-            "image": "src/img/resource_img/multicare.png"
+            "image": "/multicare.png"
         }
     },
     {
@@ -557,7 +557,7 @@
             "description": "This hub in South King County provides essential behavioral health and youth violence prevention services. Recognizing the importance of mental health alongside physical health, especially in addressing adverse childhood experiences (ACEs), SWYFS integrates trauma-informed counseling using various therapies such as art, drama, cognitive behavioral therapy, behavior modification, and Aggression Replacement Training (ART).",
             "phoneNumber": "206-937-7680",
             "serviceType": ["Case Management", "Individual Therapy", "Group Therapy", "Family Therapy", "Youth (Up to 24 Years Old)"],
-            "image": "src/img/resource_img/swyfs.png"
+            "image": "/swyfs.png"
         }
     },
     {
@@ -573,7 +573,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-901-2000",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -589,7 +589,7 @@
             "description": "Ryther’s programming was created to bring greater flexibility in meeting clients’ needs regarding their mental health, SUD, and Co-occurring treatment. We achieve this by individualized treatment planning and treatment options and utilizing creative and experiential therapeutic modalities as well as therapy groups, peers, and case managers",
             "phoneNumber": "206-525-5050",
             "serviceType": ["Assesment Services", "Peer Support", "Individual Therapy", "Group Therapy", "Family Therapy", "Youth (Up to 24 Years Old)"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -605,7 +605,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "425-653-4960",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -621,7 +621,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-302-2700",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -637,7 +637,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-901-2000",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -653,7 +653,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "425-653-4900",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -669,7 +669,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-444-7800",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -685,7 +685,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-302-2900",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -701,7 +701,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "253-876-7600",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -717,7 +717,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-302-2600",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -733,7 +733,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "253-876-8900",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -749,7 +749,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "253-444-3600",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     },
     {
@@ -765,7 +765,7 @@
             "description": "Founded in 1966, Sound is one of King County’s most comprehensive providers of quality mental health and addiction treatment services, supporting our area’s most vulnerable populations. A central tenet of our work is Reaching Recovery, an evidence-based clinical care model.",
             "phoneNumber": "206-461-4544",
             "serviceType": ["LGBTQ+", "Psychiatric Provider", "Individual Therapy", "Group Therapy", "Family Therapy", "School-Based Services", "All Age Groups"],
-            "image": "src/img/resource_img/sound.png"
+            "image": "/sound.png"
         }
     }
     ]
