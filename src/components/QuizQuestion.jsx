@@ -51,7 +51,7 @@ export function QuizQuestion({ onComplete }) {
     if (answers[6] >= 3) tags.push('Youth', 'All Age Groups');
     if (answers[7] >= 3) tags.push('Case Management', 'Peer Support');
   
-    return [...new Set(tags)];  // Ensures unique tags
+    return [...new Set(tags)]; 
   };
   
 
