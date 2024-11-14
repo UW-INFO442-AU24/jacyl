@@ -15,9 +15,8 @@ export function Navbar({user}) {
     return (    
         <nav className="navbar">
         <div className="logo">
-            Logo <br />
-            <span className="logo-text">(with Picture)</span>
-        </div>
+            <img src="/img/logo.jpg" alt="Logo" className="logo-image" />
+       </div>
         <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/resources">Resources</Link></li>

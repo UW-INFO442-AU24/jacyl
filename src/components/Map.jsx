@@ -73,6 +73,11 @@ const MapComponent = () => {
     const handleZipCodeSubmit = () => {
         setZipCode(zipCodeInput);
     };
+    // here
+    const kingCountyBounds = [
+        [47.072060, -122.550396],
+        [47.788447, -121.084384]
+    ];
     
 return (
     <div className="mapContainer">
@@ -99,7 +104,16 @@ return (
         </div>
 
         <div className='mapSection'>
-            <MapContainer center={[47.5567, -122.3066]} zoom={10} style={{ height: "75vh", width: "100%" }}>
+            <MapContainer 
+                center={[47.5567, -122.3066]} 
+                zoom={10} 
+                style={{ height: "75vh", width: "100%" }}
+                // here 
+                maxBounds={kingCountyBounds}
+                maxBoundsViscosity={1.0}
+                minZoom={8}
+                maxZoom={15} 
+            >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

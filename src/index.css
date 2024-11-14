@@ -133,6 +133,17 @@ html, body {
   background-color: #3a78d0; 
 }
 
+.logo {
+  display: flex;
+  align-items: left;
+}
+
+.logo-image {
+  width: auto;
+  height: 50px;
+  max-height: 80%; 
+}
+
 /* Quiz */
 .QuizContainer {
   display: flex;
