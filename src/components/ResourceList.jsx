@@ -103,7 +103,7 @@ function ResourceCardList(props) {
         );
     })
     return (
-        <div className="d-flex flex-row gap-4 justify-content-center" >
+        <div className="d-flex flex-row gap-4 justify-content-center carditem" >
             <div className="row">
                 {resourceCardList}
             </div>
