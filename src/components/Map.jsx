@@ -5,6 +5,8 @@ import 'leaflet/dist/leaflet.css';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import resourcesData from "../data/resources1.json";
+import zipCodesData from '../data/KingCountyZipCodes.json';
 
 delete L.Icon.Default.prototype._getIconUrl;
 
@@ -33,33 +35,20 @@ const MapViewController = ({ zipCode, zipCodes }) => {
 };
 
 const MapComponent = () => {
-    const [locations, setLocations] = useState([]);
-    const [zipCodes, setZipCodes] = useState('');
     const [zipCodeInput, setZipCodeInput] = useState('');
     const [zipCode, setZipCode] = useState('');
 
-    useEffect(() => {
-        fetch('./resources.geojson') 
-            .then(response => response.json())
-            .then(data => {
-                console.log(data); 
-                const features = data.resources.map(resource => ({
-                    coords: resource.geometry.coordinates,
-                    resourceName: resource.properties.resourceName,
-                    website: resource.properties.website,
-                    phoneNumber: resource.properties.phoneNumber,
-                    address: resource.properties.address,
-                    description: resource.properties.description
-                }));
-                setLocations(features);
-            })
+    const locations = resourcesData.resources.map(resource => ({
+        coords: resource.geometry.coordinates,
+        resourceName: resource.properties.resourceName,
+        website: resource.properties.website,
+        phoneNumber: resource.properties.phoneNumber,
+        address: resource.properties.address,
+        description: resource.properties.description
+    }));
 
-        fetch('./KingCountyZipCodes.geojson')
-            .then(response => response.json())
-            .then(data => {
-                setZipCodes(data.features);
-            })
-    }, []);
+    const zipCodes = zipCodesData.features;
+
 
     const handleZipCodeChange = (e) => {
         let value = e.target.value;
@@ -76,7 +65,7 @@ const MapComponent = () => {
     // here
     const kingCountyBounds = [
         [46.972060, -122.750396],
-        [48.088447, -121.084384]
+        [49.088447, -121.084384]
     ];
     
 return (
