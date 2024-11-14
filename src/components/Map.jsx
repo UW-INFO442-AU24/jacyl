@@ -90,6 +90,11 @@ return (
                     id="zipCode"
                     value={zipCodeInput}
                     onChange={handleZipCodeChange}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            handleZipCodeSubmit();
+                        }
+                    }}
                     placeholder="Enter ZIP code"
                     pattern="\d{5}-?(\d{4})?"
                     inputMode="numeric"
