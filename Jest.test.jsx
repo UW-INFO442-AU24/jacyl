@@ -16,21 +16,6 @@ import fetchMock from 'jest-fetch-mock';
 
 require('jest-fetch-mock').enableMocks()
 
-// test("validates ZIP code input format", async () => {
-//     render(<MemoryRouter><Map/></MemoryRouter>);
-
-//     const zipInput = screen.getByPlaceholderText("Enter ZIP code");
-
-//     const validZipCode = "98011";
-//     await userEvent.type(zipInput, validZipCode); 
-//     expect(zipInput.value).toBe(validZipCode); 
-
-//     const invalidZipCode = "97011";
-//     await userEvent.clear(zipInput); 
-//     await userEvent.type(zipInput, invalidZipCode);
-//     expect(zipInput.value).toBe(validZipCode); 
-// });
-
 test("The 'Home' component renders", () => {
     render(
     <BrowserRouter>
@@ -43,12 +28,3 @@ test("The 'Home' component contains navigaion to Map of Resources", () => {
     const linkElement = screen.getByRole('link', { name: /Connect with Us\./i });
     expect(linkElement).toBeInTheDocument();
 })
-
-test("1+1", async() => {
-    expect(1 + 1).toBe(2);
-}) 
-
-test("2+2", async() => {
-    expect(2 + 2).toBe(4);
-}) 
-

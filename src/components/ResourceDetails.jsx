@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-import data from "../data/resources1.json"
+import data from "../data/resources1.json";
 import { useParams, useNavigate } from "react-router-dom";
 import { set as firebaseSet } from "firebase/database";
 
@@ -27,7 +27,7 @@ export function ResourceDetails({user, saveResource, deleteResource, savedResour
         shadowUrl: markerShadow,
     });
 
-    console.log(confirmation)
+    const navigate = useNavigate();
 
     const position = data.resources[urlParams.id].geometry.coordinates;
     let saveButton = (<button className="btn btn-primary" onClick={() => {
@@ -51,7 +51,9 @@ export function ResourceDetails({user, saveResource, deleteResource, savedResour
     return (
         <div className="details-wrap my-5">
             <div className="container">
-                <Link to="/resources"><p>&#8592; Return to Resources List</p></Link>
+                <div className="mb-3">
+                    <Link onClick={() => navigate(-1)}>&#8592; Return To Previous Page</Link>
+                </div>
                 <div className="d-flex row">
                     <div className="col-md-6">
                         <div className="mb-4">

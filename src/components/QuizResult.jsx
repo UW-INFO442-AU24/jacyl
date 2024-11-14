@@ -1,9 +1,13 @@
 import React from 'react';
 import data from "../data/resources1.json"; 
+import { Link } from "react-router-dom";
 
 export function QuizResult({ recommendedTags, onRetakeQuiz }) {
-    const filteredResources = data.resources.filter((resource) =>
-      resource.properties.serviceType.some(tag => recommendedTags.includes(tag))
+    const filteredResources = data.resources.filter((resource, index) =>
+      {
+        resource["resourceNum"] = index;
+        return resource.properties.serviceType.some(tag => recommendedTags.includes(tag));
+      }
     );
   
     return (
@@ -19,6 +23,7 @@ export function QuizResult({ recommendedTags, onRetakeQuiz }) {
                 <a href={resource.properties.website} target="_blank" rel="noopener noreferrer">
                   Website
                 </a>
+                <p>Want more details? <Link to={"/resources/" + resource.resourceNum}>Click here.</Link></p>
               </div>
             ))}
           </div>

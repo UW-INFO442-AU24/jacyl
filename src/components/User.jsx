@@ -61,7 +61,7 @@ export function User({user, savedResources}) {
             {user ? 
             <div className="user-container row mt-4 mb-5">
                 <div className="welcome-container col-md-4"> 
-                    <h1 className="mb-md-2">Welcome, {user ? firstName : ""}.</h1>
+                    <h1 className="mb-md-2">Welcome{user ? ", " + firstName + ".": ""}</h1>
                     <p className="mb-md-4">Find all of your saved resources on this page. Looking for more resources? <Link to="/resources">Find them here.</Link></p>
                     <button className="btn btn-primary" onClick={signout}>Logout</button>
                 </div> 
