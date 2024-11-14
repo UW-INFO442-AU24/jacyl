@@ -1,7 +1,4 @@
 {
-"type": "FeatureCollection",
-"name": "All_Zipcodes_and_PO_Box_as_Centroids_for_King_County___zipcode_all_point",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "OBJECTID": 1, "ZIP": 98009, "ZIPCODE": "98009", "COUNTY": "033", "ZIP_TYPE": "PO Box", "PREFERRED_CITY": "BELLEVUE", "FEATURE_SOURCE": "Placed Point", "COUNTY_NAME": "King County" }, "geometry": { "type": "Point", "coordinates": [ -122.202454356642079, 47.62060126288501 ] } },
 { "type": "Feature", "properties": { "OBJECTID": 2, "ZIP": 98015, "ZIPCODE": "98015", "COUNTY": "033", "ZIP_TYPE": "PO Box", "PREFERRED_CITY": "BELLEVUE", "FEATURE_SOURCE": "Placed Point", "COUNTY_NAME": "King County" }, "geometry": { "type": "Point", "coordinates": [ -122.186795283234304, 47.611861281918955 ] } },
