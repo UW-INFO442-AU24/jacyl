@@ -16,6 +16,36 @@ L.Icon.Default.mergeOptions({
     shadowUrl: markerShadow,
 });
 
+const tags = ["Asian", "LGBTQ+", "Latino", "Bilingual Services", "Assessment Services", "Individual Therapy", 
+    "Group Therapy", "Family Therapy", "Dyadic Therapy", "Peer Support", "Psychiatric Provider", "School-Based Services",
+    "Bilingual Services", "All Age Groups", "Youth (Up to 24 Years Old)", "Case Management", "Crisis Hotline"
+];
+
+const MapFilter = ({ selectedFilters, setSelectedFilters }) => {
+    const handleTagClick = (tag) => {
+        if (selectedFilters.includes(tag)) {
+            setSelectedFilters(selectedFilters.filter((t) => t !== tag));
+        } else {
+            setSelectedFilters([...selectedFilters, tag]);
+        }
+    };
+
+    return (
+        <div className="filter-section">
+            {tags.map((tag) => (
+                <label key={tag} className="filter-checkbox">
+                    <input
+                        type="checkbox"
+                        checked={selectedFilters.includes(tag)}
+                        onChange={() => handleTagClick(tag)}
+                    />
+                    {tag}
+                </label>
+            ))}
+        </div>
+    );
+};
+
 // Function to controls map view based off of user input
 const MapViewController = ({ zipCode, zipCodes }) => {
     const map = useMap(); // Access map
@@ -42,16 +72,22 @@ const MapComponent = () => {
     // State variables for user inputs and validation
     const [zipCodeInput, setZipCodeInput] = useState('');
     const [zipCode, setZipCode] = useState('');
+    const [selectedFilters, setSelectedFilters] = useState([]); 
 
-    // Grabs resources locations and details for map markers
-    const locations = resourcesData.resources.map(resource => ({
-        coords: resource.geometry.coordinates,
-        resourceName: resource.properties.resourceName,
-        website: resource.properties.website,
-        phoneNumber: resource.properties.phoneNumber,
-        address: resource.properties.address,
-        description: resource.properties.description
-    }));
+    const filteredLocations = resourcesData.resources
+        .filter(resource => {
+            const resourceTags = resource.properties.serviceType || [];
+            return selectedFilters.every(filter => resourceTags.includes(filter));
+        })
+        .map(resource => ({
+            coords: resource.geometry.coordinates,
+            resourceName: resource.properties.resourceName,
+            website: resource.properties.website,
+            phoneNumber: resource.properties.phoneNumber,
+            address: resource.properties.address,
+            description: resource.properties.description
+        }));
+
 
     // Grabs King County ZIP code data
     const zipCodes = zipCodesData.features;
@@ -102,6 +138,7 @@ return (
                 <button className="zipSearchButton" onClick={handleZipCodeSubmit}>Search</button>
             </div>
             <span id="passwordHelpInline" class="form-text"> Must be a King County Zip Code in the format ##### or #####-####. Find your ZIP Code <a href="https://www.unitedstateszipcodes.org/">here</a>.</span>
+            <MapFilter selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />
             <h2 className='mapAbout'>About the Map</h2>
             <p>This map was created using <a href="https://data.kingcounty.gov/Health-Wellness/King-County-Mental-Health-and-Substance-Use-Disord/sep3-3pj3/about_data">King County open data</a> about mental health resources and was manually cleaned to find resources that fit our demographic of youth adults aged 16-20 years old.</p>
         </div>
@@ -124,7 +161,7 @@ return (
 
                 <MapViewController zipCode={zipCode} zipCodes={zipCodes} />
 
-                {locations.map((location, index) => (
+                {filteredLocations.map((location, index) => (
                     <Marker key={index} position={location.coords}>
                         
                         <Popup>
