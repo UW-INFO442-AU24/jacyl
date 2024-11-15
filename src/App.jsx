@@ -100,8 +100,9 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app-container">
       <Navbar user={user}/>
+      <div className="main-content">
         <Routes>
          <Route path="*" element={<Home />} />
          <Route path="about" element={<About />} />
@@ -114,6 +115,7 @@ function App() {
          <Route path="login" element={<Login user={user}/> } />
          <Route path="user" element={<User user={user} savedResources={savedResources}/>} />
         </Routes>
+      </div>
       <Footer />
     </div>
   )
