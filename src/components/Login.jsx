@@ -31,7 +31,7 @@ export function Login({user}) {
 
   return (
     <div className="container d-flex justify-content-center">
-      <div>
+      <div style={{ width: "300px"}}>
         <div className="card my-5 py-5">
           <div className="card-body">
             {!user ? 

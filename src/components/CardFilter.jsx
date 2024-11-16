@@ -38,8 +38,13 @@ export function CardFilter(props) {
     }
 
     const handleSearchChange = (event) => {
-        console.log(event.target.value)
-        props.applySearchFilterCallback(event.target.value)
+        console.log(event.target.value);
+        props.applySearchFilterCallback(event.target.value);
+    }
+
+    const handleSubmission = (event) => {
+        console.log(event);
+        event.preventDefault();
     }
 
 
@@ -68,10 +73,10 @@ export function CardFilter(props) {
             <div className="d-flex bd-highlight">
                 {/* SEARCH BAR STYLE HERE */}
                 <div className="p-2 flex-grow-1 lg">
-                    <Form name="Search" id='Search' >
-                        <Form.Control className='my-3 border border-secondary' size="lg" type="text" placeholder="Search..." onChange={handleSearchChange} />
-                    </Form></div>
-
+                    <Form name="Search" id='Search' onSubmit={handleSubmission}>
+                        <Form.Control className='my-3 border border-secondary' size="lg" type="text" placeholder="Search..." onChange={handleSearchChange} value={props.searchFilter}/>
+                    </Form>
+                </div>
             </div>
 
             {/* FILTER STYLE HERE */}

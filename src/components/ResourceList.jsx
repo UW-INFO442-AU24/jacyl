@@ -59,8 +59,8 @@ export function ResourceList(props) {
         // OVERALL BACKGROUND STYLE HERE
         <div className="container my-4">
             <h1>Resource List</h1>
-            {!props.user && <p>You currently aren't signed in. <Link to="/login">Log-in</Link> to save these resources for later.</p>  }
-            <CardFilter applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter}></ CardFilter>
+            {!props.user && <p>You are not currently signed in. <Link to="/login">Log-in</Link> to save these resources for later.</p>  }
+            <CardFilter applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter} searchFilter={searchFilter}/>
             
             {/* ROW/COLUMN STYLE HERE */}
             <div>
@@ -99,7 +99,7 @@ function ResourceCard(props) {
     return (
         <div className="mb-5" style={{ width: '20rem'}}>
             <div className="card" style={{ width: '20rem'}}>
-                <img src={resource.properties.image} className="card-img-top" alt="..." />
+                <img src={resource.properties.image} className="card-img-top" alt={resource.properties.resourceName + " logo"} />
 
                 <div className="card-body" style={{ fontSize: '1.2rem' }}>
                     <h2 className="card-title" style={{ fontSize: '1.2rem' }}>{resource.properties.resourceName}</h2>
@@ -111,11 +111,11 @@ function ResourceCard(props) {
                     <li className="list-group-item">
                         <a href={resource.properties.website} className="card-link">{resource.properties.website}</a>
                     </li>
-                    <div className="d-flex">
+                </ul>
+                <div className="d-flex">
                         <Link className="btn btn-primary learn-more flex-fill" to={"/resources/" + props.keyVal}>Learn More</Link>
                         {props.user && saveButton}
-                    </div>
-                </ul>
+                </div>
             </div>
             {confirmation != "" && confirmation}
         </div>
@@ -127,17 +127,16 @@ function ResourceCardList(props) {
     const resources = props.resources;
     const resourceCardList = resources.map((resource, index) => {
         return (
-            <div className="justify-content-center col-md-4 col-sm-6" key={index}>
+            <div className="d-flex justify-content-center col-lg-6 col-xl-4 col-sm-12" key={index}>
                 <ResourceCard resource={resource} keyVal={index} key={index} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource}/>
             </div>
         );
     })
     return (
-        <div className="d-flex flex-row gap-4 justify-content-center carditem" >
-            <div className="row">
+        <div className="carditem" >
+            <div className="d-flex row justify-content-center flex-wrap">
                 {resourceCardList}
             </div>
-
         </div>
     );
 
