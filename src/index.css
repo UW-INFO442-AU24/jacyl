@@ -507,7 +507,11 @@ html, body {
 
 /* Resource/User Styling */
 .learn-more {
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 0 0 2px;
+}
+
+.action-button {
+  border-radius: 0 0 2px 0;
 }
 
 .user-container {
