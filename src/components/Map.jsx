@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -137,7 +138,7 @@ return (
                 />
                 <button className="zipSearchButton" onClick={handleZipCodeSubmit}>Search</button>
             </div>
-            <span id="passwordHelpInline" class="form-text"> Must be a King County Zip Code in the format ##### or #####-####. Find your ZIP Code <a href="https://www.unitedstateszipcodes.org/">here</a>.</span>
+            <span id="passwordHelpInline" className="form-text"> Must be a King County Zip Code in the format ##### or #####-####. Find your ZIP Code <a href="https://www.unitedstateszipcodes.org/">here</a>.</span>
             <MapFilter selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />
             <h2 className='mapAbout'>About the Map</h2>
             <p>This map was created using <a href="https://data.kingcounty.gov/Health-Wellness/King-County-Mental-Health-and-Substance-Use-Disord/sep3-3pj3/about_data">King County open data</a> about mental health resources and was manually cleaned to find resources that fit our demographic of youth adults aged 16-20 years old.</p>
@@ -171,6 +172,7 @@ return (
                             <p><strong>Phone:</strong> {location.phoneNumber}</p>
                             <p><strong>Address:</strong> {location.address}</p>
                             <p><strong>Description:</strong> {location.description}</p>
+                            <p>Want more details? <Link to={"/resources/" + index}>Click here.</Link></p>
                         </div>
                         </Popup>
                     </Marker>

@@ -109,11 +109,11 @@ function App() {
          <Route path="map" element={<Map />} />
          <Route path="quiz" element={<Quiz />} />
          <Route path="quizquestion" element={<QuizQuestion onComplete={handleQuizCompletion} />} />
-        <Route path="quizresult" element={<QuizResult recommendedTags={recommendedTags} onRetakeQuiz={handleRetakeQuiz} />} />
-         <Route path="resources" element={<ResourceList />} />
+         <Route path="quizresult" element={<QuizResult recommendedTags={recommendedTags} onRetakeQuiz={handleRetakeQuiz} />} />
+         <Route path="resources" element={<ResourceList user={user} saveResource={saveResource} savedResources={savedResources} deleteResource={deleteResource}/>} />
          <Route path="resources/:id" element={<ResourceDetails user={user} saveResource={saveResource} savedResources={savedResources} deleteResource={deleteResource}/>} />
          <Route path="login" element={<Login user={user}/> } />
-         <Route path="user" element={<User user={user} savedResources={savedResources}/>} />
+         <Route path="user" element={<User user={user} saveResource={saveResource} savedResources={savedResources} deleteResource={deleteResource}/>} />
         </Routes>
       </div>
       <Footer />

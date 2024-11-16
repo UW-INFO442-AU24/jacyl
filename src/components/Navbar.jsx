@@ -6,7 +6,7 @@ export function Navbar({user}) {
 
     const auth = getAuth();
 
-    function signout() {
+    function signOut() {
         signOut(auth)
             .catch((err) => {
                 console.log(err);
@@ -15,9 +15,11 @@ export function Navbar({user}) {
 
     return (    
         <nav className="navbar">
-        <div className="logo">
-            <img src="/img/logo.png" alt="Logo" className="logo-image" />
-       </div>
+            <Link to="/">
+                <div className="logo">
+                    <img src="/img/logo.png" alt="Logo" className="logo-image" />
+                </div>
+            </Link>
         <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/resources">Resources</Link></li>
@@ -44,7 +46,7 @@ export function Navbar({user}) {
                             <Dropdown.Item as={NavLink} to="/login">Login</Dropdown.Item>
                         )}
                         {user && (
-                            <Dropdown.Item as={NavLink} to="/" onClick={handleSignOut}>Sign-Out</Dropdown.Item>
+                            <Dropdown.Item as={NavLink} to="/" onClick={signOut}>Sign-Out</Dropdown.Item>
                         )}
                     </Dropdown.Menu>
                 </Dropdown>
