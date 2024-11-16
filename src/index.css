@@ -15,6 +15,33 @@ html, body {
   overflow: auto; 
 }
 
+.btn-primary {
+  background-color: #5a95e6;
+  border-color: #5a95e6;
+}
+
+.btn-primary:hover {
+  background-color: #307fef;
+}
+
+.btn-danger {
+  background-color: rgb(243, 70, 70);
+  border-color: rgb(243, 70, 70);
+}
+
+.btn-danger:hover {
+  background-color: rgb(249, 29, 29);
+}
+
+.btn-success {
+  background-color: #3ea441;
+  border-color: #3ea441;
+}
+
+.btn-success:hover {
+  background-color: #099d0e;
+}
+
 /* about page */
 .profile-name {
   font-size: 2.5rem;
@@ -148,10 +175,11 @@ html, body {
   font-size: 16px;
   color: white;
   border: none;
+  text-decoration: none;
 }
 
 .cta-button:hover {
-  background-color: #3a78d0; 
+  background-color: #307fef; 
 }
 
 .logo {
@@ -219,7 +247,7 @@ html, body {
 .quizbutton {
   font-size: 0.9rem;
   padding: 8px 16px;
-  background-color: #28a745;
+  background-color: #5a95e6;
   color: white;
   border: none;
   border-radius: 5px;
@@ -229,7 +257,7 @@ html, body {
   max-width: 130px;
 }
 .quizbutton:hover {
-  background-color: #218838;
+  background-color: #307fef;
 }
 /* @media (max-width: 768px) {
   .QuizContentWrapper {
@@ -332,7 +360,7 @@ html, body {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color: #5a95e6;
   color: white;
   border: none;
   border-radius: 5px;
@@ -341,7 +369,7 @@ html, body {
 }
 
 .submitButton:hover {
-  background-color: #45a049;
+  background-color: #307fef;
 }
 
 .QuizQuestionImage {
@@ -429,6 +457,10 @@ html, body {
   line-height: 1;
 }
 
+.zipSearchButton:hover {
+  background-color: #307fef;
+}
+
 .mapAbout {
   margin-top: 75px;
 }
@@ -503,13 +535,15 @@ html, body {
   text-decoration: underline;
 }
 
+
+
 .retakeQuizButton {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  background-color: #4caf50;
+  background-color: #5a95e6;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -517,7 +551,7 @@ html, body {
 }
 
 .retakeQuizButton:hover {
-  background-color: #45a049;
+  background-color: #307fef;
 }
 
 .cardGrid {
