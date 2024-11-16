@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CardFilter } from "./CardFilter";
 import data from "../data/resources1.json"
 import { Link } from "react-router-dom";
+import { remove } from "firebase/database";
 // const resourcesTemp = [
 //     { name: "Resource 1", tags: ['Tag1', 'Tag2'], address: '123 Main Street' },
 //     { name: "Resource 2", tags: ['Tag2', 'Tag3'], address: '567 Main Street' },
@@ -14,7 +15,7 @@ import { Link } from "react-router-dom";
 
 export function ResourceList(props) {
 
-    const [tagFilter, setTagFilter] = useState('All')
+    const [tagFilter, setTagFilter] = useState([])
     const [searchFilter, setSearchFilter] = useState('')
 
     function applyTagFilter(tag) {
@@ -27,10 +28,11 @@ export function ResourceList(props) {
 
     //REPLACE TEMP VALUE WHEN JSON USED 
     const tagFilteredResources = data.resources.filter((resource) => {
-        if (tagFilter === 'All') {
+        if (tagFilter.length < 1) {
             return resource;
         }
-        else if (resource.properties.serviceType.includes(tagFilter)) {
+        else if (tagFilter.every(tag => 
+            resource.properties.serviceType.includes(tag))) {
             return resource;
         }
     })
@@ -40,11 +42,16 @@ export function ResourceList(props) {
             return resource;
         }
         else {
-            const titleUpper = resource.properties.resourceName.toUpperCase()
+            let titleUpper = resource.properties.resourceName.toUpperCase()
+            let tagsUpper = resource.properties.serviceType.toString().toUpperCase();
+            // tagsUpper = (tagsUpper.toString)
+            let addressUpper = resource.properties.address.toUpperCase()
             const searchUpper = searchFilter.toUpperCase()
-            if (titleUpper.includes(searchUpper)) {
+            if (titleUpper.includes(searchUpper) || tagsUpper.includes(searchUpper)
+                || addressUpper.includes(searchUpper)) {
                 return resource;
             }
+                
         }
     });
 

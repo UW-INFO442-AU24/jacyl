@@ -3,13 +3,16 @@ import data from "../data/resources1.json";
 import { Link } from "react-router-dom";
 
 export function QuizResult({ recommendedTags, onRetakeQuiz }) {
-    const filteredResources = data.resources.filter((resource, index) =>
+    let filteredResources = data.resources.filter((resource, index) =>
       {
         resource["resourceNum"] = index;
         return resource.properties.serviceType.some(tag => recommendedTags.includes(tag));
       }
     );
-  
+    // Grab 3 of the resources to reccommend
+    filteredResources = filteredResources.sort(() => 0.5 - Math.random());
+    filteredResources = filteredResources.slice(0, 3);
+
     return (
       <div className="QuizResultContainer">
         <h2>Your Recommended Resources</h2>
