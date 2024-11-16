@@ -576,6 +576,7 @@ html, body {
     font-size: 1em; 
     padding-right: 10px;
     text-align: right;
+    width: 300px;
   }
 
   .cta-button {
