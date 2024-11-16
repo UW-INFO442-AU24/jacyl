@@ -3,12 +3,22 @@ html, body {
   margin: 0;
 }
 
-/* about page */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
+.main-content {
+  flex: 1;
+  padding-bottom: 20px;
+  overflow: auto; 
+}
+
+/* about page */
 .profile-name {
   font-size: 2.5rem;
 }
-
 
 .photo {
   /* object-fit: cover; */
@@ -66,6 +76,16 @@ html, body {
   text-decoration: underline;
 }
 
+.hamburger-nav {
+  display: none; 
+}
+
+.btn-secondary {
+  background-color: #b3d8f2 !important; 
+  color: black !important; 
+  border: none !important;
+}
+
 /* footer */
 .footer {
   background-color: #b3d8f2; 
@@ -73,6 +93,7 @@ html, body {
   text-align: center;
   padding: 15px 0;
   font-size: 14px;
+  width: 100%;
 }
 
 /* home */
@@ -532,5 +553,78 @@ html, body {
   .youtube-video {
     height: 100%;
   }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .hamburger-nav {
+      display: none; 
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5em;
+    margin: 0;
+    padding-right: 10px;
+    text-align: right;
+  }
+
+  .subtitle {
+    font-size: 1em; 
+    padding-right: 10px;
+    text-align: right;
+  }
+
+  .cta-button {
+    font-size: 15px;
+  }
+
+  .content {
+    padding-right: 10px;
+  }
+
+  .overlay {
+    width: 65%; 
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%); 
+  }
+  
+  .nav-links {
+    display: none; 
+  }
+
+  .hamburger-nav {
+    display: block; 
+  }
+
+  .mapContainer {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .zipCodeSection {
+    width: 100%; 
+    padding: 0 10px;
+  }
+  
+  .mapSection {
+    max-height: 50vh;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .main-content {
+    flex: 1;
+    padding-bottom: 20px; 
+  }
+
+  .footer {
+    margin-top: auto; 
+    position: relative;
+  }
+
   
 }
