@@ -45,10 +45,6 @@ export function CardFilter(props) {
     // }
 
     const handleSearchChange = (event) => {
-<<<<<<< HEAD
-        // console.log(event.target.value)
-        props.applySearchFilterCallback(event.target.value)
-=======
         console.log(event.target.value);
         props.applySearchFilterCallback(event.target.value);
     }
@@ -56,7 +52,6 @@ export function CardFilter(props) {
     const handleSubmission = (event) => {
         console.log(event);
         event.preventDefault();
->>>>>>> 3198105fc165d807168897752987097ef55c9462
     }
 
     // Send the current clicked tags to the resourcelist for filtering

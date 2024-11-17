@@ -102,15 +102,9 @@ export function ResourceList(props) {
         // OVERALL BACKGROUND STYLE HERE
         <div className="container my-4">
             <h1>Resource List</h1>
-<<<<<<< HEAD
-            {!props.user && <p>You currently aren't signed in. <Link to="/login">Log-in</Link> to save these resources for later.</p>}
-            <CardFilter applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter}></ CardFilter>
-
-=======
             {!props.user && <p>You are not currently signed in. <Link to="/login">Log-in</Link> to save these resources for later.</p>  }
             <CardFilter applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter} searchFilter={searchFilter}/>
             
->>>>>>> 3198105fc165d807168897752987097ef55c9462
             {/* ROW/COLUMN STYLE HERE */}
             <div>
                 <ResourceCardList resources={searchFilteredResources} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource} />
@@ -146,15 +140,9 @@ function ResourceCard(props) {
 
 
     return (
-<<<<<<< HEAD
-        <div className="mb-5" style={{ width: '20rem' }}>
-            <div className="card" style={{ width: '20rem' }}>
-                <img src={resource.properties.image} className="card-img-top" alt="..." />
-=======
         <div className="mb-5" style={{ width: '20rem'}}>
             <div className="card" style={{ width: '20rem'}}>
                 <img src={resource.properties.image} className="card-img-top" alt={resource.properties.resourceName + " logo"} />
->>>>>>> 3198105fc165d807168897752987097ef55c9462
 
                 <div className="card-body" style={{ fontSize: '1.2rem' }}>
                     <h2 className="card-title" style={{ fontSize: '1.2rem' }}>{resource.properties.resourceName}</h2>
@@ -182,13 +170,8 @@ function ResourceCardList(props) {
     const resources = props.resources;
     const resourceCardList = resources.map((resource, index) => {
         return (
-<<<<<<< HEAD
-            <div className="justify-content-center col-md-4 col-sm-6" key={index}>
-                <ResourceCard resource={resource} keyVal={index} key={index} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource} />
-=======
             <div className="d-flex justify-content-center col-lg-6 col-xl-4 col-sm-12" key={index}>
                 <ResourceCard resource={resource} keyVal={index} key={index} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource}/>
->>>>>>> 3198105fc165d807168897752987097ef55c9462
             </div>
         );
     })
