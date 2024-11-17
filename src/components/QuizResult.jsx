@@ -12,15 +12,16 @@ export function QuizResult({ recommendedTags, onRetakeQuiz }) {
   }
   );
   // Grab 3 of the resources to reccommend
-  if (filteredResources.length > 3){
-  filteredResources = filteredResources.sort(() => 0.5 - Math.random());
-  filteredResources = filteredResources.slice(0, 3);
-  }
-
   // if (filteredResources.length > 3){
-  //   filteredResources = getTopMatches(filteredResources, recommendedTags)
+  // filteredResources = filteredResources.sort(() => 0.5 - Math.random());
+  // filteredResources = filteredResources.slice(0, 3);
   // }
 
+  if (filteredResources.length > 3){
+    filteredResources = getTopMatches(filteredResources, recommendedTags)
+    console.log(filteredResources)
+  }
+  // return(<div/>);
   return (
     <div className="QuizResultContainer">
       <h2>Your Recommended Resources</h2>
@@ -28,10 +29,10 @@ export function QuizResult({ recommendedTags, onRetakeQuiz }) {
         <div className="cardGrid">
           {filteredResources.map((resource, index) => (
             <div key={index} className="resourceCard">
-              <h3>{resource.properties.resourceName}</h3>
-              <p>Address: {resource.properties.address}</p>
-              <p>Phone: {resource.properties.phoneNumber}</p>
-              <a href={resource.properties.website} target="_blank" rel="noopener noreferrer">
+              <h3>{resource.resource.properties.resourceName}</h3>
+              <p>Address: {resource.resource.properties.address}</p>
+              <p>Phone: {resource.resource.properties.phoneNumber}</p>
+              <a href={resource.resource.properties.website} target="_blank" rel="noopener noreferrer">
                 Website
               </a>
               <p>Want more details? <Link to={"/resources/" + resource.resourceNum}>Click here.</Link></p>
@@ -47,27 +48,28 @@ export function QuizResult({ recommendedTags, onRetakeQuiz }) {
 }
 
 
-function getTopMatches(resourceList, reccommendedResourceTags) {
+function getTopMatches(resourceList, recommendedResourceTags) {
   // Function will intake the resource tags list, and the 
   // Reccommended quiz tags and return the top 3 highest matched quiz tags
   
   const scoreMatches = (resource) => {
+    let resourceTags = resource.properties.serviceType; 
     let numMatches = 0;
-    for (let i = 0; i < resource.length; i++) {
-      if (reccommendedResourceTags.includes(resource[i])) {
+    for (let i = 0; i < resourceTags.length; i++) {
+      if (recommendedResourceTags.includes(resourceTags[i])) {
         numMatches++;
       }
     }
-
+    return numMatches;
   }
   // Store the scored results
-  const scoredMatchLists = resourceList.properties.map((resource) => ({ resource, score: scoreMatches(resource) }));
+  const resourceListScored = resourceList.map((resource) => ({resource, score: scoreMatches(resource) }));
 
   // Sort the scored lists by score in descending order
-  scoredMatchLists.sort((a, b) => b.score - a.score);
+  resourceListScored.sort((a, b) => b.score - a.score);
 
   // Return the top 3 lists
-  return scoredMatchLists.slice(0, 3);
+  return resourceListScored.slice(0, 3);
 }
   // if (filteredResources.length > 3){
   //   filteredResources = getTopMatches(filteredResources, recommendedTags)
