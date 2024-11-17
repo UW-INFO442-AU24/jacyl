@@ -19,13 +19,15 @@ function ResourceCard({ resource, keyVal, deleteResource, user }) {
                 <li className="list-group-item">{"Phone: " + resource.phoneNumber} </li>
                 <li className="list-group-item">
                     <a href={resource.website} className="card-link">{resource.website}</a>
-                </li>
-                <Link className="btn btn-primary learn-more" to={"/resources/" + keyVal}>Learn More</Link>
-                {user && <button className="btn btn-danger action-button flex-fill" onClick={() => {
+                </li>        
+                <div className="d-flex flex-column">
+                    <Link className="btn btn-primary learn-more" to={"/resources/" + keyVal}>Learn More</Link>
+                    {user && <button className="btn btn-danger action-button flex-fill" onClick={() => {
                         deleteResource(keyVal);
                     }}>Remove Saved Resource</button>}
+                </div>
+        
             </ul>
-
         </div>
     )
 }
