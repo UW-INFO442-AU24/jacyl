@@ -33,8 +33,12 @@ const MapFilter = ({ selectedFilters, setSelectedFilters }) => {
 
     return (
         <div className="filter-section">
+            <div className="d-flex p-2 m-1 border border-dark my-3">
+                <h2> Filter</h2>
+                <div className="d-inline-flex flex-wrap p-2 m-2">
             {tags.map((tag) => (
-                <label key={tag} className="filter-checkbox">
+                
+                <label key={tag} className="filter-checkbox mx-2">
                     <input
                         type="checkbox"
                         checked={selectedFilters.includes(tag)}
@@ -43,8 +47,11 @@ const MapFilter = ({ selectedFilters, setSelectedFilters }) => {
                     {tag}
                 </label>
             ))}
+            </div>
+            </div>
         </div>
     );
+
 };
 
 // Function to controls map view based off of user input

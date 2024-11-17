@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CardFilter } from "./CardFilter";
 import data from "../data/resources1.json"
 import { Link } from "react-router-dom";
@@ -15,27 +15,71 @@ import { remove } from "firebase/database";
 
 export function ResourceList(props) {
 
+    const tagsList = ["Asian", "LGBTQ+", "Latino", "Bilingual Services",
+        "Assessment Services", "Individual Therapy",
+        "Group Therapy", "Family Therapy", "Dyadic Therapy", "Peer Support",
+        "Psychiatric Provider", "School-Based Services",
+        "Bilingual Services", "All Age Groups", "Youth (Up to 24 Years Old)",
+        "Case Management", "Crisis Hotline"];
+
     const [tagFilter, setTagFilter] = useState([])
     const [searchFilter, setSearchFilter] = useState('')
-
-    function applyTagFilter(tag) {
-        setTagFilter(tag);
+    // Holds the tags that will be used to filter
+    function applyTagFilter(tags) {
+        setTagFilter(tags);
     }
-
+    // Holds the search filter functions
     function applySearchFilter(search) {
         setSearchFilter(search);
     }
+    // let finalSFResources = data.resources;
 
-    //REPLACE TEMP VALUE WHEN JSON USED 
-    const tagFilteredResources = data.resources.filter((resource) => {
-        if (tagFilter.length < 1) {
-            return resource;
-        }
-        else if (tagFilter.every(tag => 
-            resource.properties.serviceType.includes(tag))) {
-            return resource;
-        }
+    // useEffect(() => {
+
+    //     let tagFilteredResources = data.resources.filter(resource => {
+    //         const resourceTags = resource.properties.serviceType || [];
+    //         return tagFilter.every(tag => resourceTags.includes(tag));
+    //     });
+    //     console.log(tagFilteredResources, "tagFilteredResources")
+
+    //     let searchFilteredResources = tagFilteredResources.filter((resource) => {
+    //         if (searchFilter.length < 1) {
+    //             return resource;
+    //         }
+    //         else {
+    //             let titleUpper = resource.properties.resourceName.toUpperCase()
+    //             let tagsUpper = resource.properties.serviceType.toString().toUpperCase();
+    //             let addressUpper = resource.properties.address.toUpperCase()
+    //             const searchUpper = searchFilter.toUpperCase()
+    //             if (titleUpper.includes(searchUpper) || tagsUpper.includes(searchUpper)
+    //                 || addressUpper.includes(searchUpper)) {
+    //                 return resource;
+    //             }
+
+    //         }
+    //     });
+    //     finalSFResources = searchFilteredResources;
+    // });
+
+
+
+    console.log("Before filtering", tagFilter)
+    // Filters the resources by the tags 
+    const tagFilteredResources = data.resources.filter(resource => {
+        const resourceTags = resource.properties.serviceType || [];
+        return tagFilter.every(tag => resourceTags.includes(tag));
     })
+    console.log(tagFilteredResources, "tagFilteredResources")
+
+    // .filter((resource) => {
+    //     // console.log("In filtering", tagFilter)
+    //     if (tagFilter.length < 1) {
+    //         return resource;
+    //     }
+    //     else if (resource.properties.serviceType.forEach((tag) => tagFilter.includes(tag))){
+    //         return resource;
+    //     }
+    // })
 
     const searchFilteredResources = tagFilteredResources.filter((resource) => {
         if (searchFilter.length < 1) {
@@ -44,14 +88,13 @@ export function ResourceList(props) {
         else {
             let titleUpper = resource.properties.resourceName.toUpperCase()
             let tagsUpper = resource.properties.serviceType.toString().toUpperCase();
-            // tagsUpper = (tagsUpper.toString)
             let addressUpper = resource.properties.address.toUpperCase()
             const searchUpper = searchFilter.toUpperCase()
             if (titleUpper.includes(searchUpper) || tagsUpper.includes(searchUpper)
                 || addressUpper.includes(searchUpper)) {
                 return resource;
             }
-                
+
         }
     });
 
@@ -59,9 +102,9 @@ export function ResourceList(props) {
         // OVERALL BACKGROUND STYLE HERE
         <div className="container my-4">
             <h1>Resource List</h1>
-            {!props.user && <p>You currently aren't signed in. <Link to="/login">Log-in</Link> to save these resources for later.</p>  }
+            {!props.user && <p>You currently aren't signed in. <Link to="/login">Log-in</Link> to save these resources for later.</p>}
             <CardFilter applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter}></ CardFilter>
-            
+
             {/* ROW/COLUMN STYLE HERE */}
             <div>
                 <ResourceCardList resources={searchFilteredResources} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource} />
@@ -78,9 +121,9 @@ function ResourceCard(props) {
     const resource = props.resource;
 
     let saveButton = (<button className="btn btn-success action-button flex-fill" onClick={() => {
-                            props.saveResource(props.keyVal);
-                            setConfirmation(<p>This resource has been successfully saved to your <Link to="/user">profile</Link>.</p>);
-                        }}>Save Resource</button>);
+        props.saveResource(props.keyVal);
+        setConfirmation(<p>This resource has been successfully saved to your <Link to="/user">profile</Link>.</p>);
+    }}>Save Resource</button>);
 
     if (props.user && props.savedResources != null) {
         props.savedResources.forEach((resource) => {
@@ -95,10 +138,10 @@ function ResourceCard(props) {
         saveButton = (<p>Want to save this resource for later? <Link to="/login">Sign-in</Link> to save it!</p>);
     }
 
-    
+
     return (
-        <div className="mb-5" style={{ width: '20rem'}}>
-            <div className="card" style={{ width: '20rem'}}>
+        <div className="mb-5" style={{ width: '20rem' }}>
+            <div className="card" style={{ width: '20rem' }}>
                 <img src={resource.properties.image} className="card-img-top" alt="..." />
 
                 <div className="card-body" style={{ fontSize: '1.2rem' }}>
@@ -128,7 +171,7 @@ function ResourceCardList(props) {
     const resourceCardList = resources.map((resource, index) => {
         return (
             <div className="justify-content-center col-md-4 col-sm-6" key={index}>
-                <ResourceCard resource={resource} keyVal={index} key={index} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource}/>
+                <ResourceCard resource={resource} keyVal={index} key={index} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource} />
             </div>
         );
     })
