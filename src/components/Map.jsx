@@ -1,168 +1,102 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import L from 'leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { UseMapFunctions, MapViewController } from './MapComponent';
 import MapFilter from './MapFilter';
-import resourcesData from "../data/resources1.json";
-import zipCodesData from '../data/KingCountyZipCodes.json';
 
-import 'leaflet/dist/leaflet.css';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+const MapPage = () => {
+    const {
+        zipCodeInput,
+        handleZipCodeChange,
+        handleZipCodeSubmit,
+        zipCode,
+        filteredLocations,
+        selectedFilters,
+        setSelectedFilters,
+    } = UseMapFunctions();
 
-// Map Popup Markers
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: markerIcon2x,
-    iconUrl: markerIcon,
-    shadowUrl: markerShadow,
-});
-
-// Main map component with rendering and search functionality
-const MapComponent = () => {
-    // State variables for user inputs and validation
-    const [zipCodeInput, setZipCodeInput] = useState('');
-    const [zipCode, setZipCode] = useState('');
-    const [selectedFilters, setSelectedFilters] = useState([]); 
-
-    // Indexes resources
-    const resourcesDataWithNum = resourcesData.resources.map((resource, index) => {
-        return ({...resource, resourceNum: index});
-    })
-
-    // 
-    const filteredLocations = resourcesDataWithNum
-        .filter(resource => {
-            const resourceTags = resource.properties.serviceType || [];
-            return selectedFilters.every(filter => resourceTags.includes(filter));
-        })
-        .map(resource => ({
-            coords: resource.geometry.coordinates,
-            resourceName: resource.properties.resourceName,
-            website: resource.properties.website,
-            phoneNumber: resource.properties.phoneNumber,
-            address: resource.properties.address,
-            description: resource.properties.description,
-            resourceNum: resource.resourceNum
-        }));
-    
-
-    // Grabs King County ZIP code data
-    const zipCodes = zipCodesData.features;
-
-    // Handles search input restrictions, formats as #####-#### if user inputs a nine digit ZIP cod
-    const handleZipCodeChange = (e) => {
-        let value = e.target.value;
-        value = value.replace(/[^\d]/g, ''); // Only allows digit inputs
-        if (value.length > 5 && value[5] !== '-') {
-            value = value.slice(0, 5) + '-' + value.slice(5);
-        }
-        setZipCodeInput(value);
-    };
-
-    // Sets ZIP code state when user submits/enters a search
-    const handleZipCodeSubmit = () => {
-        setZipCode(zipCodeInput);
-    };
-    
-    // Boundaries for the map
     const kingCountyBounds = [
         [46.972060, -122.750396],
-        [49.088447, -121.084384]
+        [49.088447, -121.084384],
     ];
 
-    // Function to change map view based on user input
-    const MapViewController = ({ zipCode, zipCodes }) => {
-        const map = useMap(); // Access map
-    
-        // Grabs only first five digits of entered ZIP code and checks if it is a King County ZIP. 
-        useEffect(() => {
-            if (zipCode) {
-                const zipCodeFive= zipCode.slice(0, 5);
-                const zipCodePoint = zipCodes.find(zip => zip.properties.ZIPCODE === zipCodeFive);
-    
-                // If the ZIP code is in King County, change map view to ZIP code coordinates.
-                if (zipCodePoint) {
-                    const zipLatLng = L.latLng(zipCodePoint.geometry.coordinates[1], zipCodePoint.geometry.coordinates[0]); 
-                    map.setView(zipLatLng, 13);
-                }
-            }
-        }, [zipCode, zipCodes, map]);
-    
-        return null; // Only modifies map view
-    };
-
-// Map Page    
-return (
-    <div className="mapContainer">
-        <div className="zipCodeSection">
-            <h1 htmlFor="zipCode" className="zipSearchLabel">Find Resources Near You: </h1>
-            <div className="zipCodeInputContainer">
-                <input
-                    type="text"
-                    className="zipInput"
-                    id="zipCode"
-                    value={zipCodeInput}
-                    onChange={handleZipCodeChange}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            handleZipCodeSubmit();
-                        }
-                    }}
-                    placeholder="Enter ZIP code"
-                    pattern="\d{5}-?(\d{4})?"
-                    inputMode="numeric"
-                    maxLength="10"
-                />
-                <button className="zipSearchButton" onClick={handleZipCodeSubmit}>Search</button>
+    return (
+        <div className="mapContainer">
+            <div className="zipCodeSection">
+                <h1 htmlFor="zipCode" className="zipSearchLabel">Find Resources Near You:</h1>
+                <div className="zipCodeInputContainer">
+                    <input
+                        type="text"
+                        className="zipInput"
+                        id="zipCode"
+                        value={zipCodeInput}
+                        onChange={handleZipCodeChange}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                handleZipCodeSubmit();
+                            }
+                        }}
+                        placeholder="Enter ZIP code"
+                        inputMode="numeric"
+                        maxLength="10"
+                    />
+                    <button className="zipSearchButton" onClick={handleZipCodeSubmit}>
+                        Search
+                    </button>
+                </div>
+                <span className="form-text">
+                    Must be a King County Zip Code in the format ##### or #####-####. Find your ZIP Code{' '}
+                    <a href="https://www.unitedstateszipcodes.org/">here</a>.
+                </span>
+                <MapFilter selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />
+                <h2 className="mapAbout">About the Map</h2>
+                <p>
+                    This map was created using{' '}
+                    <a href="https://data.kingcounty.gov/Health-Wellness/King-County-Mental-Health-and-Substance-Use-Disord/sep3-3pj3/about_data">
+                        King County open data
+                    </a>{' '}
+                    about mental health resources and was manually cleaned to find resources that fit our demographic of youth adults aged 16-20 years old.
+                </p>
             </div>
-            <span id="passwordHelpInline" className="form-text"> Must be a King County Zip Code in the format ##### or #####-####. Find your ZIP Code <a href="https://www.unitedstateszipcodes.org/">here</a>.</span>
-            <MapFilter selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />
-            <h2 className='mapAbout'>About the Map</h2>
-            <p>This map was created using <a href="https://data.kingcounty.gov/Health-Wellness/King-County-Mental-Health-and-Substance-Use-Disord/sep3-3pj3/about_data">King County open data</a> about mental health resources and was manually cleaned to find resources that fit our demographic of youth adults aged 16-20 years old.</p>
+
+            {/* Map Section */}
+            <div className="mapSection">
+                <MapContainer
+                    center={[47.5567, -122.3066]}
+                    zoom={10}
+                    style={{ height: '75vh', width: '100%' }}
+                    maxBounds={kingCountyBounds}
+                    maxBoundsViscosity={1.0}
+                    minZoom={8}
+                    maxZoom={15}
+                >
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+
+                    <MapViewController zipCode={zipCode} />
+
+                    {filteredLocations.map((location, index) => (
+                        <Marker key={index} position={location.coords}>
+                            <Popup>
+                            <div>
+                                <h3>{location.resourceName}</h3>
+                                <p><strong>Website:</strong> <a href={location.website} target="_blank" rel="noopener noreferrer">{location.website}</a></p>
+                                <p><strong>Phone:</strong> {location.phoneNumber}</p>
+                                <p><strong>Address:</strong> {location.address}</p>
+                                <p><strong>Description:</strong> {location.description}</p>
+                                <p>Want more details? <Link to={"/resources/" + location.resourceNum}>Click here.</Link></p>
+                            </div>
+                            </Popup>
+                        </Marker>
+                    ))}
+                </MapContainer>
+            </div>
         </div>
-
-        <div className='mapSection'>
-            <MapContainer 
-                center={[47.5567, -122.3066]} 
-                zoom={10} 
-                style={{ height: "75vh", width: "100%" }}
-                // here 
-                maxBounds={kingCountyBounds}
-                maxBoundsViscosity={1.0}
-                minZoom={8}
-                maxZoom={15} 
-            >
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-
-                <MapViewController zipCode={zipCode} zipCodes={zipCodes} />
-
-                {filteredLocations.map((location, index) => (
-                    <Marker key={index} position={location.coords}>
-                        
-                        <Popup>
-                        <div>
-                            <h3>{location.resourceName}</h3>
-                            <p><strong>Website:</strong> <a href={location.website} target="_blank" rel="noopener noreferrer">{location.website}</a></p>
-                            <p><strong>Phone:</strong> {location.phoneNumber}</p>
-                            <p><strong>Address:</strong> {location.address}</p>
-                            <p><strong>Description:</strong> {location.description}</p>
-                            <p>Want more details? <Link to={"/resources/" + location.resourceNum}>Click here.</Link></p>
-                        </div>
-                        </Popup>
-                    </Marker>
-                ))}
-            </MapContainer>
-        </div>
-    </div>
     );
 };
 
-// Export Map function for App
 export function Map() {
-    return(<MapComponent />)
+    return(<MapPage />)
 }
