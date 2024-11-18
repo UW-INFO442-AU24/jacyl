@@ -83,7 +83,6 @@ const MapComponent = () => {
     const [selectedFilters, setSelectedFilters] = useState([]); 
 
     const resourcesDataWithNum = resourcesData.resources.map((resource, index) => {
-        console.log({...resource, resourceNum: index});
         return ({...resource, resourceNum: index});
     })
 
@@ -102,7 +101,6 @@ const MapComponent = () => {
             resourceNum: resource.resourceNum
         }));
     
-    console.log(filteredLocations);
 
     // Grabs King County ZIP code data
     const zipCodes = zipCodesData.features;
