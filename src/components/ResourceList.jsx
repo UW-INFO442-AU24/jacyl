@@ -64,12 +64,15 @@ export function ResourceList(props) {
 
 
     console.log("Before filtering", tagFilter)
+    const resourcesDataWithNum = data.resources.map((resource, index) => {
+        return ({...resource, resourceNum: index});
+    })
+
     // Filters the resources by the tags 
-    const tagFilteredResources = data.resources.filter(resource => {
+    const tagFilteredResources = resourcesDataWithNum.filter(resource => {
         const resourceTags = resource.properties.serviceType || [];
         return tagFilter.every(tag => resourceTags.includes(tag));
     })
-    console.log(tagFilteredResources, "tagFilteredResources")
 
     // .filter((resource) => {
     //     // console.log("In filtering", tagFilter)
@@ -121,15 +124,15 @@ function ResourceCard(props) {
     const resource = props.resource;
 
     let saveButton = (<button className="btn btn-success action-button flex-fill" onClick={() => {
-        props.saveResource(props.keyVal);
+        props.saveResource(resource.resourceNum);
         setConfirmation(<p>This resource has been successfully saved to your <Link to="/user">profile</Link>.</p>);
     }}>Save Resource</button>);
 
     if (props.user && props.savedResources != null) {
         props.savedResources.forEach((resource) => {
-            if (resource.resourceNum == props.keyVal) {
+            if (resource.resourceNum == props.resource.resourceNum) {
                 saveButton = <button className="btn btn-danger action-button flex-fill" onClick={() => {
-                    props.deleteResource(props.keyVal);
+                    props.deleteResource(props.resource.resourceNum);
                     setConfirmation(<p>This resource has been successfully removed from your <Link to="/user">profile</Link>.</p>);
                 }}>Remove Saved Resource</button>
             }
@@ -156,7 +159,7 @@ function ResourceCard(props) {
                     </li>
                 </ul>
                 <div className="d-flex">
-                        <Link className="btn btn-primary learn-more flex-fill" to={"/resources/" + props.keyVal}>Learn More</Link>
+                        <Link className="btn btn-primary learn-more flex-fill" to={"/resources/" + resource.resourceNum}>Learn More</Link>
                         {props.user && saveButton}
                 </div>
             </div>
@@ -171,7 +174,7 @@ function ResourceCardList(props) {
     const resourceCardList = resources.map((resource, index) => {
         return (
             <div className="d-flex justify-content-center col-lg-6 col-xl-4 col-sm-12" key={index}>
-                <ResourceCard resource={resource} keyVal={index} key={index} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource}/>
+                <ResourceCard resource={resource} key={index} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource}/>
             </div>
         );
     })
