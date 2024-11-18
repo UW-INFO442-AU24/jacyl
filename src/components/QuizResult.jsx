@@ -19,8 +19,11 @@ export function QuizResult({ recommendedTags, onRetakeQuiz }) {
 
   if (filteredResources.length > 3){
     filteredResources = getTopMatches(filteredResources, recommendedTags)
-    console.log(filteredResources)
+    filteredResources = filteredResources.map((resource) => {
+      return resource.resource;
+    })
   }
+
   // return(<div/>);
   return (
     <div className="QuizResultContainer">
@@ -29,10 +32,10 @@ export function QuizResult({ recommendedTags, onRetakeQuiz }) {
         <div className="cardGrid">
           {filteredResources.map((resource, index) => (
             <div key={index} className="resourceCard">
-              <h3>{resource.resource.properties.resourceName}</h3>
-              <p>Address: {resource.resource.properties.address}</p>
-              <p>Phone: {resource.resource.properties.phoneNumber}</p>
-              <a href={resource.resource.properties.website} target="_blank" rel="noopener noreferrer">
+              <h3>{resource.properties.resourceName}</h3>
+              <p>Address: {resource.properties.address}</p>
+              <p>Phone: {resource.properties.phoneNumber}</p>
+              <a href={resource.properties.website} target="_blank" rel="noopener noreferrer">
                 Website
               </a>
               <p>Want more details? <Link to={"/resources/" + resource.resourceNum}>Click here.</Link></p>
@@ -67,6 +70,7 @@ function getTopMatches(resourceList, recommendedResourceTags) {
 
   // Sort the scored lists by score in descending order
   resourceListScored.sort((a, b) => b.score - a.score);
+
 
   // Return the top 3 lists
   return resourceListScored.slice(0, 3);
