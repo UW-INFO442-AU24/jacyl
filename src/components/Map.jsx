@@ -82,7 +82,12 @@ const MapComponent = () => {
     const [zipCode, setZipCode] = useState('');
     const [selectedFilters, setSelectedFilters] = useState([]); 
 
-    const filteredLocations = resourcesData.resources
+    const resourcesDataWithNum = resourcesData.resources.map((resource, index) => {
+        console.log({...resource, resourceNum: index});
+        return ({...resource, resourceNum: index});
+    })
+
+    const filteredLocations = resourcesDataWithNum
         .filter(resource => {
             const resourceTags = resource.properties.serviceType || [];
             return selectedFilters.every(filter => resourceTags.includes(filter));
@@ -93,9 +98,11 @@ const MapComponent = () => {
             website: resource.properties.website,
             phoneNumber: resource.properties.phoneNumber,
             address: resource.properties.address,
-            description: resource.properties.description
+            description: resource.properties.description,
+            resourceNum: resource.resourceNum
         }));
-
+    
+    console.log(filteredLocations);
 
     // Grabs King County ZIP code data
     const zipCodes = zipCodesData.features;
@@ -179,7 +186,7 @@ return (
                             <p><strong>Phone:</strong> {location.phoneNumber}</p>
                             <p><strong>Address:</strong> {location.address}</p>
                             <p><strong>Description:</strong> {location.description}</p>
-                            <p>Want more details? <Link to={"/resources/" + index}>Click here.</Link></p>
+                            <p>Want more details? <Link to={"/resources/" + location.resourceNum}>Click here.</Link></p>
                         </div>
                         </Popup>
                     </Marker>
