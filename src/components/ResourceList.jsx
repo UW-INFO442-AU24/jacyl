@@ -19,7 +19,7 @@ export function ResourceList(props) {
         "Assessment Services", "Individual Therapy",
         "Group Therapy", "Family Therapy", "Dyadic Therapy", "Peer Support",
         "Psychiatric Provider", "School-Based Services",
-        "Bilingual Services", "All Age Groups", "Youth (Up to 24 Years Old)",
+        "All Age Groups", "Youth (Up to 24 Years Old)",
         "Case Management", "Crisis Hotline"];
 
     const [tagFilter, setTagFilter] = useState([])

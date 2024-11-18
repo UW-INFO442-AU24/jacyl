@@ -3,9 +3,8 @@ import React from 'react';
 const tags = [
     "Asian", "LGBTQ+", "Latino", "Bilingual Services", "Assessment Services",
     "Individual Therapy", "Group Therapy", "Family Therapy", "Dyadic Therapy",
-    "Peer Support", "Psychiatric Provider", "School-Based Services", 
-    "Bilingual Services", "All Age Groups", "Youth (Up to 24 Years Old)", 
-    "Case Management", "Crisis Hotline"
+    "Peer Support", "Psychiatric Provider", "School-Based Services",  "All Age Groups",
+    "Youth (Up to 24 Years Old)", "Case Management", "Crisis Hotline"
 ];
 
 const MapFilter = ({ selectedFilters, setSelectedFilters }) => {
