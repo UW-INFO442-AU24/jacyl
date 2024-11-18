@@ -1,6 +1,7 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'; 
-import Map from './Map';
+import { Map } from "./Map"
 
 test("validates ZIP code input format", async () => {
     render(<Map/>);

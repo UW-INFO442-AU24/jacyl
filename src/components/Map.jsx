@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
+import MapFilter from './MapFilter';
+import resourcesData from "../data/resources1.json";
+import zipCodesData from '../data/KingCountyZipCodes.json';
+
 import 'leaflet/dist/leaflet.css';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-import resourcesData from "../data/resources1.json";
-import zipCodesData from '../data/KingCountyZipCodes.json';
 
 // Map Popup Markers
 delete L.Icon.Default.prototype._getIconUrl;
@@ -17,64 +19,6 @@ L.Icon.Default.mergeOptions({
     shadowUrl: markerShadow,
 });
 
-const tags = ["Asian", "LGBTQ+", "Latino", "Bilingual Services", "Assessment Services", "Individual Therapy", 
-    "Group Therapy", "Family Therapy", "Dyadic Therapy", "Peer Support", "Psychiatric Provider", "School-Based Services",
-    "Bilingual Services", "All Age Groups", "Youth (Up to 24 Years Old)", "Case Management", "Crisis Hotline"
-];
-
-const MapFilter = ({ selectedFilters, setSelectedFilters }) => {
-    const handleTagClick = (tag) => {
-        if (selectedFilters.includes(tag)) {
-            setSelectedFilters(selectedFilters.filter((t) => t !== tag));
-        } else {
-            setSelectedFilters([...selectedFilters, tag]);
-        }
-    };
-
-    return (
-        <div className="filter-section">
-            <div className="d-flex p-2 m-1 border border-dark my-3">
-                <h2> Filter</h2>
-                <div className="d-inline-flex flex-wrap p-2 m-2">
-            {tags.map((tag) => (
-                
-                <label key={tag} className="filter-checkbox mx-2">
-                    <input
-                        type="checkbox"
-                        checked={selectedFilters.includes(tag)}
-                        onChange={() => handleTagClick(tag)}
-                    />
-                    {tag}
-                </label>
-            ))}
-            </div>
-            </div>
-        </div>
-    );
-
-};
-
-// Function to controls map view based off of user input
-const MapViewController = ({ zipCode, zipCodes }) => {
-    const map = useMap(); // Access map
-
-    // Grabs only first five digits of entered ZIP code and checks if it is a King County ZIP. 
-    useEffect(() => {
-        if (zipCode) {
-            const zipCodeFive= zipCode.slice(0, 5);
-            const zipCodePoint = zipCodes.find(zip => zip.properties.ZIPCODE === zipCodeFive);
-
-            // If the ZIP code is in King County, change map view to ZIP code coordinates.
-            if (zipCodePoint) {
-                const zipLatLng = L.latLng(zipCodePoint.geometry.coordinates[1], zipCodePoint.geometry.coordinates[0]); 
-                map.setView(zipLatLng, 13);
-            }
-        }
-    }, [zipCode, zipCodes, map]);
-
-    return null; // Only modifies map view
-};
-
 // Main map component with rendering and search functionality
 const MapComponent = () => {
     // State variables for user inputs and validation
@@ -82,10 +26,12 @@ const MapComponent = () => {
     const [zipCode, setZipCode] = useState('');
     const [selectedFilters, setSelectedFilters] = useState([]); 
 
+    // Indexes resources
     const resourcesDataWithNum = resourcesData.resources.map((resource, index) => {
         return ({...resource, resourceNum: index});
     })
 
+    // 
     const filteredLocations = resourcesDataWithNum
         .filter(resource => {
             const resourceTags = resource.properties.serviceType || [];
@@ -125,6 +71,27 @@ const MapComponent = () => {
         [46.972060, -122.750396],
         [49.088447, -121.084384]
     ];
+
+    // Function to change map view based on user input
+    const MapViewController = ({ zipCode, zipCodes }) => {
+        const map = useMap(); // Access map
+    
+        // Grabs only first five digits of entered ZIP code and checks if it is a King County ZIP. 
+        useEffect(() => {
+            if (zipCode) {
+                const zipCodeFive= zipCode.slice(0, 5);
+                const zipCodePoint = zipCodes.find(zip => zip.properties.ZIPCODE === zipCodeFive);
+    
+                // If the ZIP code is in King County, change map view to ZIP code coordinates.
+                if (zipCodePoint) {
+                    const zipLatLng = L.latLng(zipCodePoint.geometry.coordinates[1], zipCodePoint.geometry.coordinates[0]); 
+                    map.setView(zipLatLng, 13);
+                }
+            }
+        }, [zipCode, zipCodes, map]);
+    
+        return null; // Only modifies map view
+    };
 
 // Map Page    
 return (
