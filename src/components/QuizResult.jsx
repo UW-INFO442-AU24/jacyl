@@ -35,10 +35,10 @@ export function QuizResult({ recommendedTags, onRetakeQuiz, user, saveResource, 
           {filteredResources.map((resource, index) => {
             let saveButton = ""
             if (user && savedResources) {
-                saveButton = <button className="btn btn-success" onClick={() => {saveResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully added to your <Link to="/user">profile</Link>.</p>)}}>Save Resource</button>
+                saveButton = <button className="btn btn-success mt-4" onClick={() => {saveResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully added to your <Link to="/user">profile</Link>.</p>)}}>Save Resource</button>
                 savedResources.forEach((savedResource) => {
                     if (savedResource.resourceNum == resource.resourceNum) {
-                        saveButton = <button className="btn btn-danger" onClick={() => {deleteResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully removed from your <Link to="/user">profile</Link>.</p>)}}>Delete Saved Resource</button>
+                        saveButton = <button className="btn btn-danger mt-4" onClick={() => {deleteResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully removed from your <Link to="/user">profile</Link>.</p>)}}>Delete Saved Resource</button>
                         //if wanted faster performance, use break + for loop so it doesn't loop through everything
                     }
                 });
@@ -52,7 +52,7 @@ export function QuizResult({ recommendedTags, onRetakeQuiz, user, saveResource, 
               <a href={resource.properties.website} target="_blank" rel="noopener noreferrer">
                 Website
               </a>
-              <p className="mb-4">Want more details? <Link to={"/resources/" + resource.resourceNum}>Click here.</Link></p>
+              <p>Want more details? <Link to={"/resources/" + resource.resourceNum}>Click here.</Link></p>
               {saveButton}
             </div>
             )
