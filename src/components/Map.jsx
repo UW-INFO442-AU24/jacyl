@@ -4,10 +4,23 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { UseMapFunctions, MapViewController } from './MapComponent';
 import MapFilter from './MapFilter';
 import { useState } from "react";
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
+// Map Popup Markers
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+});
+
+// Map page component 
 const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
     const [confirm, setConfirm] = useState(""); //not sure if confirmation is possible... without making marker a component
 
+    // Extracts map functions from custom hook
     const {
         zipCodeInput,
         handleZipCodeChange,
@@ -18,13 +31,16 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
         setSelectedFilters,
     } = UseMapFunctions();
 
+    // Defines King County bounds for map view
     const kingCountyBounds = [
         [46.972060, -122.750396],
         [49.088447, -121.084384],
     ];
 
+    // Map page structure
     return (
         <div className="mapContainer">
+            {/* ZIP code search and filters */}
             <div className="zipCodeSection">
                 <h1 htmlFor="zipCode" className="zipSearchLabel">Find Resources Near You:</h1>
                 <div className="zipCodeInputContainer">
@@ -62,7 +78,7 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
                 </p>
             </div>
 
-            {/* Map Section */}
+            {/* Map section with Leaflet*/}
             <div className="mapSection">
                 <MapContainer
                     center={[47.5567, -122.3066]}
@@ -78,8 +94,10 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
 
+                    {/* Component for controlling map view based on ZIP code */}
                     <MapViewController zipCode={zipCode} />
-
+                    
+                    {/* Renders markers for filtered locations */}
                     {filteredLocations.map((location, index) => {
 
                     let saveButton = ""
@@ -100,7 +118,7 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
                             <p><strong>Website:</strong> <a href={location.website} target="_blank" rel="noopener noreferrer">{location.website}</a></p>
                             <p><strong>Phone:</strong> {location.phoneNumber}</p>
                             <p><strong>Address:</strong> {location.address}</p>
-                            <p><strong>Description:</strong> {location.description}</p>
+                            {/* <p><strong>Description:</strong> {location.description}</p> */}
                             <p>Want more details? <Link to={"/resources/" + location.resourceNum}>Click here.</Link></p>
                             {user && saveButton}
                         </div>
@@ -115,6 +133,7 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
     );
 };
 
+// Exports map page to app with passed properties
 export function Map({user, savedResources, saveResource, deleteResource}) {
     return(<MapPage user={user} saveResource={saveResource} deleteResource={deleteResource} savedResources={savedResources}/>)
 }

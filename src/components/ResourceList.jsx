@@ -178,6 +178,14 @@ function ResourceCardList(props) {
             </div>
         );
     })
+    if (resourceCardList.length == 0){
+        return (
+            <div>
+                <p className="bold h4 text-center my-5">No results found...</p>
+            </div>
+        );
+    }
+
     return (
         <div className="carditem" >
             <div className="d-flex row justify-content-center flex-wrap">

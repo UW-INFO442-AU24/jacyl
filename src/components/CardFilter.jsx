@@ -16,13 +16,15 @@ export function CardFilter(props) {
         "Case Management", "Crisis Hotline"];
 
     const [checkedTags, setCheckedTags] = useState([]);
-
+    const [searchInput, setSearchInput] = useState("")
 
     useEffect(() => {
       if (checkedTags != []){
         props.applyTagFilterCallback(checkedTags)
       }
-    }, [checkedTags])
+      if (searchInput.length > 0)
+        props.applySearchFilterCallback(searchInput)
+    }, [checkedTags, searchInput])
     
         // IGNORE
     // const handleTagFilterChange = (event) => {
@@ -46,6 +48,7 @@ export function CardFilter(props) {
 
     const handleSearchChange = (event) => {
         console.log(event.target.value);
+        setSearchInput(event.target.value)
         props.applySearchFilterCallback(event.target.value);
     }
 
