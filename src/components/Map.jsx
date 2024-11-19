@@ -4,6 +4,17 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { UseMapFunctions, MapViewController } from './MapComponent';
 import MapFilter from './MapFilter';
 import { useState } from "react";
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+// Map Popup Markers
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+});
 
 // Map page component 
 const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
