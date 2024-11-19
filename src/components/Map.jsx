@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { UseMapFunctions, MapViewController } from './MapComponent';
 import MapFilter from './MapFilter';
+import { useState } from "react";
 
-const MapPage = () => {
+const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
+    const [confirm, setConfirm] = useState(""); //not sure if confirmation is possible... without making marker a component
+
     const {
         zipCodeInput,
         handleZipCodeChange,
@@ -77,26 +80,41 @@ const MapPage = () => {
 
                     <MapViewController zipCode={zipCode} />
 
-                    {filteredLocations.map((location, index) => (
-                        <Marker key={index} position={location.coords}>
-                            <Popup>
-                            <div>
-                                <h3>{location.resourceName}</h3>
-                                <p><strong>Website:</strong> <a href={location.website} target="_blank" rel="noopener noreferrer">{location.website}</a></p>
-                                <p><strong>Phone:</strong> {location.phoneNumber}</p>
-                                <p><strong>Address:</strong> {location.address}</p>
-                                <p><strong>Description:</strong> {location.description}</p>
-                                <p>Want more details? <Link to={"/resources/" + location.resourceNum}>Click here.</Link></p>
-                            </div>
-                            </Popup>
-                        </Marker>
-                    ))}
-                </MapContainer>
-            </div>
+                    {filteredLocations.map((location, index) => {
+
+                    let saveButton = ""
+                    if (user && savedResources) {
+                        saveButton = <button className="btn btn-success" onClick={() => {saveResource(location.resourceNum); setConfirm(<p className="mt-2">"{location.resourceName}" has been successfully added to your <Link to="/user">profile</Link>.</p>)}}>Save Resource</button>
+                        savedResources.forEach((resource) => {
+                            if (resource.resourceNum == location.resourceNum) {
+                                saveButton = <button className="btn btn-danger" onClick={() => {deleteResource(location.resourceNum); setConfirm(<p className="mt-2">"{location.resourceName}" has been successfully removed from your <Link to="/user">profile</Link>.</p>)}}>Delete Saved Resource</button>
+                                //if wanted faster performance, use break + for loop so it doesn't loop through everything
+                            }
+                        });
+                    }
+                    return (
+                    <Marker key={index} position={location.coords}>
+                        <Popup>
+                        <div>
+                            <h3>{location.resourceName}</h3>
+                            <p><strong>Website:</strong> <a href={location.website} target="_blank" rel="noopener noreferrer">{location.website}</a></p>
+                            <p><strong>Phone:</strong> {location.phoneNumber}</p>
+                            <p><strong>Address:</strong> {location.address}</p>
+                            <p><strong>Description:</strong> {location.description}</p>
+                            <p>Want more details? <Link to={"/resources/" + location.resourceNum}>Click here.</Link></p>
+                            {user && saveButton}
+                        </div>
+                        </Popup>
+                    </Marker>
+                    )
+                    })}
+            </MapContainer>
+            {confirm}
         </div>
+    </div>
     );
 };
 
-export function Map() {
-    return(<MapPage />)
+export function Map({user, savedResources, saveResource, deleteResource}) {
+    return(<MapPage user={user} saveResource={saveResource} deleteResource={deleteResource} savedResources={savedResources}/>)
 }
