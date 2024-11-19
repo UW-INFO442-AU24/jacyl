@@ -1,8 +1,10 @@
 import React from 'react';
 import data from "../data/resources1.json";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-export function QuizResult({ recommendedTags, onRetakeQuiz }) {
+export function QuizResult({ recommendedTags, onRetakeQuiz, user, saveResource, deleteResource, savedResources }) {
+  const [confirm, setConfirm] = useState();
 
 
 
@@ -30,7 +32,19 @@ export function QuizResult({ recommendedTags, onRetakeQuiz }) {
       <h2>Your Recommended Resources</h2>
       {filteredResources.length > 0 ? (
         <div className="cardGrid">
-          {filteredResources.map((resource, index) => (
+          {filteredResources.map((resource, index) => {
+            let saveButton = ""
+            if (user && savedResources) {
+                saveButton = <button className="btn btn-success mt-4" onClick={() => {saveResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully added to your <Link to="/user">profile</Link>.</p>)}}>Save Resource</button>
+                savedResources.forEach((savedResource) => {
+                    if (savedResource.resourceNum == resource.resourceNum) {
+                        saveButton = <button className="btn btn-danger mt-4" onClick={() => {deleteResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully removed from your <Link to="/user">profile</Link>.</p>)}}>Delete Saved Resource</button>
+                        //if wanted faster performance, use break + for loop so it doesn't loop through everything
+                    }
+                });
+            }
+
+            return (
             <div key={index} className="resourceCard">
               <h3>{resource.properties.resourceName}</h3>
               <p>Address: {resource.properties.address}</p>
@@ -39,12 +53,15 @@ export function QuizResult({ recommendedTags, onRetakeQuiz }) {
                 Website
               </a>
               <p>Want more details? <Link to={"/resources/" + resource.resourceNum}>Click here.</Link></p>
+              {saveButton}
             </div>
-          ))}
+            )
+            })}
         </div>
       ) : (
         <p>No recommended resources found based on your quiz results.</p>
       )}
+      {user && confirm}
       <button onClick={onRetakeQuiz} className="retakeQuizButton">Retake Quiz</button>
     </div>
   );
