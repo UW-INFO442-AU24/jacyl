@@ -15,6 +15,7 @@ export function QuizQuestion({ onComplete }) {
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const [error, setError] = useState('');
 
+  // Toggles the selected answer for a question; deselects if the same option is clicked again.
   const handleSelectAnswer = (questionIndex, optionIndex) => {
     const newAnswers = [...answers];
     newAnswers[questionIndex] = newAnswers[questionIndex] === optionIndex ? null : optionIndex;
@@ -22,6 +23,7 @@ export function QuizQuestion({ onComplete }) {
     setError('');
   };
 
+  // Handles selection for the identity question
   const handleIdentitySelect = (identityTag) => {
     const newAnswers = [...answers];
     newAnswers[1] = newAnswers[1] === identityTag ? null : identityTag;
@@ -29,6 +31,7 @@ export function QuizQuestion({ onComplete }) {
     setError('');
   };
 
+  // Validates that all questions are answered before submission
   const handleSubmit = () => {
     if (answers.includes(null)) {
       setError('Please answer all questions before submitting.');
@@ -39,6 +42,7 @@ export function QuizQuestion({ onComplete }) {
     }
   };
 
+  // Maps answers to tags based on responses
   const generateTagsFromAnswers = (answers) => {
     const tags = [];
   
@@ -91,7 +95,6 @@ export function QuizQuestion({ onComplete }) {
           )}
         </div>
       ))}
-
       {error && <p className="ErrorMessage">{error}</p>}
       <button className="submitButton" onClick={handleSubmit}>Submit Quiz</button>
     </div>

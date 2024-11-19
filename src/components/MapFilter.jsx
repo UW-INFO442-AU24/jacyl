@@ -1,5 +1,6 @@
 import React from 'react';
 
+// static array of all of our resource tags
 const tags = [
     "Asian", "LGBTQ+", "Latino", "Bilingual Services", "Assessment Services",
     "Individual Therapy", "Group Therapy", "Family Therapy", "Dyadic Therapy",
@@ -8,6 +9,8 @@ const tags = [
 ];
 
 const MapFilter = ({ selectedFilters, setSelectedFilters }) => {
+    // Toggles the inclusion of a tag in the 'selectedFilters' array. If the tag is already selected, it removes it by filtering it out.
+    // Otherwise, it adds the tag to the array
     const handleTagClick = (tag) => {
         if (selectedFilters.includes(tag)) {
             setSelectedFilters(selectedFilters.filter((t) => t !== tag));
@@ -25,6 +28,7 @@ const MapFilter = ({ selectedFilters, setSelectedFilters }) => {
                         <label key={tag} className="filter-checkbox mx-2">
                             <input
                                 type="checkbox"
+                                // Sets the checkbox state based on whether the tag is in the 'selectedFilters' array.
                                 checked={selectedFilters.includes(tag)}
                                 onChange={() => handleTagClick(tag)}
                             />

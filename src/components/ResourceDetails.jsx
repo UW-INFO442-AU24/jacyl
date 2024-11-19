@@ -30,11 +30,14 @@ export function ResourceDetails({user, saveResource, deleteResource, savedResour
     const navigate = useNavigate();
 
     const position = data.resources[urlParams.id].geometry.coordinates;
+
+    // `saveButton` allows the user to save the resource. 
     let saveButton = (<button className="btn btn-success" onClick={() => {
                             saveResource(urlParams.id);
                             setConfirmation(<p>This resource has been successfully saved to your <Link to="/user">profile</Link>.</p>)
                         }}>Save Resource</button>)
-
+    
+    // If the resource is already saved by the user, the button changes for removal.
     if (user && savedResources != null) {
         savedResources.forEach((resource) => {
             if (resource.resourceNum == urlParams.id) {
@@ -44,6 +47,7 @@ export function ResourceDetails({user, saveResource, deleteResource, savedResour
                 }}>Remove Saved Resource</button>
             }
         })
+    // If the user is not logged in, the button prompts them to sign in.
     } else if (!user) {
         saveButton = (<p>Want to save this resource for later? <Link to="/login">Sign-in</Link> to save it!</p>);
     }
