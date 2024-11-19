@@ -46,10 +46,10 @@ export function User({ user, savedResources, deleteResource }) {
     }
 
     useEffect(() => {
-        if (!user) {
+        if (user == null) {
             navigate("/");
         }
-    }, [])
+    }, [user])
 
     const navigate = useNavigate();
 

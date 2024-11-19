@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 
 function App() {
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("");
   const [savedResources, setSavedResources] = useState(null);
   const [recommendedTags, setRecommendedTags] = useState([]);
   const [isQuizComplete, setIsQuizComplete] = useState(false);
