@@ -407,7 +407,8 @@ html, body {
 
 .mapContainer {
   display: flex;
-  height: 100vh;
+  height: auto;
+  overflow: visible;
 }
 
 .zipCodeSection {
@@ -637,6 +638,7 @@ html, body {
   .mapContainer {
     flex-direction: column; 
     align-items: center;
+    height: auto;
   }
 
   .zipCodeSection {
@@ -648,7 +650,8 @@ html, body {
     max-height: 50vh;
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
+    margin-bottom: 200px;
   }
 
   .main-content {
