@@ -6,11 +6,12 @@ export function Navbar({user}) {
 
     const auth = getAuth();
 
-    function signOut() {
+    function signout() {
         signOut(auth)
             .catch((err) => {
                 console.log(err);
             })
+        navigate("/");
     }
 
     return (    
@@ -46,7 +47,7 @@ export function Navbar({user}) {
                             <Dropdown.Item as={NavLink} to="/login">Login</Dropdown.Item>
                         )}
                         {user && (
-                            <Dropdown.Item as={NavLink} to="/" onClick={signOut}>Sign-Out</Dropdown.Item>
+                            <Dropdown.Item as={NavLink} to="/" onClick={signout}>Sign-Out</Dropdown.Item>
                         )}
                     </Dropdown.Menu>
                 </Dropdown>
