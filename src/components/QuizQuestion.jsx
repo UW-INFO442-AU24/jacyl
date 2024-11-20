@@ -61,7 +61,7 @@ export function QuizQuestion({ onComplete }) {
 
   return (
     <div className="QuizQuestionContainer">
-      <img src="./public/img/quizquestion.jpeg" alt="TakingQuiz" className="QuizQuestionImage" />
+      <img src="/img/quizquestion.jpeg" alt="TakingQuiz" className="QuizQuestionImage" />
       <h2 className="QuizInstructions">Using the key below, answer the questions based on how strongly you agree or disagree with the statement</h2>
       
       {questions.map((question, index) => (

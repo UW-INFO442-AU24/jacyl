@@ -425,6 +425,7 @@ html, body {
   .IdentityOption {
     font-size: 0.9rem;
     padding: 8px 15px;
+    margin-bottom: 10px;
   }
 }
 
