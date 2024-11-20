@@ -404,6 +404,30 @@ html, body {
   background-color: #d4edda;
 }
 
+@media (max-width: 768px) {
+  .QuizQuestionImage {
+    height: 270px;
+  }
+
+  .QuizInstructions {
+    font-size: 1rem;
+  }
+
+  .Circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .AnswerCircle {
+    font-size: 0.8rem; 
+  }
+
+  .IdentityOption {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
+
 /* Map Styling */
 
 .mapContainer {
