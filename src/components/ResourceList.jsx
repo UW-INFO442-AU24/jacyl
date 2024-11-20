@@ -39,10 +39,12 @@ export function ResourceList(props) {
 
 
     useEffect(() => {
+        // Adds a unique `resourceNum` property to each resource for easier identification.
         let resourcesDataWithNum = data.resources.map((resource, index) => {
             return ({...resource, resourceNum: index});
         });
 
+        // Filters resources by matching every selected tag in the `tagFilter`.
         if (tagFilter.length != 0) {
             resourcesDataWithNum = resourcesDataWithNum.filter(resource => {
                 const resourceTags = resource.properties.serviceType || [];
@@ -50,6 +52,7 @@ export function ResourceList(props) {
             })
         }
 
+        // Converts all fields and the search input to uppercase for case-insensitive matching.
         if (searchFilter != '') {
             resourcesDataWithNum = resourcesDataWithNum.filter((resource) => {
                 if (searchFilter.length < 1) {
@@ -60,6 +63,7 @@ export function ResourceList(props) {
                     let tagsUpper = resource.properties.serviceType.toString().toUpperCase();
                     let addressUpper = resource.properties.address.toUpperCase()
                     const searchUpper = searchFilter.toUpperCase()
+                    // Matches resources by name, tags, or address against the search input.
                     if (titleUpper.includes(searchUpper) || tagsUpper.includes(searchUpper)
                         || addressUpper.includes(searchUpper)) {
                         return resource;
@@ -112,6 +116,7 @@ function ResourceCard(props) {
                 }}>Remove Saved Resource</button>
             }
         })
+    // Prompts users to log in if they are not signed in.
     } else if (!props.user) {
         saveButton = (<p>Want to save this resource for later? <Link to="/login">Sign-in</Link> to save it!</p>);
     }

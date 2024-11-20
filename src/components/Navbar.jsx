@@ -29,6 +29,7 @@ export function Navbar({user}) {
             <li><Link to="/about">About</Link></li>
             {user ? <li><Link to="/user">Profile</Link></li> : <li><Link to="login">Login</Link></li>}
         </ul>
+        {/* switch to hamburger menu when on small screen */}
         <div className="hamburger-nav">
                 <Dropdown>
                     <Dropdown.Toggle variant="secondary" id="dropdown-basic">

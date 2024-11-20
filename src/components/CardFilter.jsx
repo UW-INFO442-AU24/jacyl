@@ -18,6 +18,9 @@ export function CardFilter(props) {
     const [checkedTags, setCheckedTags] = useState([]);
     const [searchInput, setSearchInput] = useState("")
 
+
+    // Runs whenever `checkedTags` or `searchInput` changes.
+    // Sends the current filters (tags or search input) to the parent component through callbacks.
     useEffect(() => {
       if (checkedTags != []){
         props.applyTagFilterCallback(checkedTags)
@@ -46,6 +49,7 @@ export function CardFilter(props) {
     //     // setTagButtonLabel(event.target.value)
     // }
 
+    // Updates the search input and sends it to the parent component for filtering.
     const handleSearchChange = (event) => {
         console.log(event.target.value);
         setSearchInput(event.target.value)
@@ -64,6 +68,7 @@ export function CardFilter(props) {
         } else {
             setCheckedTags([...checkedTags, tag.target.value]);
         }
+        // Toggles the selected state of a tag and updates with the new list.
         props.applyTagFilterCallback(checkedTags)
     };
     
