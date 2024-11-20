@@ -21,9 +21,12 @@ export function ResourceList(props) {
         "Psychiatric Provider", "School-Based Services",
         "All Age Groups", "Youth (Up to 24 Years Old)",
         "Case Management", "Crisis Hotline"];
+    
 
     const [tagFilter, setTagFilter] = useState([])
     const [searchFilter, setSearchFilter] = useState('')
+    const [filteredResources, setFilteredResources] = useState([]);
+
     // Holds the tags that will be used to filter
     function applyTagFilter(tags) {
         setTagFilter(tags);
@@ -32,75 +35,42 @@ export function ResourceList(props) {
     function applySearchFilter(search) {
         setSearchFilter(search);
     }
-    // let finalSFResources = data.resources;
-
-    // useEffect(() => {
-
-    //     let tagFilteredResources = data.resources.filter(resource => {
-    //         const resourceTags = resource.properties.serviceType || [];
-    //         return tagFilter.every(tag => resourceTags.includes(tag));
-    //     });
-    //     console.log(tagFilteredResources, "tagFilteredResources")
-
-    //     let searchFilteredResources = tagFilteredResources.filter((resource) => {
-    //         if (searchFilter.length < 1) {
-    //             return resource;
-    //         }
-    //         else {
-    //             let titleUpper = resource.properties.resourceName.toUpperCase()
-    //             let tagsUpper = resource.properties.serviceType.toString().toUpperCase();
-    //             let addressUpper = resource.properties.address.toUpperCase()
-    //             const searchUpper = searchFilter.toUpperCase()
-    //             if (titleUpper.includes(searchUpper) || tagsUpper.includes(searchUpper)
-    //                 || addressUpper.includes(searchUpper)) {
-    //                 return resource;
-    //             }
-
-    //         }
-    //     });
-    //     finalSFResources = searchFilteredResources;
-    // });
 
 
 
-    console.log("Before filtering", tagFilter)
-    const resourcesDataWithNum = data.resources.map((resource, index) => {
-        return ({...resource, resourceNum: index});
-    })
+    useEffect(() => {
+        let resourcesDataWithNum = data.resources.map((resource, index) => {
+            return ({...resource, resourceNum: index});
+        });
 
-    // Filters the resources by the tags 
-    const tagFilteredResources = resourcesDataWithNum.filter(resource => {
-        const resourceTags = resource.properties.serviceType || [];
-        return tagFilter.every(tag => resourceTags.includes(tag));
-    })
-
-    // .filter((resource) => {
-    //     // console.log("In filtering", tagFilter)
-    //     if (tagFilter.length < 1) {
-    //         return resource;
-    //     }
-    //     else if (resource.properties.serviceType.forEach((tag) => tagFilter.includes(tag))){
-    //         return resource;
-    //     }
-    // })
-
-    const searchFilteredResources = tagFilteredResources.filter((resource) => {
-        if (searchFilter.length < 1) {
-            return resource;
+        if (tagFilter.length != 0) {
+            resourcesDataWithNum = resourcesDataWithNum.filter(resource => {
+                const resourceTags = resource.properties.serviceType || [];
+                return tagFilter.every(tag => resourceTags.includes(tag));
+            })
         }
-        else {
-            let titleUpper = resource.properties.resourceName.toUpperCase()
-            let tagsUpper = resource.properties.serviceType.toString().toUpperCase();
-            let addressUpper = resource.properties.address.toUpperCase()
-            const searchUpper = searchFilter.toUpperCase()
-            if (titleUpper.includes(searchUpper) || tagsUpper.includes(searchUpper)
-                || addressUpper.includes(searchUpper)) {
-                return resource;
-            }
 
+        if (searchFilter != '') {
+            resourcesDataWithNum = resourcesDataWithNum.filter((resource) => {
+                if (searchFilter.length < 1) {
+                    return resource;
+                }
+                else {
+                    let titleUpper = resource.properties.resourceName.toUpperCase()
+                    let tagsUpper = resource.properties.serviceType.toString().toUpperCase();
+                    let addressUpper = resource.properties.address.toUpperCase()
+                    const searchUpper = searchFilter.toUpperCase()
+                    if (titleUpper.includes(searchUpper) || tagsUpper.includes(searchUpper)
+                        || addressUpper.includes(searchUpper)) {
+                        return resource;
+                    }
+        
+                }
+            });
         }
-    });
-
+        setFilteredResources(resourcesDataWithNum);
+    }, [tagFilter, searchFilter])
+    
     return (
         // OVERALL BACKGROUND STYLE HERE
         <div className="container my-4">
@@ -110,7 +80,7 @@ export function ResourceList(props) {
             
             {/* ROW/COLUMN STYLE HERE */}
             <div>
-                <ResourceCardList resources={searchFilteredResources} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource} />
+                <ResourceCardList resources={filteredResources} user={props.user} saveResource={props.saveResource} savedResources={props.savedResources} deleteResource={props.deleteResource} />
             </div>
         </div>
     )
@@ -121,7 +91,12 @@ function ResourceCard(props) {
 
     const [confirmation, setConfirmation] = useState("");
 
+    useEffect(() => {
+        setConfirmation("");
+    }, [props.resource]);
+
     const resource = props.resource;
+
 
     let saveButton = (<button className="btn btn-success action-button flex-fill" onClick={() => {
         props.saveResource(resource.resourceNum);
@@ -140,7 +115,6 @@ function ResourceCard(props) {
     } else if (!props.user) {
         saveButton = (<p>Want to save this resource for later? <Link to="/login">Sign-in</Link> to save it!</p>);
     }
-
 
     return (
         <div className="mb-5" style={{ width: '20rem'}}>
@@ -171,6 +145,7 @@ function ResourceCard(props) {
 
 function ResourceCardList(props) {
     const resources = props.resources;
+
     const resourceCardList = resources.map((resource, index) => {
         return (
             <div className="d-flex justify-content-center col-lg-6 col-xl-4 col-sm-12" key={index}>
