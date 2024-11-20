@@ -259,7 +259,8 @@ html, body {
 .quizbutton:hover {
   background-color: #307fef;
 }
-/* @media (max-width: 768px) {
+
+@media (max-width: 768px) {
   .QuizContentWrapper {
     flex-direction: column;
     align-items: center;
@@ -288,7 +289,7 @@ html, body {
     margin: 0 auto;
   }
 }
-*/
+
 /* QuizQuestion */
 .QuizQuestionContainer {
   padding: 20px;
