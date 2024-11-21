@@ -12,7 +12,7 @@ export function Quiz() {
         <h1 className="QuizTitle">Ready to Take the First Step?</h1>
         <div className="QuizContentWrapper">
           <div className="QuizImageContainer">
-            <img src="/img/Quiz.jpg" alt="Chilling" className="QuizImage" />
+            <img src="/img/Quiz.jpg" alt="women leaning against fence, smiling and enjoying the sun" className="QuizImage" />
           </div>
           <div className="Quizcontent">
             <h2 className="QuizSubtitle">Discover More About Yourself</h2>

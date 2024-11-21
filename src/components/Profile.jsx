@@ -10,7 +10,7 @@ export function Profile({ personObj }) {
             </div>
             <div>
                 <div className="profile-circle">
-                    <img className="photo" src={photo} alt={"photo of " + name} />
+                    <img className="photo" src={photo} alt={name} />
                 </div>
             </div>
         </div>
