@@ -97,8 +97,9 @@ export function CardFilter(props) {
             <div className="d-flex bd-highlight">
                 {/* SEARCH BAR STYLE HERE */}
                 <div className="p-2 flex-grow-1 lg">
-                    <Form name="Search" id='Search' onSubmit={handleSubmission}>
-                        <Form.Control className='my-3 border border-secondary' size="lg" type="text" placeholder="Search..." onChange={handleSearchChange} value={props.searchFilter}/>
+                    <Form name="Search" id='Search' onSubmit={handleSubmission} className="resourceInputContainer">
+                        <Form.Control className='my-3 border border-secondary resourceInput' size="lg" type="text" placeholder="Search..." onChange={handleSearchChange} value={props.searchFilter}/>
+                        <button className="resourceSearchButton">Search</button>
                     </Form>
                 </div>
             </div>

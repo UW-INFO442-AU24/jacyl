@@ -473,25 +473,23 @@ html, body {
   line-height: 1;
 }
 
-.zipSearchButton {
-  /* width: 20%; */
+.zipSearchButton, .resourceSearchButton {
   flex: 1;
-  padding: 15px; 
   font-size: 16px;
   height: 50px;
+  line-height: 50px;
   background-color: #5a95e6;
   color: white;
   border: #007bff;
   border-left: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
-  align-self: stretch;
   box-sizing: border-box;
   margin: 0;
-  line-height: 1;
+  line-height: normal;
 }
 
-.zipSearchButton:hover {
+.zipSearchButton:hover, .resourceSearchButton:hover {
   background-color: #307fef;
 }
 
@@ -519,6 +517,27 @@ html, body {
   width: 100%;
   object-fit: cover;
   height: 150px;
+}
+
+.resourceInputContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.resourceInput {
+  flex: 5;
+  padding: 0 15px;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  box-sizing: border-box;
+  margin: 0;
+  line-height: normal;
 }
 
 /* QuizResult */
