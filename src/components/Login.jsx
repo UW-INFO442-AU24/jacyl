@@ -27,7 +27,6 @@ const firebaseUIConfig = {
 export function Login({user}) {
 
   const auth = getAuth(); //access the "authenticator"
-  console.log("render");
 
   return (
     <div className="container d-flex justify-content-center">

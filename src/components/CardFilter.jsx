@@ -28,36 +28,14 @@ export function CardFilter(props) {
       if (searchInput.length > 0)
         props.applySearchFilterCallback(searchInput)
     }, [checkedTags, searchInput])
-    
-        // IGNORE
-    // const handleTagFilterChange = (event) => {
-    //     const value = event.target.value;
-    //     const isChecked = event.target.checked;
-
-    //     if (isChecked) {
-    //         setCheckedTags([...checkedTags, value])
-    //         props.applyTagFilterCallback(checkedTags)
-    //     }
-    //     else {
-    //         setCheckedTags(checkedTags.filter((tag) => tag !== value));
-    //         props.applyTagFilterCallback(checkedTags)
-    //     }
-
-    //     console.log("filter")
-    //     console.log(event.target.checked)
-    //     console.log(checkedTags)
-    //     // setTagButtonLabel(event.target.value)
-    // }
 
     // Updates the search input and sends it to the parent component for filtering.
     const handleSearchChange = (event) => {
-        console.log(event.target.value);
         setSearchInput(event.target.value)
         props.applySearchFilterCallback(event.target.value);
     }
 
     const handleSubmission = (event) => {
-        console.log(event);
         event.preventDefault();
     }
 
@@ -110,11 +88,6 @@ export function CardFilter(props) {
                 <div className="d-inline-flex flex-wrap p-2 m-2">
                     {tagButtons}
                 </div>
-
-                {/* <DropdownButton id="dropdown-item-button" variant="secondary" title={tagButtonLabel} className="m-1 py-2" size='lg'>
-                        <Dropdown.Item as="button" variant="secondary" value="All" key="1" onClick={handleTagFilterClick}>All</Dropdown.Item>
-                        {tagButtons}
-                    </DropdownButton> */}
             </div>
 
 

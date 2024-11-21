@@ -18,9 +18,6 @@ export function Home() {
                 Ready to explore mental health resources in King County?
             </p>
             <Link className="cta-button" to="/map">Connect with Us.</Link>
-            {/* <button className="cta-button" onClick={handleButtonClick}>
-                    Connect with Us.
-            </button> */}
         </div>
         </div>
     );
