@@ -460,7 +460,7 @@
             "address": "999 164th Ave NE Bellevue, WA 98008",
             "description": "IKRON's care coordinators assist participants with navigating and integrating their health care and social service needs, improve their overall health and well-being, and manage their chronic conditions.",
             "phoneNumber": "206-382-5013",
-            "serviceType": ["Assesment Services", "Individual Therapy", "Group Therapy", "Case Management", "Peer Support", "All Age Groups"],
+            "serviceType": ["Assessment Services", "Individual Therapy", "Group Therapy", "Case Management", "Peer Support", "All Age Groups"],
             "image": "/img/ikron.png"
         }
     },
@@ -476,7 +476,7 @@
             "address": "10303 Meridian Ave N Seattle, WA 98133",
             "description": "IKRON's care coordinators assist participants with navigating and integrating their health care and social service needs, improve their overall health and well-being, and manage their chronic conditions.",
             "phoneNumber": "206-420-7949",
-            "serviceType": ["Assesment Services", "Individual Therapy", "Group Therapy", "Case Management", "Peer Support", "All Age Groups"],
+            "serviceType": ["Assessment Services", "Individual Therapy", "Group Therapy", "Case Management", "Peer Support", "All Age Groups"],
             "image": "/img/ikron.png"
         }
     },
@@ -588,7 +588,7 @@
             "address": "2400 NE 95th Street Seattle, WA 98115",
             "description": "Ryther’s programming was created to bring greater flexibility in meeting clients’ needs regarding their mental health, SUD, and Co-occurring treatment. We achieve this by individualized treatment planning and treatment options and utilizing creative and experiential therapeutic modalities as well as therapy groups, peers, and case managers",
             "phoneNumber": "206-525-5050",
-            "serviceType": ["Assesment Services", "Peer Support", "Individual Therapy", "Group Therapy", "Family Therapy", "Youth (Up to 24 Years Old)"],
+            "serviceType": ["Assessment Services", "Peer Support", "Individual Therapy", "Group Therapy", "Family Therapy", "Youth (Up to 24 Years Old)"],
             "image": "/img/sound.png"
         }
     },
