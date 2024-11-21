@@ -1,7 +1,7 @@
 # MindConnect - JACYL
 
 ## Published Website:
-MindConnect
+You can find our published website here: https://mindconnect-af628.web.app/
 
 
 ## Features:
@@ -37,14 +37,14 @@ Our mission is to empower young adults (16-20 year olds) in King County by provi
 
 
 ## Development:
-Start Localhost
-npm run dev
-Access in browser at http://localhost:5173/
-Ctrl + C to cancel
+- Install npm packages using "npm install"
+- Start localhost using "npm run dev"
+- Access in browser at http://localhost:5173/
+- Ctrl + C to cancel
 
-Deploy build to firebase hosting service
-npm run build
-firebase deploy
+## Deploy build to firebase hosting service
+- npm run build
+- firebase deploy
 
 
 ## Developer Information:
@@ -56,3 +56,7 @@ firebase deploy
 * Bootstrap
 * Leaflet
 * React UI Components
+
+## References
+Our data was obtained from [King County's open data](https://data.kingcounty.gov/Health-Wellness/King-County-Mental-Health-and-Substance-Use-Disord/sep3-3pj3/about_data) about mental health resources and was manually cleaned to find resources that fit our demographic of youth adults aged 16-20 years old.
+
