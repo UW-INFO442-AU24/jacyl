@@ -58,7 +58,9 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
                         placeholder="Enter ZIP code"
                         inputMode="numeric"
                         maxLength="10"
+                        aria-label="search"
                     />
+                    
                     <button className="zipSearchButton" onClick={handleZipCodeSubmit}>
                         Search
                     </button>

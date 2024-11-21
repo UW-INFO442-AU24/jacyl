@@ -98,7 +98,7 @@ export function CardFilter(props) {
                 {/* SEARCH BAR STYLE HERE */}
                 <div className="p-2 flex-grow-1 lg">
                     <Form name="Search" id='Search' onSubmit={handleSubmission}>
-                        <Form.Control className='my-3 border border-secondary' size="lg" type="text" placeholder="Search..." onChange={handleSearchChange} value={props.searchFilter}/>
+                        <Form.Control className='my-3 border border-secondary' size="lg" type="text" placeholder="Search..." onChange={handleSearchChange} value={props.searchFilter} aria-label="search"/>
                     </Form>
                 </div>
             </div>
