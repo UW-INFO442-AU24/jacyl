@@ -29,6 +29,7 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
         filteredLocations,
         selectedFilters,
         setSelectedFilters,
+        zipCodeError,
     } = UseMapFunctions();
 
     // Defines King County bounds for map view
@@ -65,6 +66,7 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
                         Search
                     </button>
                 </div>
+                {zipCodeError && <div className="zipError">{zipCodeError}</div>}
                 <span className="form-text">
                     Must be a King County Zip Code in the format ##### or #####-####. Find your ZIP Code{' '}
                     <a href="https://www.unitedstateszipcodes.org/">here</a>.

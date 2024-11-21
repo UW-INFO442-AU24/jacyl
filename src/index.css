@@ -491,6 +491,12 @@ html, body {
   background-color: #307fef;
 }
 
+.zipError {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 .mapAbout {
   margin-top: 25px;
 }

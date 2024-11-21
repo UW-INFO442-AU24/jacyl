@@ -10,6 +10,7 @@ const UseMapFunctions = () => {
     const [zipCodeInput, setZipCodeInput] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [selectedFilters, setSelectedFilters] = useState([]);
+    const [zipCodeError, setZipCodeError] = useState('');
 
     // Indexes resources to ensure location data is correct for popups
     const resourcesDataWithNum = resourcesData.resources.map((resource, index) => ({
@@ -34,7 +35,18 @@ const UseMapFunctions = () => {
         }));
 
     // Grabs King County ZIP code data
-    const handleZipCodeSubmit = () => setZipCode(zipCodeInput);
+    const handleZipCodeSubmit = () => {
+        setZipCode(zipCodeInput);
+
+        const zipCodeFive = zipCodeInput.slice(0, 5);
+        const zipCodePoint = zipCodesData.features.find((zip) => zip.properties.ZIPCODE === zipCodeFive);
+
+        if (!zipCodePoint) {
+            setZipCodeError('ZIP code not found in King County. Please enter valid ZIP code.');
+        } else {
+            setZipCodeError('');
+        }
+    }
 
     // Handles search input restrictions, formats as #####-#### if user inputs a nine digit ZIP code
     const handleZipCodeChange = (e) => {
@@ -54,6 +66,7 @@ const UseMapFunctions = () => {
         filteredLocations,
         selectedFilters,
         setSelectedFilters,
+        zipCodeError,
     };
 };
 
