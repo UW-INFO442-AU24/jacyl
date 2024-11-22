@@ -25,14 +25,15 @@ const MapFilter = ({ selectedFilters, setSelectedFilters }) => {
                 <h2> Filter</h2>
                 <div className="d-inline-flex flex-wrap p-2 m-2">
                     {tags.map((tag) => (
-                        <label key={tag} className="filter-checkbox mx-2">
+                        <label key={tag} className="filter-checkbox mx-2 mapFilterBoxes">
                             <input
                                 type="checkbox"
+                                className="checkboxInput"
                                 // Sets the checkbox state based on whether the tag is in the 'selectedFilters' array.
                                 checked={selectedFilters.includes(tag)}
                                 onChange={() => handleTagClick(tag)}
                             />
-                            {tag}
+                            <span className="checkboxLabel">{tag}</span>
                         </label>
                     ))}
                 </div>

@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { useEffect } from "react"
 import { About } from "./components/about"
 import {ResourceList} from "./components/ResourceList"
-// import { CardFilter } from "./components/cardfilter"
-// import { Quiz } from "./components/Quiz"
 import { Map } from "./components/Map"
 import { Navbar } from "./components/Navbar"
 import { Footer } from "./components/Footer";

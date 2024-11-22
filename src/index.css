@@ -507,6 +507,20 @@ html, body {
   padding: 20px;
 }
 
+.mapFilterBoxes {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxInput {
+  margin-right: 8px;
+  padding: 5px;
+}
+
+/* .checkboxLabel {
+  font-size: 14px;
+} */
+
 /* Resource Details Styling */
 .details-wrap h2 {
   font-size: 1.5rem;
@@ -700,6 +714,7 @@ html, body {
   .zipCodeSection {
     width: 100%; 
     padding: 0 10px;
+    margin-top: 25px;
   }
   
   .mapSection {
