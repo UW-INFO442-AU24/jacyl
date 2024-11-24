@@ -7,21 +7,23 @@ You can find our published website here: https://mindconnect-af628.web.app/
 ## Features:
 * Home Page: Information about how to use the site and navigate the features
 
-* Map: Interactive map that displays all the mental health resources as icons
+* Map: Interactive map that displays all the mental health resources as markers
 
 * Map Filter: Narrow down the search results 
 
-* Map Icon: Interactive icons displaying mental health resource data
+* Map Markers: Interactive icons displaying mental health resource data
 
 * Resource Card Page: Page displaying all mental health resources as cards
 
-* Resource Filter: Filter allows for name search, and filter of resources by type, age group, etc. 
+* Resource Filter: Filter allows for name search, and filter of resources by type, age group, etc
 
 * Navbar: Navigation bar allowing for navigation between the various feature pages
 
 * About Page: Displays information about the mission and creators of the site
 
-* Quiz/Flash Card: Provides quiz/flashcards to provide mental health information/trivia
+* Quiz: Provides quiz to provide mental health information
+
+* Profile: Allows users to save mental health resources for later
 
 
 ## Mission: 
