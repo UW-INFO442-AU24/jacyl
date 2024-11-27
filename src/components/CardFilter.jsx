@@ -17,25 +17,27 @@ export function CardFilter(props) {
 
     const [checkedTags, setCheckedTags] = useState([]);
     const [searchInput, setSearchInput] = useState("")
-
+    const [submitted, setSubmitted] = useState(false)
 
     // Runs whenever `checkedTags` or `searchInput` changes.
     // Sends the current filters (tags or search input) to the parent component through callbacks.
     useEffect(() => {
-      if (checkedTags != []){
-        props.applyTagFilterCallback(checkedTags)
-      }
-      if (searchInput.length > 0)
-        props.applySearchFilterCallback(searchInput)
+        if (checkedTags != []) {
+            props.applyTagFilterCallback(checkedTags)
+        }
+        //   if ()
     }, [checkedTags, searchInput])
 
     // Updates the search input and sends it to the parent component for filtering.
     const handleSearchChange = (event) => {
         setSearchInput(event.target.value)
-        props.applySearchFilterCallback(event.target.value);
+        // props.applySearchFilterCallback(searchInput);
     }
 
     const handleSubmission = (event) => {
+        // setSubmitted(true)
+        // props.applySearchSubmittedCallback(true);
+        props.applySearchFilterCallback(searchInput)
         event.preventDefault();
     }
 
@@ -49,7 +51,7 @@ export function CardFilter(props) {
         // Toggles the selected state of a tag and updates with the new list.
         props.applyTagFilterCallback(checkedTags)
     };
-    
+
     const tagButtons = tagsList.map((tag, index) => {
         // const tagButtonItem = <Dropdown.Item as="button" variant="secondary" value={tag} key={tag} onChange={handleTagFilterChange}>{tag}</Dropdown.Item>
         const tagButtonCheck =
@@ -75,10 +77,10 @@ export function CardFilter(props) {
             <div className="d-flex bd-highlight">
                 {/* SEARCH BAR STYLE HERE */}
                 <div className="p-2 flex-grow-1 lg">
-                    <Form name="Search" id='Search' onSubmit={handleSubmission} className="resourceInputContainer">
-                        <Form.Control className='my-3 border border-secondary resourceInput' size="lg" type="text" placeholder="Search..." onChange={handleSearchChange} value={props.searchFilter} aria-label="search"/>
-                        <button className="resourceSearchButton">Search</button>
-                    </Form>
+                    <form name="Search" id='Search' className="resourceInputContainer" onSubmit={handleSubmission}>
+                        <input className='my-3 border border-secondary resourceInput' size="lg" type="text" placeholder="Search... (category, address, or title)" onChange={handleSearchChange} value={searchInput} aria-label="search" />
+                        <button className="resourceSearchButton" onClick={handleSubmission}>Search</button>
+                    </form>
                 </div>
             </div>
 

@@ -26,6 +26,7 @@ export function ResourceList(props) {
     const [tagFilter, setTagFilter] = useState([])
     const [searchFilter, setSearchFilter] = useState('')
     const [filteredResources, setFilteredResources] = useState([]);
+    const [isSearchSubmitted, setIsSearchSubmitted] = useState(false);
 
     // Holds the tags that will be used to filter
     function applyTagFilter(tags) {
@@ -33,10 +34,19 @@ export function ResourceList(props) {
     }
     // Holds the search filter functions
     function applySearchFilter(search) {
-        setSearchFilter(search);
+        setSearchFilter(search);       
     }
 
+    function applySearchSubmitted(submitStatus){
+        if (submitStatus){
+            setIsSearchSubmitted(false);
+        }
+        else{
+            setIsSearchSubmitted(true)
 
+        }
+        console.log(submitStatus)
+    }
 
     useEffect(() => {
         // Adds a unique `resourceNum` property to each resource for easier identification.
@@ -51,11 +61,13 @@ export function ResourceList(props) {
                 return tagFilter.every(tag => resourceTags.includes(tag));
             })
         }
-
         // Converts all fields and the search input to uppercase for case-insensitive matching.
-        if (searchFilter != '') {
+        if (searchFilter != '' ) {
             resourcesDataWithNum = resourcesDataWithNum.filter((resource) => {
+                
+                // applySearchSubmitted(false)
                 if (searchFilter.length < 1) {
+                    // console.log("blah")
                     return resource;
                 }
                 else {
@@ -73,14 +85,14 @@ export function ResourceList(props) {
             });
         }
         setFilteredResources(resourcesDataWithNum);
-    }, [tagFilter, searchFilter])
+    }, [tagFilter, searchFilter]) // REVERT DEPENDENIES IF BROKEN
     
     return (
         // OVERALL BACKGROUND STYLE HERE
         <div className="container my-4">
             <h1>Resource List</h1>
             {!props.user && <p>You are not currently signed in. <Link to="/login">Log-in</Link> to save these resources for later.</p>  }
-            <CardFilter applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter} searchFilter={searchFilter}/>
+            <CardFilter applySearchSubmittedCallback={applySearchSubmitted} applyTagFilterCallback={applyTagFilter} applySearchFilterCallback={applySearchFilter} searchFilter={searchFilter}/>
             
             {/* ROW/COLUMN STYLE HERE */}
             <div>

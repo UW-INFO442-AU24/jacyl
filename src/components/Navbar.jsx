@@ -18,7 +18,7 @@ export function Navbar({user}) {
         <nav className="navbar">
             <Link to="/">
                 <div className="logo">
-                    <img src="/img/logo.png" alt="Logo" className="logo-image" />
+                    <img src="/img/logo.png" alt="MindConnect Brain Logo" className="logo-image" />
                 </div>
             </Link>
         <ul className="nav-links">
