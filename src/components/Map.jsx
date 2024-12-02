@@ -103,17 +103,19 @@ const MapPage = ({user, savedResources, saveResource, deleteResource}) => {
                     
                     {/* Renders markers for filtered locations */}
                     {filteredLocations.map((location, index) => {
-
                     let saveButton = ""
-                    if (user && savedResources) {
+                    if (user) {
                         saveButton = <button className="btn btn-success" onClick={() => {saveResource(location.resourceNum); setConfirm(<p className="mt-2">"{location.resourceName}" has been successfully added to your <Link to="/user">profile</Link>.</p>)}}>Save Resource</button>
-                        savedResources.forEach((resource) => {
-                            if (resource.resourceNum == location.resourceNum) {
-                                saveButton = <button className="btn btn-danger" onClick={() => {deleteResource(location.resourceNum); setConfirm(<p className="mt-2">"{location.resourceName}" has been successfully removed from your <Link to="/user">profile</Link>.</p>)}}>Delete Saved Resource</button>
-                                //if wanted faster performance, use break + for loop so it doesn't loop through everything
-                            }
-                        });
+                        if (savedResources) {
+                            savedResources.forEach((resource) => {
+                                if (resource.resourceNum == location.resourceNum) {
+                                    saveButton = <button className="btn btn-danger" onClick={() => {deleteResource(location.resourceNum); setConfirm(<p className="mt-2">"{location.resourceName}" has been successfully removed from your <Link to="/user">profile</Link>.</p>)}}>Delete Saved Resource</button>
+                                    //if wanted faster performance, use break + for loop so it doesn't loop through everything
+                                }
+                            });
+                        }
                     }
+                
                     return (
                     <Marker key={index} position={location.coords}>
                         <Popup>
