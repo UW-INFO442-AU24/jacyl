@@ -1,3 +1,6 @@
+// File contains the filter object for the map component, which filters
+// The map pins by the categories they contain
+
 import React from 'react';
 
 // static array of all of our resource tags

@@ -1,3 +1,7 @@
+// Contains the format for resource details page 
+// Accessible when a user clicks more 
+// Details on a resource card/map item/quiz recommendation
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';

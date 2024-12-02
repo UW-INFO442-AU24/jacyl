@@ -1,3 +1,5 @@
+// File contains a navigation bar that links to all the pages
+
 import { Link, NavLink } from "react-router-dom"
 import { Dropdown } from "react-bootstrap";
 import { getAuth, signOut } from "firebase/auth"

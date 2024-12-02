@@ -1,3 +1,5 @@
+// File contains the result after taking the quiz by recommending resources based on answers
+
 import React from 'react';
 import data from "../data/resources1.json";
 import { Link } from "react-router-dom";

@@ -1,3 +1,5 @@
+// File contains login page information and firebase authentication UI for users
+
 //import auth functions and variables from Firebase
 import { getAuth, EmailAuthProvider, GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth'
 import { Link } from "react-router-dom";

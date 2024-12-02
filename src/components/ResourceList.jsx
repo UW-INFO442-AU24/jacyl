@@ -1,17 +1,10 @@
+// Implements a searchable and filterable resource list, dynamically filtering results based on tags/user input
+
 import { useEffect, useState } from "react";
 import { CardFilter } from "./CardFilter";
 import data from "../data/resources1.json"
 import { Link } from "react-router-dom";
 import { remove } from "firebase/database";
-// const resourcesTemp = [
-//     { name: "Resource 1", tags: ['Tag1', 'Tag2'], address: '123 Main Street' },
-//     { name: "Resource 2", tags: ['Tag2', 'Tag3'], address: '567 Main Street' },
-//     { name: "Resource 3", tags: ['Tag4', 'Tag3'], address: '321 Main Street' },
-//     { name: "Outlier Resource", tags: ['Tag5'], address: 'Seattle UW' },
-
-// ];
-
-
 
 export function ResourceList(props) {
 
@@ -65,9 +58,7 @@ export function ResourceList(props) {
         if (searchFilter != '' ) {
             resourcesDataWithNum = resourcesDataWithNum.filter((resource) => {
                 
-                // applySearchSubmitted(false)
                 if (searchFilter.length < 1) {
-                    // console.log("blah")
                     return resource;
                 }
                 else {
@@ -85,10 +76,9 @@ export function ResourceList(props) {
             });
         }
         setFilteredResources(resourcesDataWithNum);
-    }, [tagFilter, searchFilter]) // REVERT DEPENDENIES IF BROKEN
+    }, [tagFilter, searchFilter])
     
     return (
-        // OVERALL BACKGROUND STYLE HERE
         <div className="container my-4">
             <h1>Resource List</h1>
             {!props.user && <p>You are not currently signed in. <Link to="/login">Log-in</Link> to save these resources for later.</p>  }

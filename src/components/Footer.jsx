@@ -1,3 +1,5 @@
+// File contains a footer with copyright information
+
 export function Footer() {
     return (
         <footer className="footer">

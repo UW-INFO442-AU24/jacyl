@@ -1,3 +1,5 @@
+// File contains the quiz questions and handles selection of the quiz answers 
+
 import React, { useState } from 'react';
 
 export function QuizQuestion({ onComplete }) {

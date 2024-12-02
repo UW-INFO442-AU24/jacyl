@@ -1,3 +1,5 @@
+// When directed to a new page, ensures that the page starts at the top
+
 //Component from stackoverflow
 //https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition
 

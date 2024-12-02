@@ -1,3 +1,5 @@
+// File contains the about page, which details the mission statement, as well as the authors information and photos
+
 import { Profile } from "./Profile"
 
 export function About() {

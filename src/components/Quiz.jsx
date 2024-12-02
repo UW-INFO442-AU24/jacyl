@@ -1,3 +1,4 @@
+// File contains the layout of quiz page
 
 import { useNavigate } from 'react-router-dom';
 

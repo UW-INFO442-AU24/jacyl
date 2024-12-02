@@ -1,3 +1,5 @@
+// File contains map interactivity components for the ZIP code search and filtering
+
 import React, { useState, useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';

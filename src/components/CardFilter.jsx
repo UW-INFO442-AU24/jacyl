@@ -1,13 +1,12 @@
+// File contains the filter for the resources page 
+// Implemented in resourcelists 
+
 import { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Form from 'react-bootstrap/Form';
 
-
-
 export function CardFilter(props) {
-    // const [tagButtonLabel, setTagButtonLabel] = useState('All');
-
     const tagsList = ["Asian", "LGBTQ+", "Latino", "Bilingual Services",
         "Assessment Services", "Individual Therapy",
         "Group Therapy", "Family Therapy", "Dyadic Therapy", "Peer Support",
@@ -31,12 +30,9 @@ export function CardFilter(props) {
     // Updates the search input and sends it to the parent component for filtering.
     const handleSearchChange = (event) => {
         setSearchInput(event.target.value)
-        // props.applySearchFilterCallback(searchInput);
     }
 
     const handleSubmission = (event) => {
-        // setSubmitted(true)
-        // props.applySearchSubmittedCallback(true);
         props.applySearchFilterCallback(searchInput)
         event.preventDefault();
     }
@@ -53,7 +49,6 @@ export function CardFilter(props) {
     };
 
     const tagButtons = tagsList.map((tag, index) => {
-        // const tagButtonItem = <Dropdown.Item as="button" variant="secondary" value={tag} key={tag} onChange={handleTagFilterChange}>{tag}</Dropdown.Item>
         const tagButtonCheck =
             <Form.Check
                 value={tag}

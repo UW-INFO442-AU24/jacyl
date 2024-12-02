@@ -1,3 +1,5 @@
+// Displays our teams name, LinkedIn, and photo
+
 export function Profile({ personObj }) {
 
     const {name, linkedin, photo} = personObj

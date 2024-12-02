@@ -1,3 +1,5 @@
+// File contains a personalized dashboard when user is logged in to view and delete their saved resources
+
 import { useNavigate } from "react-router-dom"
 import data from "../data/resources1.json"
 import { Link } from "react-router-dom";

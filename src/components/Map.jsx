@@ -1,3 +1,6 @@
+// File contains the html layout of the map page and the leaflet library
+// File imports map components and filters for page functionality
+
 import React from 'react';
 import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
