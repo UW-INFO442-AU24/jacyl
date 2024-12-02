@@ -33,15 +33,17 @@ export function QuizResult({ recommendedTags, onRetakeQuiz, user, saveResource, 
       {filteredResources.length > 0 ? (
         <div className="cardGrid">
           {filteredResources.map((resource, index) => {
-            let saveButton = ""
-            if (user && savedResources) {
-                saveButton = <button className="btn btn-success mt-4" onClick={() => {saveResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully added to your <Link to="/user">profile</Link>.</p>)}}>Save Resource</button>
+            let saveButton = "";
+            if (user) {
+              saveButton = <button className="btn btn-success mt-4" onClick={() => {saveResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully added to your <Link to="/user">profile</Link>.</p>)}}>Save Resource</button>
+              if (savedResources) {
                 savedResources.forEach((savedResource) => {
                     if (savedResource.resourceNum == resource.resourceNum) {
                         saveButton = <button className="btn btn-danger mt-4" onClick={() => {deleteResource(resource.resourceNum); setConfirm(<p className="mt-2">"{resource.properties.resourceName}" has been successfully removed from your <Link to="/user">profile</Link>.</p>)}}>Delete Saved Resource</button>
                         //if wanted faster performance, use break + for loop so it doesn't loop through everything
                     }
                 });
+              }
             }
 
             return (
